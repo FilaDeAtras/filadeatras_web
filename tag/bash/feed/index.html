@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>bash &#8211; FilaDeAtras</title>
+	<atom:link href="http://filadeatras.com/tag/bash/feed/" rel="self" type="application/rss+xml" />
+	<link>http://filadeatras.com</link>
+	<description>con la fila en el corazón</description>
+	<lastBuildDate>Sat, 12 May 2012 20:43:14 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.4.2</generator>
+	<item>
+		<title>Tareas FTP en un script Bash</title>
+		<link>http://filadeatras.com/2011/05/20/tareas-ftp-en-un-script-bash/</link>
+		<comments>http://filadeatras.com/2011/05/20/tareas-ftp-en-un-script-bash/#respond</comments>
+		<pubDate>Fri, 20 May 2011 10:23:48 +0000</pubDate>
+		<dc:creator><![CDATA[cendi7]]></dc:creator>
+				<category><![CDATA[administración]]></category>
+		<category><![CDATA[gnu/linux]]></category>
+		<category><![CDATA[backup]]></category>
+		<category><![CDATA[bash]]></category>
+		<category><![CDATA[ftp]]></category>
+		<category><![CDATA[script]]></category>
+
+		<guid isPermaLink="false">http://filadeatras.com/?p=247</guid>
+		<description><![CDATA[Pongamos por caso que necesitas hacer el backup de un archivo por FTP cada día (un backup para los amigos) y te gustaría automatizarlo. Pues creas un script como el siguiente: #!/bin/bash ftp -inv servidor.ftp&#60;&#60;EOF user usuario password binary cd backups lcd /backups/ put backup_de_hoy.tar.gz bye EOF NOTA: Rsync lo hace mucho mejor en estos [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Pongamos por caso que necesitas hacer el backup de un archivo por FTP cada día (un backup para los amigos) y te gustaría automatizarlo. Pues creas un script como el siguiente:</p>
+<div class="codecolorer-container bash geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="bash codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"><span style="color: #666666; font-style: italic;">#!/bin/bash</span><br />
+<span style="color: #c20cb9; font-weight: bold;">ftp</span> <span style="color: #660033;">-inv</span> servidor.ftp<span style="color: #cc0000; font-style: italic;">&lt;&lt;EOF<br />
+user usuario password<br />
+binary<br />
+cd backups<br />
+lcd /backups/<br />
+put backup_de_hoy.tar.gz<br />
+bye<br />
+EOF</span></div></div>
+<p>NOTA: <a href="http://en.wikipedia.org/wiki/Rsync">Rsync </a>lo hace mucho mejor en estos casos, pero no se me ocurría otro caso de uso &#8230;</p>
+]]></content:encoded>
+			<wfw:commentRss>http://filadeatras.com/2011/05/20/tareas-ftp-en-un-script-bash/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

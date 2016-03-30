@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>boot.local &#8211; FilaDeAtras</title>
+	<atom:link href="http://filadeatras.com/tag/boot-local/feed/" rel="self" type="application/rss+xml" />
+	<link>http://filadeatras.com</link>
+	<description>con la fila en el corazón</description>
+	<lastBuildDate>Sat, 12 May 2012 20:43:14 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.4.2</generator>
+	<item>
+		<title>Ejecutar comandos en el arranque de Linux</title>
+		<link>http://filadeatras.com/2010/08/25/ejecutar-comandos-en-el-arranque-de-linux/</link>
+		<comments>http://filadeatras.com/2010/08/25/ejecutar-comandos-en-el-arranque-de-linux/#respond</comments>
+		<pubDate>Wed, 25 Aug 2010 00:29:00 +0000</pubDate>
+		<dc:creator><![CDATA[franhp]]></dc:creator>
+				<category><![CDATA[administración]]></category>
+		<category><![CDATA[gnu/linux]]></category>
+		<category><![CDATA[arranque]]></category>
+		<category><![CDATA[boot.local]]></category>
+		<category><![CDATA[rc.local]]></category>
+
+		<guid isPermaLink="false">http://filadeatras.com/?p=18</guid>
+		<description><![CDATA[Muchas veces me he preguntado como ejecutar algún comando cada vez que se inicia el sistema, tanto en Linux como en cualquier *nix. La solución consiste en editar el fichero /etc/rc.local. En el caso de las distribuciones basadas en Suse, el mismo archivo se encuentra en /etc/init.d/boot.local Cualquier comando que se ponga al final de [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Muchas veces me he preguntado como ejecutar algún comando cada vez que  se inicia el sistema, tanto en Linux como en cualquier *nix. La solución  consiste en editar el fichero <strong>/etc/rc.local</strong>. En el caso de las distribuciones basadas en Suse, el mismo archivo se encuentra en <strong>/etc/init.d/boot.local</strong><br />
+Cualquier comando que se ponga al final de este fichero será ejecutado  después de haber acabado con todos los comandos del runlevel  correspondiente, es decir, tras haber ejecutado todos los scripts de  arranque.<br />
+Por ejemplo:<br />
+<img src="http://localhost/images/blog/rclocal.jpg" alt="" /></p>
+<h3>Alternativas</h3>
+<p><a href="https://help.ubuntu.com/community/RcLocalHowto">RcLocal como script de init.d en ubuntu</a></p>
+]]></content:encoded>
+			<wfw:commentRss>http://filadeatras.com/2010/08/25/ejecutar-comandos-en-el-arranque-de-linux/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

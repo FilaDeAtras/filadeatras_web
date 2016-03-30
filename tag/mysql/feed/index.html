@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>mysql &#8211; FilaDeAtras</title>
+	<atom:link href="http://filadeatras.com/tag/mysql/feed/" rel="self" type="application/rss+xml" />
+	<link>http://filadeatras.com</link>
+	<description>con la fila en el corazón</description>
+	<lastBuildDate>Sat, 12 May 2012 20:43:14 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.4.2</generator>
+	<item>
+		<title>Benchmarking de sistema antispam II</title>
+		<link>http://filadeatras.com/2011/05/16/benchmarking-de-sistema-antispam-ii/</link>
+		<comments>http://filadeatras.com/2011/05/16/benchmarking-de-sistema-antispam-ii/#comments</comments>
+		<pubDate>Mon, 16 May 2011 01:22:12 +0000</pubDate>
+		<dc:creator><![CDATA[hektor]]></dc:creator>
+				<category><![CDATA[filadeatras]]></category>
+		<category><![CDATA[internet]]></category>
+		<category><![CDATA[PHP]]></category>
+		<category><![CDATA[programación]]></category>
+		<category><![CDATA[benchmarking]]></category>
+		<category><![CDATA[mysql]]></category>
+
+		<guid isPermaLink="false">http://filadeatras.com/?p=298</guid>
+		<description><![CDATA[Bien, primero de todo darle las gracias a fran por esa clase de Benchmarks tan interesantes que nos ha proporcionado. Segundo decirle, que ya que hace algo al menos que lo haga bien! Es broma, pero he encontrado algo interesante que podrías probar, y también todos los que queráis En fin&#8230; ante los extraños resultados [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Bien, primero de todo darle las gracias a fran por esa clase de Benchmarks tan interesantes que nos ha proporcionado.</p>
+<p>Segundo decirle, que ya que hace algo al menos que lo haga bien! Es broma, pero he encontrado algo interesante que podrías probar, y también todos los que queráis <img src="http://filadeatras.com/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+<p>En fin&#8230; ante los extraños resultados que le ha proporcionado el experimento del post anterior, me he decidido a repetirlo en mi compu, al menos las versiones de 10k y 100k.</p>
+<p>A continuación os doy los resultados:</p>
+<p><span id="more-298"></span></p>
+<p><img class="aligncenter" title="cap1" src="http://filadeatras.com/wp-content/uploads/2011/05/cap1.jpg" alt="" width="560" height="372" /></p>
+<p><img class="aligncenter" title="cap2" src="http://filadeatras.com/wp-content/uploads/2011/05/cap2.jpg" alt="" width="565" height="382" /></p>
+<p>Bien, a primera vista y a última son realmente parecidos a los de fran. El archivo de texto plano apaliza a mysql en 10k, y por contra en 100k, (aqui se ve que el disco duro de fran no debe tener muy buenos tiempos de lectura&#8230;) es algo superior, más o menos unos 0.15 segundos.</p>
+<p>Así pues la pregunta es, ¿pero como es posible? Ni por asomo debería ser más rápido un fichero que una base de datos, entonces como se puede leer un fichero más rápido que una consulta&#8230;</p>
+<p>Bueno, primero dejar claro que mysql se portará bien con nosotros si nosotros nos portamos bien con él, es decir, si diseñamos bien nuestra base de datos, él nos dará buenos resultados, y si no, nos dará por culo &#8230; (¡ha dicho culo!) perdón por la expresión XD. Veamos a lo que me refiero echando un vistazo a la base de datos de la clase benchmark:</p>
+<blockquote><p>CREATE TABLE IF NOT EXISTS `lista` (<br />
+`id` int(11) NOT NULL AUTO_INCREMENT,<br />
+`num` varchar(16) NOT NULL,<br />
+`timestamp` timestamp NOT NULL &#8230;,<br />
+PRIMARY KEY (`id`)<br />
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10258450 ;</p></blockquote>
+<p>El caso es que las malas lenguas dicen que se puede multiplicar la velocidad de una consulta varias veces por el simple hecho de usar índices, y más en un caso como éste que siempre hacemos una consulta de dos campos: num y timestamp. ¿Lo probamos?</p>
+<blockquote><p>CREATE TABLE IF NOT EXISTS `lista` (<br />
+`id` int(11) NOT NULL AUTO_INCREMENT,<br />
+`num` varchar(16) NOT NULL,<br />
+`timestamp` timestamp NOT NULL &#8230;,<br />
+PRIMARY KEY (`id`),<br />
+KEY `n` (`num`),<br />
+KEY `t` (`timestamp`)<br />
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;</p></blockquote>
+<p>Y ahora vamos a repetir las pruebas&#8230;</p>
+<p><a href="http://filadeatras.com/wp-content/uploads/2011/05/cap4.jpg"><img class="aligncenter size-full wp-image-302" title="cap4" src="http://filadeatras.com/wp-content/uploads/2011/05/cap4.jpg" alt="" width="595" height="391" srcset="http://filadeatras.com/wp-content/uploads/2011/05/cap4-300x197.jpg 300w, http://filadeatras.com/wp-content/uploads/2011/05/cap4.jpg 595w" sizes="(max-width: 595px) 100vw, 595px" /></a></p>
+<p><a href="http://filadeatras.com/wp-content/uploads/2011/05/cap3.jpg"><img class="aligncenter size-full wp-image-301" title="cap3" src="http://filadeatras.com/wp-content/uploads/2011/05/cap3.jpg" alt="" width="583" height="385" srcset="http://filadeatras.com/wp-content/uploads/2011/05/cap3-300x198.jpg 300w, http://filadeatras.com/wp-content/uploads/2011/05/cap3.jpg 583w" sizes="(max-width: 583px) 100vw, 583px" /></a></p>
+<p>Anda&#8230;. pues parece que era cierto! XD</p>
+<p>&nbsp;</p>
+<p><strong>CONCLUSIÓN</strong></p>
+<p><strong> </strong></p>
+<p>Con el simple hecho de añadir índices a nuestra tabla de mysql hemos logrado reducir a la mitad el tiempo de las consultas y por tanto, texto plano pierde las apuestas!</p>
+<p>Ahora solo nos falta que alguien haga el test de los 10 Millones  y podremos sacar conclusiones muchísimo más fiables, ¿quien se apunta?</p>
+<p>&nbsp;</p>
+<p><strong>&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211; EDITADO:  &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-</strong></p>
+<p><strong> </strong>Ya he realizado el último test sobre 10 Millones de entradas y los resultados son muy interesantes:</p>
+<p><a href="http://filadeatras.com/wp-content/uploads/2011/05/Captura.jpg"><img class="aligncenter size-full wp-image-315" title="Captura" src="http://filadeatras.com/wp-content/uploads/2011/05/Captura.jpg" alt="" width="578" height="372" srcset="http://filadeatras.com/wp-content/uploads/2011/05/Captura-300x193.jpg 300w, http://filadeatras.com/wp-content/uploads/2011/05/Captura.jpg 578w" sizes="(max-width: 578px) 100vw, 578px" /></a></p>
+<p><a href="http://filadeatras.com/wp-content/uploads/2011/05/Captura.jpg"></a>Como vemos, aún con índices, en este punto el fichero de texto plano se lleva la palma&#8230; Sin embargo hay que aclarar algunas cosas:</p>
+<ol>
+<li>Hemos conseguido reducir casi 5 veces la velocidad de MySQL por usar indices.</li>
+<li>La velocidad en que se tratan los ficheros depende mucho de la CPU y tambíen del disco duro y de la memoria RAM.</li>
+<li>Para este experimento se ha tenido que configurar la opción de PHP memory_limit así:  <em>ini_set(&#8220;memory_limit&#8221;,&#8221;10000M&#8221;); </em>lo que significa que se ha establecido el límite de memoria que PHP puede usar en 10GB, cosa que es una burrada tremenda, pero que sin ella no era posible tratar con archivos con tantas líneas&#8230; de hecho ha habido momentos en que el consumo de RAM por parte de PHP superaba 1 GB, os imagináis la memoria necesaria entonces para procesar un archivo de 100M de líneas? Es totalmente inviable&#8230;</li>
+</ol>
+<p>Así que pues, dejémonos de archivos de texto plano y usemos bases de datos bien diseñadas y con índices <img src="http://filadeatras.com/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+]]></content:encoded>
+			<wfw:commentRss>http://filadeatras.com/2011/05/16/benchmarking-de-sistema-antispam-ii/feed/</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+		<item>
+		<title>Benchmarking de sistema antispam</title>
+		<link>http://filadeatras.com/2011/05/15/benchmarking-de-sistema-antispam/</link>
+		<comments>http://filadeatras.com/2011/05/15/benchmarking-de-sistema-antispam/#comments</comments>
+		<pubDate>Sun, 15 May 2011 16:40:00 +0000</pubDate>
+		<dc:creator><![CDATA[francesc81]]></dc:creator>
+				<category><![CDATA[filadeatras]]></category>
+		<category><![CDATA[internet]]></category>
+		<category><![CDATA[PHP]]></category>
+		<category><![CDATA[programación]]></category>
+		<category><![CDATA[benchmarking]]></category>
+		<category><![CDATA[mysql]]></category>
+
+		<guid isPermaLink="false">http://filadeatras.com/?p=236</guid>
+		<description><![CDATA[El otro día se me ocurrió preguntar a los componentes de la FilaDeAtras sobre como evitarian que alguna IP hiciera más inserts de la cuenta en una web en PHP que estoy haciendo y dos componentes respondieron audazmente con dos algorismos diferentes. Me entró curiosidad sobre cual de los dos sería más rápido y por [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>El otro día se me ocurrió preguntar a los componentes de la FilaDeAtras sobre como evitarian que alguna IP hiciera más inserts de la cuenta en una web en PHP que estoy haciendo y dos componentes respondieron audazmente con dos algorismos diferentes. Me entró curiosidad sobre cual de los dos sería más rápido y por lo tanto me permitiría hacer una web más ligera.</p>
+<ul>
+<li>franhp propuso guardar una IP y un timestamp con cada insert en la base de datos</li>
+<li>hektor propuso guardar las IP en un archivo de texto plano</li>
+</ul>
+<p><span id="more-236"></span>Para realizar estas pruebas he creado una base de datos con 10k, 100k y 10M de registros (las tablas contienen un campo varchar(16) en el que se almacena la IP y un timestamp de la hora que se insertaron) así como archivos de texto plano con la misma cantidad de datos. Después he creado unos scripts en PHP que generaban 50 peticiones 5 veces y calcula cuanto se ha tardado en total en hacerlas. Posteriormente he pensado en los siguientes algorismos:</p>
+<ul>
+<li>MysqlA: Se cargan todos los resultados de la consulta en memoria y allí se busca</li>
+</ul>
+<div class="codecolorer-container php geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="php codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"><span style="color: #000088;">$num</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/rand"><span style="color: #990000;">rand</span></a><span style="color: #009900;">&#40;</span><span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span><span style="color: #cc66cc;">255</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #000088;">$query</span> <span style="color: #339933;">=</span> <span style="color: #0000ff;">'select num from lista where num = '</span><span style="color: #339933;">.</span><span style="color: #000088;">$num</span><span style="color: #339933;">.</span><span style="color: #0000ff;">' and timestamp &amp;gt; from_unixtime('</span><span style="color: #339933;">.</span><a href="http://www.php.net/mktime"><span style="color: #990000;">mktime</span></a><span style="color: #009900;">&#40;</span><span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span> <a href="http://www.php.net/date"><span style="color: #990000;">date</span></a><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'m'</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">,</span> <a href="http://www.php.net/date"><span style="color: #990000;">date</span></a><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'d'</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">-</span><span style="color: #cc66cc;">1</span><span style="color: #339933;">,</span> <a href="http://www.php.net/date"><span style="color: #990000;">date</span></a><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'Y'</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">.</span><span style="color: #0000ff;">')'</span><span style="color: #339933;">;</span><br />
+<span style="color: #000088;">$result</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/mysql_query"><span style="color: #990000;">mysql_query</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$query</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #000088;">$i</span> <span style="color: #339933;">=</span> <span style="color: #339933;">-</span><span style="color: #cc66cc;">1</span><span style="color: #339933;">;</span><br />
+<span style="color: #b1b100;">while</span><span style="color: #009900;">&#40;</span><span style="color: #000088;">$row</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/mysql_fetch_row"><span style="color: #990000;">mysql_fetch_row</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$result</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#123;</span><br />
+<span style="color: #000088;">$i</span><span style="color: #339933;">++;</span><br />
+<span style="color: #009900;">&#125;</span></div></div>
+<ul>
+<li>MysqlB: Se confía en la capacidad de contar de mysql</li>
+</ul>
+<div class="codecolorer-container php geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="php codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"><span style="color: #000088;">$num</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/rand"><span style="color: #990000;">rand</span></a><span style="color: #009900;">&#40;</span><span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span><span style="color: #cc66cc;">255</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #000088;">$query</span> <span style="color: #339933;">=</span> <span style="color: #0000ff;">'select count(*) from lista where num = '</span><span style="color: #339933;">.</span><span style="color: #000088;">$num</span><span style="color: #339933;">.</span><span style="color: #0000ff;">' and timestamp &amp;gt; from_unixtime('</span><span style="color: #339933;">.</span><a href="http://www.php.net/mktime"><span style="color: #990000;">mktime</span></a><span style="color: #009900;">&#40;</span><span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span> <a href="http://www.php.net/date"><span style="color: #990000;">date</span></a><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'m'</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">,</span> <a href="http://www.php.net/date"><span style="color: #990000;">date</span></a><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'d'</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">-</span><span style="color: #cc66cc;">1</span><span style="color: #339933;">,</span> <a href="http://www.php.net/date"><span style="color: #990000;">date</span></a><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'Y'</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">.</span><span style="color: #0000ff;">')'</span><span style="color: #339933;">;</span><br />
+<span style="color: #000088;">$result</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/mysql_query"><span style="color: #990000;">mysql_query</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$query</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #000088;">$row</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/mysql_fetch_row"><span style="color: #990000;">mysql_fetch_row</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$result</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span></div></div>
+<ul>
+<li>MysqlC: Se usa el mismo comando de contar pero desde php</li>
+</ul>
+<div class="codecolorer-container php geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="php codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"><span style="color: #000088;">$num</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/rand"><span style="color: #990000;">rand</span></a><span style="color: #009900;">&#40;</span><span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span><span style="color: #cc66cc;">255</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #000088;">$query</span> <span style="color: #339933;">=</span> <span style="color: #0000ff;">'select num from lista where num = '</span><span style="color: #339933;">.</span><span style="color: #000088;">$num</span><span style="color: #339933;">.</span><span style="color: #0000ff;">' and timestamp &amp;gt; from_unixtime('</span><span style="color: #339933;">.</span><a href="http://www.php.net/mktime"><span style="color: #990000;">mktime</span></a><span style="color: #009900;">&#40;</span><span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span> <a href="http://www.php.net/date"><span style="color: #990000;">date</span></a><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'m'</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">,</span> <a href="http://www.php.net/date"><span style="color: #990000;">date</span></a><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'d'</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">-</span><span style="color: #cc66cc;">1</span><span style="color: #339933;">,</span> <a href="http://www.php.net/date"><span style="color: #990000;">date</span></a><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'Y'</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">.</span><span style="color: #0000ff;">')'</span><span style="color: #339933;">;</span><br />
+<span style="color: #000088;">$result</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/mysql_query"><span style="color: #990000;">mysql_query</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$query</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #000088;">$i</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/mysql_numrows"><span style="color: #990000;">mysql_numrows</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$result</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span></div></div>
+<ul>
+<li>Files: Se carga el archivo en memoria y luego se hace un foreach para buscar coincidencias</li>
+</ul>
+<div class="codecolorer-container php geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="php codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"><span style="color: #000088;">$lines</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/file"><span style="color: #990000;">file</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$file</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #000088;">$num</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/rand"><span style="color: #990000;">rand</span></a><span style="color: #009900;">&#40;</span><span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span><span style="color: #cc66cc;">255</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #000088;">$i</span> <span style="color: #339933;">=</span> <span style="color: #cc66cc;">0</span><span style="color: #339933;">;</span><br />
+<span style="color: #b1b100;">foreach</span><span style="color: #009900;">&#40;</span><span style="color: #000088;">$lines</span> <span style="color: #b1b100;">as</span> <span style="color: #000088;">$line</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#123;</span><br />
+<span style="color: #b1b100;">if</span><span style="color: #009900;">&#40;</span><span style="color: #000088;">$line</span> <span style="color: #339933;">==</span> <span style="color: #000088;">$num</span><span style="color: #009900;">&#41;</span> <span style="color: #000088;">$i</span><span style="color: #339933;">++;</span><br />
+<span style="color: #009900;">&#125;</span></div></div>
+<h2>Resultados</h2>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+    
+      google.load('visualization', '1', {'packages':['corechart']});
+      google.setOnLoadCallback(drawCharts);
+      
+      function drawCharts(){
+        drawChart1();
+        drawChart2();
+        drawChart3();
+      }
+      
+      
+      function drawChart1() {
+            // Create and populate the data table.
+            var data = new google.visualization.DataTable();
+            
+            var raw_data = [
+            ['MysqlA', 0.47137904167175, 0.45942568778992, 0.46913623809814, 0.47044014930725, 0.46680450439453],['MysqlB', 0.45121359825134, 0.46103501319885, 0.46196246147156, 0.46554064750671, 0.45803475379944],['MysqlC', 0.45845675468445, 0.45847320556641, 0.45470786094666, 0.47418141365051, 0.46465516090393],['Files', 0.2754271030426, 0.27704167366028, 0.2813892364502, 0.28424429893494, 0.27748584747314]                            ];
+            
+            var years = ['1st', '2nd', '3rd', '4th', '5th'];
+                            
+            data.addColumn('string', 'Time');
+            for (var i = 0; i  < raw_data.length; ++i) {
+              data.addColumn('number', raw_data[i][0]);    
+            }
+            
+            data.addRows(years.length);
+          
+            for (var j = 0; j < years.length; ++j) {    
+              data.setValue(j, 0, years[j].toString());    
+            }
+            for (var i = 0; i  < raw_data.length; ++i) {
+              for (var j = 1; j  < raw_data[i].length; ++j) {
+                data.setValue(j-1, i+1, raw_data[i][j]);    
+              }
+            }
+            
+            // Create and draw the visualization.
+            new google.visualization.BarChart(document.getElementById('chart1')).
+                draw(data,
+                     {title:"Time it takes to do 50 requests on a 10k line file",
+                      width:600, height:400,
+                      vAxis: {title: "Time"},
+                      hAxis: {title: "Seconds"}}
+                );
+    }
+      
+      
+      function drawChart2() {
+            // Create and populate the data table.
+            var data = new google.visualization.DataTable();
+            
+            var raw_data = [
+            ['MysqlA', 2.7686369419098, 2.7253029346466, 2.7522926330566, 2.7956855297089, 2.7553255558014],['MysqlB', 2.7607343196869, 2.7075021266937, 2.7039449214935, 2.7256145477295, 2.7321860790253],['MysqlC', 2.7155947685242, 2.72824883461, 2.7569189071655, 2.7329955101013, 2.7297141551971],['Files', 3.1052844524384, 2.9411017894745, 2.9503200054169, 2.9294714927673, 2.9646718502045]                            ];
+            
+            var years = ['1st', '2nd', '3rd', '4th', '5th'];
+                            
+            data.addColumn('string', 'Time');
+            for (var i = 0; i  < raw_data.length; ++i) {
+              data.addColumn('number', raw_data[i][0]);    
+            }
+            
+            data.addRows(years.length);
+          
+            for (var j = 0; j < years.length; ++j) {    
+              data.setValue(j, 0, years[j].toString());    
+            }
+            for (var i = 0; i  < raw_data.length; ++i) {
+              for (var j = 1; j  < raw_data[i].length; ++j) {
+                data.setValue(j-1, i+1, raw_data[i][j]);    
+              }
+            }
+            
+            // Create and draw the visualization.
+            new google.visualization.BarChart(document.getElementById('chart2')).
+                draw(data,
+                     {title:"Time it takes to do 50 requests on a 100k line file",
+                      width:600, height:400,
+                      vAxis: {title: "Time"},
+                      hAxis: {title: "Seconds"}}
+                );
+    }
+      
+      function drawChart3() {
+            // Create and populate the data table.
+            var data = new google.visualization.DataTable();
+            
+            var raw_data = [
+['MysqlA', 933.21640467644, 922.54734373093, 901.86389923096, 897.49964690208, 914.76998758316],['MysqlB', 910.93939828873, 943.68561029434, 881.8849363327, 899.31127691269, 909.59679913521],['MysqlC', 915.86891436577, 880.2218747139, 927.45656728745, 984.30798196793, 900.75863146782],['Files', 317.53111505508, 323.88458108902, 327.25870728493, 346.53602385521, 325.13826751709]
+            
+            
+            ];
+            
+            var years = ['1st', '2nd', '3rd', '4th', '5th'];
+                            
+            data.addColumn('string', 'Time');
+            for (var i = 0; i  < raw_data.length; ++i) {
+              data.addColumn('number', raw_data[i][0]);    
+            }
+            
+            data.addRows(years.length);
+          
+            for (var j = 0; j < years.length; ++j) {    
+              data.setValue(j, 0, years[j].toString());    
+            }
+            for (var i = 0; i  < raw_data.length; ++i) {
+              for (var j = 1; j  < raw_data[i].length; ++j) {
+                data.setValue(j-1, i+1, raw_data[i][j]);    
+              }
+            }
+            
+            // Create and draw the visualization.
+            new google.visualization.BarChart(document.getElementById('chart3')).
+                draw(data,
+                     {title:"Time it takes to do 50 requests on a 10M line file",
+                      width:600, height:400,
+                      vAxis: {title: "Time"},
+                      hAxis: {title: "Seconds"}}
+                );
+    }
+    </script>
+  
+    <div id="charts_div"><div id="chart1"></div><div id="chart2"></div><div id="chart3"></div></div>
+<h2>Conclusiones</h2>
+<p>Si esperamos sólo 10k de inserts, podemos observar que lo mejor sería usar un archivo de texto plano para almacenar las IP y irlo borrando con cada noche (cron).  También vemos que el algorismo MysqlA (cargar todos los resultados en memoria para tratarlos) es el más lento en la mayoría de casos.</p>
+<p>Si esperamos 100k de inserts, vemos que usar un archivo de texto plano ya no es una alternativa ya que le saca aproximadamente medio segundo más a cualquier alternativa de mysql y aprovecha mucho mejor el caché (fijaos en el tiempo del primer resultado y el siguiente) Tampoco la opción mysqlA es una alternativa, siempre es más lenta que el resto.</p>
+<p>Si esperamos 10M de inserts, lo primero sería cambiar mysql por otra base de datos más profesional como por ejemplo Oracle (aquí el DBA de mi empresa estaría orgulloso de mí :P), y lo segundo es que extrañamente el uso de archivos de texto plano es muchisimo más rápido, hasta 3 veces más, que cualquiera de los algorismos que usan base de datos.</p>
+<p>And the winner is &#8230; (tambores) &#8230; Archivos de texto plano!</p>
+<p>Nota: Cabe decir que no se ha probado alguna de las bases de datos NoSQL, eso lo dejo para el próximo artículo <img src="https://s.w.org/images/core/emoji/72x72/1f61b.png" alt="😛" class="wp-smiley" style="height: 1em; max-height: 1em;" /><br />
+Nota2: Podeis encontrar el codigo en <a href="https://github.com/franhp/BenchmarkingTestClass">https://github.com/franhp/BenchmarkingTestClass</a></p>
+]]></content:encoded>
+			<wfw:commentRss>http://filadeatras.com/2011/05/15/benchmarking-de-sistema-antispam/feed/</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+	</channel>
+</rss>

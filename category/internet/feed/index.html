@@ -1,0 +1,780 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>internet &#8211; FilaDeAtras</title>
+	<atom:link href="http://filadeatras.com/category/internet/feed/" rel="self" type="application/rss+xml" />
+	<link>http://filadeatras.com</link>
+	<description>con la fila en el corazón</description>
+	<lastBuildDate>Sat, 12 May 2012 20:43:14 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.4.2</generator>
+	<item>
+		<title>Wget para Windows? Fuck yeah!</title>
+		<link>http://filadeatras.com/2011/06/20/wget-para-windows-fuck-yeah/</link>
+		<comments>http://filadeatras.com/2011/06/20/wget-para-windows-fuck-yeah/#respond</comments>
+		<pubDate>Mon, 20 Jun 2011 00:19:35 +0000</pubDate>
+		<dc:creator><![CDATA[hektor]]></dc:creator>
+				<category><![CDATA[internet]]></category>
+		<category><![CDATA[windows]]></category>
+		<category><![CDATA[gnu]]></category>
+		<category><![CDATA[wget]]></category>
+
+		<guid isPermaLink="false">http://filadeatras.com/?p=383</guid>
+		<description><![CDATA[¿Quién no ha tenido la necesidad de ello? Pues los de GNU tienen unos binarios mu bien compilaos: http://gnuwin32.sourceforge.net/packages/wget.htm Descargar, instalar, meter en el PATH de windows y ale, a navegar cual Richard Stallman XD]]></description>
+				<content:encoded><![CDATA[<p>¿Quién no ha tenido la necesidad de ello?</p>
+<p>Pues los de GNU tienen unos binarios mu bien compilaos:</p>
+<p><a href="http://gnuwin32.sourceforge.net/packages/wget.htm">http://gnuwin32.sourceforge.net/packages/wget.htm</a></p>
+<p>Descargar, instalar, meter en el PATH de windows y ale, a navegar cual Richard Stallman XD</p>
+]]></content:encoded>
+			<wfw:commentRss>http://filadeatras.com/2011/06/20/wget-para-windows-fuck-yeah/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Howto: Codeigniter 2.0 + Ckeditor 3.6 + Kcfinder 2.21</title>
+		<link>http://filadeatras.com/2011/06/08/howto-codeigniter-2-0-ckeditor-3-6-kcfinder-2-21/</link>
+		<comments>http://filadeatras.com/2011/06/08/howto-codeigniter-2-0-ckeditor-3-6-kcfinder-2-21/#comments</comments>
+		<pubDate>Wed, 08 Jun 2011 23:12:31 +0000</pubDate>
+		<dc:creator><![CDATA[hektor]]></dc:creator>
+				<category><![CDATA[howto]]></category>
+		<category><![CDATA[PHP]]></category>
+		<category><![CDATA[ckeditor]]></category>
+		<category><![CDATA[ckfinder]]></category>
+		<category><![CDATA[codeigniter]]></category>
+
+		<guid isPermaLink="false">http://filadeatras.com/?p=344</guid>
+		<description><![CDATA[CLICA AQUI PARA IR AL MANUAL ACTUALIZADO PARA CodeIgniter 2.1 + Ckeditor 3.6.1 + kcfinder 2.51 Os presento la forma más cómoda de tener un editor WYSIWYG con capacidad para subir ficheros e imágenes al server, integrado en el Framework PHP CodeIgniter! La alternativa a la librería multimedia CKFinder (que es de pago), es KCFinder, [&#8230;]]]></description>
+				<content:encoded><![CDATA[<h2 style="color: red;"><a style="color: red;" href="http://www.hcosta.info/wp/2012/05/howto-codeigniter-2-1-ckeditor-3-6-1-kcfinder-2-51/">CLICA AQUI PARA IR AL MANUAL ACTUALIZADO PARA CodeIgniter 2.1 + Ckeditor 3.6.1 + kcfinder 2.51</a></h2>
+<p>Os presento la forma más cómoda de tener un editor WYSIWYG con capacidad para subir ficheros e imágenes al server, integrado en el Framework PHP CodeIgniter! La alternativa a la librería multimedia CKFinder (que es de pago), es KCFinder, y como no he encontrado en ningún sitio una guía explícita sobre como hacerlo os lo explico en este HowTo. </p>
+<p><img src="http://codeigniter.com/user_guide/images/ci_logo_flame.jpg" alt="" /></p>
+<p><a href="http://codeigniter.com/">CodeIgniter</a><br />
+<a href="http://ckeditor.com/">CKEditor</a><br />
+<a href="http://kcfinder.sunhater.com/">KCFinder</a></p>
+<p>Asumiendo que tenemos CodeIgniter y los ficheros descargados&#8230;</p>
+<p><span id="more-344"></span></p>
+<ol>
+<li>Descomprimir CKEditor en el directorio raiz del proyecto: <em>xampp\htdocs\codeigniter\ckeditor</em></li>
+<li>Descomprimir KCFinder dentro del directorio de CKEditor:<em> <em>xampp\htdocs\codeigniter\ckeditor\kcfinder</em></em></li>
+<li>Copiar fichero<em><em> <em><em>ckeditor\</em></em>ckeditor_php5.php</em></em> a <em>codeigniter\application\libraries\ckeditor.php</em></li>
+<li>Editamos el fichero que acabamos de copiar:<br />
+<h3>ckeditor.php</h3>
+<div class="codecolorer-container php geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="php codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"><span style="color: #666666; font-style: italic;">/* al inicio del archivo */</span><br />
+<span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span><span style="color: #339933;">!</span><a href="http://www.php.net/defined"><span style="color: #990000;">defined</span></a><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'BASEPATH'</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span> <a href="http://www.php.net/exit"><span style="color: #990000;">exit</span></a><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'No direct script access allowed'</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #000000; font-weight: bold;">function</span> __construct<span style="color: #009900;">&#40;</span><span style="color: #000088;">$array</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+<span style="color: #000088;">$this</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">InstanceName</span> &nbsp; &nbsp;<span style="color: #339933;">=</span> <span style="color: #000088;">$array</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'instanceName'</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">;</span><br />
+<span style="color: #000088;">$this</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">basePath</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #339933;">=</span> <span style="color: #000088;">$array</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'basePath'</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">;</span><br />
+<span style="color: #000088;">$this</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">returnOutput</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #339933;">=</span> <span style="color: #000088;">$array</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'outPut'</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">;</span><br />
+<span style="color: #b1b100;">echo</span> <span style="color: #000088;">$this</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">basePath</span> <span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span></div></div>
+</li>
+<li>Luego modificamos la función <em>private function ckeditorPath() </em>del mismo archivo de la siguiente forma:<br />
+<h3>ckeditor.php</h3>
+<div class="codecolorer-container php geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="php codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"><span style="color: #009933; font-style: italic;">/**<br />
+* Return path to ckeditor.js.<br />
+*/</span><br />
+<span style="color: #000000; font-weight: bold;">private</span> <span style="color: #000000; font-weight: bold;">function</span> ckeditorPath<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+<span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span><span style="color: #339933;">!</span><a href="http://www.php.net/empty"><span style="color: #990000;">empty</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$this</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">basePath</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+<span style="color: #b1b100;">return</span> <span style="color: #000088;">$this</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">basePath</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">&quot;basePath&quot;</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span></div></div>
+</li>
+<li>En nuestro login y logout tendremos que configurar KCFinder:<br />
+<h3>Login controller</h3>
+<div class="codecolorer-container php geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="php codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"><span style="color: #009933; font-style: italic;">/**<br />
+* Login<br />
+*/</span><br />
+<span style="color: #000088;">$_SESSION</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'KCFINDER'</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/array"><span style="color: #990000;">array</span></a><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #000088;">$_SESSION</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'KCFINDER'</span><span style="color: #009900;">&#93;</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'disabled'</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> <span style="color: #009900; font-weight: bold;">false</span><span style="color: #339933;">;</span><br />
+<br />
+<span style="color: #009933; font-style: italic;">/**<br />
+* Logout<br />
+*/</span><br />
+<span style="color: #000088;">$_SESSION</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'KCFINDER'</span><span style="color: #009900;">&#93;</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'disabled'</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> <span style="color: #009900; font-weight: bold;">true</span><span style="color: #339933;">;</span></div></div>
+</li>
+<li>Ahora podemos crearnos un controlador para probar un formulario (esto es una variante de un controlador que encontré para ckfinder, gracias a quien fuera XD), por ejemplo <em>application\controllers\Form.php</em>:<br />
+<h3>form controller</h3>
+<div class="codecolorer-container php geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;height:300px;"><div class="php codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"><span style="color: #000000; font-weight: bold;">&lt;?php</span> <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span> <span style="color: #339933;">!</span> <a href="http://www.php.net/defined"><span style="color: #990000;">defined</span></a><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'BASEPATH'</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span> <a href="http://www.php.net/exit"><span style="color: #990000;">exit</span></a><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'No direct script access allowed'</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <br />
+<br />
+<span style="color: #000000; font-weight: bold;">class</span> Form <span style="color: #000000; font-weight: bold;">extends</span> CI_Controller <span style="color: #009900;">&#123;</span> &nbsp; &nbsp; &nbsp; <br />
+&nbsp; &nbsp;<br />
+<span style="color: #000000; font-weight: bold;">function</span> index<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> &nbsp; &nbsp; <span style="color: #009900;">&#123;</span> &nbsp; &nbsp; <br />
+&nbsp; &nbsp; &nbsp;<br />
+<span style="color: #000088;">$this</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">load</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">library</span><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'ckeditor'</span><span style="color: #339933;">,</span><a href="http://www.php.net/array"><span style="color: #990000;">array</span></a><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'instanceName'</span> <span style="color: #339933;">=&gt;</span> <span style="color: #0000ff;">'CKEDITOR1'</span><span style="color: #339933;">,</span><span style="color: #0000ff;">'basePath'</span> <span style="color: #339933;">=&gt;</span> base_url<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">.</span><span style="color: #0000ff;">&quot;ckeditor/&quot;</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'outPut'</span> <span style="color: #339933;">=&gt;</span> <span style="color: #009900; font-weight: bold;">true</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<br />
+<span style="color: #666666; font-style: italic;">// declaracion de arreglo</span><br />
+<span style="color: #000088;">$config</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/array"><span style="color: #990000;">array</span></a><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<br />
+<span style="color: #666666; font-style: italic;">// indicamos la ruta para ckFinder</span><br />
+<span style="color: #000088;">$config</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'filebrowserBrowseUrl'</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> base_url<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">.</span><span style="color: #0000ff;">&quot;ckeditor/kcfinder/browse.php&quot;</span><span style="color: #339933;">;</span><br />
+<br />
+<span style="color: #666666; font-style: italic;">// indicamos la ruta para el boton de la toolbar para subir imagenes</span><br />
+<span style="color: #000088;">$config</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'filebrowserImageBrowseUrl'</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> base_url<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">.</span><span style="color: #0000ff;">&quot;ckeditor/kcfinder/browse.php?type=images&quot;</span><span style="color: #339933;">;</span><br />
+<br />
+<span style="color: #666666; font-style: italic;">// indicamos la ruta para subir archivos desde la pestaña de la toolbar (Quick Upload)</span><br />
+<span style="color: #000088;">$config</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'filebrowserUploadUrl'</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> base_url<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">.</span><span style="color: #0000ff;">&quot;ckeditor/kcfinder/upload.php?type=files&quot;</span><span style="color: #339933;">;</span><br />
+<br />
+<span style="color: #666666; font-style: italic;">// indicamos la ruta para subir imagenesdesde la pestaña de la toolbar (Quick Upload)</span><br />
+<span style="color: #000088;">$config</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'filebrowserImageUploadUrl'</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> base_url<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">.</span><span style="color: #0000ff;">&quot;ckeditor/kcfinder/upload.php?type=images&quot;</span><span style="color: #339933;">;</span><br />
+<br />
+<span style="color: #000088;">$config</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'toolbar'</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/array"><span style="color: #990000;">array</span></a><span style="color: #009900;">&#40;</span><br />
+<a href="http://www.php.net/array"><span style="color: #990000;">array</span></a><span style="color: #009900;">&#40;</span> <span style="color: #0000ff;">'Source'</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'-'</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'Bold'</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'Italic'</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'Underline'</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'Strike'</span> <span style="color: #009900;">&#41;</span><span style="color: #339933;">,</span><br />
+<a href="http://www.php.net/array"><span style="color: #990000;">array</span></a><span style="color: #009900;">&#40;</span> <span style="color: #0000ff;">'Image'</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'Link'</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'Unlink'</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'Anchor'</span> <span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<br />
+<span style="color: #666666; font-style: italic;">// cargamos al arreglo que será enviado a la vista con el textarea ya convertido a editor de texto :D</span><br />
+<span style="color: #000088;">$data</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'fck1'</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> <span style="color: #000088;">$this</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">ckeditor</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">editor</span><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">&quot;mi-textarea&quot;</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">&quot;Valor inicial.&quot;</span><span style="color: #339933;">,</span><span style="color: #000088;">$config</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<br />
+<span style="color: #666666; font-style: italic;">// vista</span><br />
+<span style="color: #000088;">$this</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">load</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">view</span><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'form_view'</span><span style="color: #339933;">,</span><span style="color: #000088;">$data</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <br />
+&nbsp; &nbsp; &nbsp;<span style="color: #009900;">&#125;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<span style="color: #000000; font-weight: bold;">?&gt;</span></div></div>
+</li>
+<li>Creamos una vista vacía para hacer solo la prueba&#8230; <b>views/form_view.php</b></li>
+<li>Y el resultado: <br />
+<a href="http://filadeatras.com/wp-content/uploads/2011/06/CI.png"><img class="aligncenter size-medium wp-image-354" title="CI" src="http://filadeatras.com/wp-content/uploads/2011/06/CI-300x285.png" alt="" width="300" height="285" /></a>
+</li>
+<li>Por último recordar que podemos usar KCFinder como biblioteca accediendo desde la propia raiz <em>codeigniter/ckeditor/kcfinder/browse.php</em>: <a href="http://filadeatras.com/wp-content/uploads/2011/06/CI2.png"><br />
+<a href="http://filadeatras.com/wp-content/uploads/2011/06/CI2.png"><img class="aligncenter size-medium wp-image-355" title="CI2" src="http://filadeatras.com/wp-content/uploads/2011/06/CI2-300x232.png" alt="" width="300" height="232" /></a>
+</li>
+</ol>
+<p>Cualquier duda comentad :&#8211;D</p>
+]]></content:encoded>
+			<wfw:commentRss>http://filadeatras.com/2011/06/08/howto-codeigniter-2-0-ckeditor-3-6-kcfinder-2-21/feed/</wfw:commentRss>
+		<slash:comments>23</slash:comments>
+		</item>
+		<item>
+		<title>Benchmarking de sistema antispam II</title>
+		<link>http://filadeatras.com/2011/05/16/benchmarking-de-sistema-antispam-ii/</link>
+		<comments>http://filadeatras.com/2011/05/16/benchmarking-de-sistema-antispam-ii/#comments</comments>
+		<pubDate>Mon, 16 May 2011 01:22:12 +0000</pubDate>
+		<dc:creator><![CDATA[hektor]]></dc:creator>
+				<category><![CDATA[filadeatras]]></category>
+		<category><![CDATA[internet]]></category>
+		<category><![CDATA[PHP]]></category>
+		<category><![CDATA[programación]]></category>
+		<category><![CDATA[benchmarking]]></category>
+		<category><![CDATA[mysql]]></category>
+
+		<guid isPermaLink="false">http://filadeatras.com/?p=298</guid>
+		<description><![CDATA[Bien, primero de todo darle las gracias a fran por esa clase de Benchmarks tan interesantes que nos ha proporcionado. Segundo decirle, que ya que hace algo al menos que lo haga bien! Es broma, pero he encontrado algo interesante que podrías probar, y también todos los que queráis En fin&#8230; ante los extraños resultados [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Bien, primero de todo darle las gracias a fran por esa clase de Benchmarks tan interesantes que nos ha proporcionado.</p>
+<p>Segundo decirle, que ya que hace algo al menos que lo haga bien! Es broma, pero he encontrado algo interesante que podrías probar, y también todos los que queráis <img src="http://filadeatras.com/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+<p>En fin&#8230; ante los extraños resultados que le ha proporcionado el experimento del post anterior, me he decidido a repetirlo en mi compu, al menos las versiones de 10k y 100k.</p>
+<p>A continuación os doy los resultados:</p>
+<p><span id="more-298"></span></p>
+<p><img class="aligncenter" title="cap1" src="http://filadeatras.com/wp-content/uploads/2011/05/cap1.jpg" alt="" width="560" height="372" /></p>
+<p><img class="aligncenter" title="cap2" src="http://filadeatras.com/wp-content/uploads/2011/05/cap2.jpg" alt="" width="565" height="382" /></p>
+<p>Bien, a primera vista y a última son realmente parecidos a los de fran. El archivo de texto plano apaliza a mysql en 10k, y por contra en 100k, (aqui se ve que el disco duro de fran no debe tener muy buenos tiempos de lectura&#8230;) es algo superior, más o menos unos 0.15 segundos.</p>
+<p>Así pues la pregunta es, ¿pero como es posible? Ni por asomo debería ser más rápido un fichero que una base de datos, entonces como se puede leer un fichero más rápido que una consulta&#8230;</p>
+<p>Bueno, primero dejar claro que mysql se portará bien con nosotros si nosotros nos portamos bien con él, es decir, si diseñamos bien nuestra base de datos, él nos dará buenos resultados, y si no, nos dará por culo &#8230; (¡ha dicho culo!) perdón por la expresión XD. Veamos a lo que me refiero echando un vistazo a la base de datos de la clase benchmark:</p>
+<blockquote><p>CREATE TABLE IF NOT EXISTS `lista` (<br />
+`id` int(11) NOT NULL AUTO_INCREMENT,<br />
+`num` varchar(16) NOT NULL,<br />
+`timestamp` timestamp NOT NULL &#8230;,<br />
+PRIMARY KEY (`id`)<br />
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10258450 ;</p></blockquote>
+<p>El caso es que las malas lenguas dicen que se puede multiplicar la velocidad de una consulta varias veces por el simple hecho de usar índices, y más en un caso como éste que siempre hacemos una consulta de dos campos: num y timestamp. ¿Lo probamos?</p>
+<blockquote><p>CREATE TABLE IF NOT EXISTS `lista` (<br />
+`id` int(11) NOT NULL AUTO_INCREMENT,<br />
+`num` varchar(16) NOT NULL,<br />
+`timestamp` timestamp NOT NULL &#8230;,<br />
+PRIMARY KEY (`id`),<br />
+KEY `n` (`num`),<br />
+KEY `t` (`timestamp`)<br />
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;</p></blockquote>
+<p>Y ahora vamos a repetir las pruebas&#8230;</p>
+<p><a href="http://filadeatras.com/wp-content/uploads/2011/05/cap4.jpg"><img class="aligncenter size-full wp-image-302" title="cap4" src="http://filadeatras.com/wp-content/uploads/2011/05/cap4.jpg" alt="" width="595" height="391" srcset="http://filadeatras.com/wp-content/uploads/2011/05/cap4-300x197.jpg 300w, http://filadeatras.com/wp-content/uploads/2011/05/cap4.jpg 595w" sizes="(max-width: 595px) 100vw, 595px" /></a></p>
+<p><a href="http://filadeatras.com/wp-content/uploads/2011/05/cap3.jpg"><img class="aligncenter size-full wp-image-301" title="cap3" src="http://filadeatras.com/wp-content/uploads/2011/05/cap3.jpg" alt="" width="583" height="385" srcset="http://filadeatras.com/wp-content/uploads/2011/05/cap3-300x198.jpg 300w, http://filadeatras.com/wp-content/uploads/2011/05/cap3.jpg 583w" sizes="(max-width: 583px) 100vw, 583px" /></a></p>
+<p>Anda&#8230;. pues parece que era cierto! XD</p>
+<p>&nbsp;</p>
+<p><strong>CONCLUSIÓN</strong></p>
+<p><strong> </strong></p>
+<p>Con el simple hecho de añadir índices a nuestra tabla de mysql hemos logrado reducir a la mitad el tiempo de las consultas y por tanto, texto plano pierde las apuestas!</p>
+<p>Ahora solo nos falta que alguien haga el test de los 10 Millones  y podremos sacar conclusiones muchísimo más fiables, ¿quien se apunta?</p>
+<p>&nbsp;</p>
+<p><strong>&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211; EDITADO:  &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-</strong></p>
+<p><strong> </strong>Ya he realizado el último test sobre 10 Millones de entradas y los resultados son muy interesantes:</p>
+<p><a href="http://filadeatras.com/wp-content/uploads/2011/05/Captura.jpg"><img class="aligncenter size-full wp-image-315" title="Captura" src="http://filadeatras.com/wp-content/uploads/2011/05/Captura.jpg" alt="" width="578" height="372" srcset="http://filadeatras.com/wp-content/uploads/2011/05/Captura-300x193.jpg 300w, http://filadeatras.com/wp-content/uploads/2011/05/Captura.jpg 578w" sizes="(max-width: 578px) 100vw, 578px" /></a></p>
+<p><a href="http://filadeatras.com/wp-content/uploads/2011/05/Captura.jpg"></a>Como vemos, aún con índices, en este punto el fichero de texto plano se lleva la palma&#8230; Sin embargo hay que aclarar algunas cosas:</p>
+<ol>
+<li>Hemos conseguido reducir casi 5 veces la velocidad de MySQL por usar indices.</li>
+<li>La velocidad en que se tratan los ficheros depende mucho de la CPU y tambíen del disco duro y de la memoria RAM.</li>
+<li>Para este experimento se ha tenido que configurar la opción de PHP memory_limit así:  <em>ini_set(&#8220;memory_limit&#8221;,&#8221;10000M&#8221;); </em>lo que significa que se ha establecido el límite de memoria que PHP puede usar en 10GB, cosa que es una burrada tremenda, pero que sin ella no era posible tratar con archivos con tantas líneas&#8230; de hecho ha habido momentos en que el consumo de RAM por parte de PHP superaba 1 GB, os imagináis la memoria necesaria entonces para procesar un archivo de 100M de líneas? Es totalmente inviable&#8230;</li>
+</ol>
+<p>Así que pues, dejémonos de archivos de texto plano y usemos bases de datos bien diseñadas y con índices <img src="http://filadeatras.com/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+]]></content:encoded>
+			<wfw:commentRss>http://filadeatras.com/2011/05/16/benchmarking-de-sistema-antispam-ii/feed/</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+		<item>
+		<title>Benchmarking de sistema antispam</title>
+		<link>http://filadeatras.com/2011/05/15/benchmarking-de-sistema-antispam/</link>
+		<comments>http://filadeatras.com/2011/05/15/benchmarking-de-sistema-antispam/#comments</comments>
+		<pubDate>Sun, 15 May 2011 16:40:00 +0000</pubDate>
+		<dc:creator><![CDATA[francesc81]]></dc:creator>
+				<category><![CDATA[filadeatras]]></category>
+		<category><![CDATA[internet]]></category>
+		<category><![CDATA[PHP]]></category>
+		<category><![CDATA[programación]]></category>
+		<category><![CDATA[benchmarking]]></category>
+		<category><![CDATA[mysql]]></category>
+
+		<guid isPermaLink="false">http://filadeatras.com/?p=236</guid>
+		<description><![CDATA[El otro día se me ocurrió preguntar a los componentes de la FilaDeAtras sobre como evitarian que alguna IP hiciera más inserts de la cuenta en una web en PHP que estoy haciendo y dos componentes respondieron audazmente con dos algorismos diferentes. Me entró curiosidad sobre cual de los dos sería más rápido y por [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>El otro día se me ocurrió preguntar a los componentes de la FilaDeAtras sobre como evitarian que alguna IP hiciera más inserts de la cuenta en una web en PHP que estoy haciendo y dos componentes respondieron audazmente con dos algorismos diferentes. Me entró curiosidad sobre cual de los dos sería más rápido y por lo tanto me permitiría hacer una web más ligera.</p>
+<ul>
+<li>franhp propuso guardar una IP y un timestamp con cada insert en la base de datos</li>
+<li>hektor propuso guardar las IP en un archivo de texto plano</li>
+</ul>
+<p><span id="more-236"></span>Para realizar estas pruebas he creado una base de datos con 10k, 100k y 10M de registros (las tablas contienen un campo varchar(16) en el que se almacena la IP y un timestamp de la hora que se insertaron) así como archivos de texto plano con la misma cantidad de datos. Después he creado unos scripts en PHP que generaban 50 peticiones 5 veces y calcula cuanto se ha tardado en total en hacerlas. Posteriormente he pensado en los siguientes algorismos:</p>
+<ul>
+<li>MysqlA: Se cargan todos los resultados de la consulta en memoria y allí se busca</li>
+</ul>
+<div class="codecolorer-container php geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="php codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"><span style="color: #000088;">$num</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/rand"><span style="color: #990000;">rand</span></a><span style="color: #009900;">&#40;</span><span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span><span style="color: #cc66cc;">255</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #000088;">$query</span> <span style="color: #339933;">=</span> <span style="color: #0000ff;">'select num from lista where num = '</span><span style="color: #339933;">.</span><span style="color: #000088;">$num</span><span style="color: #339933;">.</span><span style="color: #0000ff;">' and timestamp &amp;gt; from_unixtime('</span><span style="color: #339933;">.</span><a href="http://www.php.net/mktime"><span style="color: #990000;">mktime</span></a><span style="color: #009900;">&#40;</span><span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span> <a href="http://www.php.net/date"><span style="color: #990000;">date</span></a><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'m'</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">,</span> <a href="http://www.php.net/date"><span style="color: #990000;">date</span></a><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'d'</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">-</span><span style="color: #cc66cc;">1</span><span style="color: #339933;">,</span> <a href="http://www.php.net/date"><span style="color: #990000;">date</span></a><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'Y'</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">.</span><span style="color: #0000ff;">')'</span><span style="color: #339933;">;</span><br />
+<span style="color: #000088;">$result</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/mysql_query"><span style="color: #990000;">mysql_query</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$query</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #000088;">$i</span> <span style="color: #339933;">=</span> <span style="color: #339933;">-</span><span style="color: #cc66cc;">1</span><span style="color: #339933;">;</span><br />
+<span style="color: #b1b100;">while</span><span style="color: #009900;">&#40;</span><span style="color: #000088;">$row</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/mysql_fetch_row"><span style="color: #990000;">mysql_fetch_row</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$result</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#123;</span><br />
+<span style="color: #000088;">$i</span><span style="color: #339933;">++;</span><br />
+<span style="color: #009900;">&#125;</span></div></div>
+<ul>
+<li>MysqlB: Se confía en la capacidad de contar de mysql</li>
+</ul>
+<div class="codecolorer-container php geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="php codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"><span style="color: #000088;">$num</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/rand"><span style="color: #990000;">rand</span></a><span style="color: #009900;">&#40;</span><span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span><span style="color: #cc66cc;">255</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #000088;">$query</span> <span style="color: #339933;">=</span> <span style="color: #0000ff;">'select count(*) from lista where num = '</span><span style="color: #339933;">.</span><span style="color: #000088;">$num</span><span style="color: #339933;">.</span><span style="color: #0000ff;">' and timestamp &amp;gt; from_unixtime('</span><span style="color: #339933;">.</span><a href="http://www.php.net/mktime"><span style="color: #990000;">mktime</span></a><span style="color: #009900;">&#40;</span><span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span> <a href="http://www.php.net/date"><span style="color: #990000;">date</span></a><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'m'</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">,</span> <a href="http://www.php.net/date"><span style="color: #990000;">date</span></a><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'d'</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">-</span><span style="color: #cc66cc;">1</span><span style="color: #339933;">,</span> <a href="http://www.php.net/date"><span style="color: #990000;">date</span></a><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'Y'</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">.</span><span style="color: #0000ff;">')'</span><span style="color: #339933;">;</span><br />
+<span style="color: #000088;">$result</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/mysql_query"><span style="color: #990000;">mysql_query</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$query</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #000088;">$row</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/mysql_fetch_row"><span style="color: #990000;">mysql_fetch_row</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$result</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span></div></div>
+<ul>
+<li>MysqlC: Se usa el mismo comando de contar pero desde php</li>
+</ul>
+<div class="codecolorer-container php geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="php codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"><span style="color: #000088;">$num</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/rand"><span style="color: #990000;">rand</span></a><span style="color: #009900;">&#40;</span><span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span><span style="color: #cc66cc;">255</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #000088;">$query</span> <span style="color: #339933;">=</span> <span style="color: #0000ff;">'select num from lista where num = '</span><span style="color: #339933;">.</span><span style="color: #000088;">$num</span><span style="color: #339933;">.</span><span style="color: #0000ff;">' and timestamp &amp;gt; from_unixtime('</span><span style="color: #339933;">.</span><a href="http://www.php.net/mktime"><span style="color: #990000;">mktime</span></a><span style="color: #009900;">&#40;</span><span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span> <a href="http://www.php.net/date"><span style="color: #990000;">date</span></a><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'m'</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">,</span> <a href="http://www.php.net/date"><span style="color: #990000;">date</span></a><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'d'</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">-</span><span style="color: #cc66cc;">1</span><span style="color: #339933;">,</span> <a href="http://www.php.net/date"><span style="color: #990000;">date</span></a><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'Y'</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">.</span><span style="color: #0000ff;">')'</span><span style="color: #339933;">;</span><br />
+<span style="color: #000088;">$result</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/mysql_query"><span style="color: #990000;">mysql_query</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$query</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #000088;">$i</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/mysql_numrows"><span style="color: #990000;">mysql_numrows</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$result</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span></div></div>
+<ul>
+<li>Files: Se carga el archivo en memoria y luego se hace un foreach para buscar coincidencias</li>
+</ul>
+<div class="codecolorer-container php geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="php codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"><span style="color: #000088;">$lines</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/file"><span style="color: #990000;">file</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$file</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #000088;">$num</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/rand"><span style="color: #990000;">rand</span></a><span style="color: #009900;">&#40;</span><span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span><span style="color: #cc66cc;">255</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #000088;">$i</span> <span style="color: #339933;">=</span> <span style="color: #cc66cc;">0</span><span style="color: #339933;">;</span><br />
+<span style="color: #b1b100;">foreach</span><span style="color: #009900;">&#40;</span><span style="color: #000088;">$lines</span> <span style="color: #b1b100;">as</span> <span style="color: #000088;">$line</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#123;</span><br />
+<span style="color: #b1b100;">if</span><span style="color: #009900;">&#40;</span><span style="color: #000088;">$line</span> <span style="color: #339933;">==</span> <span style="color: #000088;">$num</span><span style="color: #009900;">&#41;</span> <span style="color: #000088;">$i</span><span style="color: #339933;">++;</span><br />
+<span style="color: #009900;">&#125;</span></div></div>
+<h2>Resultados</h2>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+    
+      google.load('visualization', '1', {'packages':['corechart']});
+      google.setOnLoadCallback(drawCharts);
+      
+      function drawCharts(){
+        drawChart1();
+        drawChart2();
+        drawChart3();
+      }
+      
+      
+      function drawChart1() {
+            // Create and populate the data table.
+            var data = new google.visualization.DataTable();
+            
+            var raw_data = [
+            ['MysqlA', 0.47137904167175, 0.45942568778992, 0.46913623809814, 0.47044014930725, 0.46680450439453],['MysqlB', 0.45121359825134, 0.46103501319885, 0.46196246147156, 0.46554064750671, 0.45803475379944],['MysqlC', 0.45845675468445, 0.45847320556641, 0.45470786094666, 0.47418141365051, 0.46465516090393],['Files', 0.2754271030426, 0.27704167366028, 0.2813892364502, 0.28424429893494, 0.27748584747314]                            ];
+            
+            var years = ['1st', '2nd', '3rd', '4th', '5th'];
+                            
+            data.addColumn('string', 'Time');
+            for (var i = 0; i  < raw_data.length; ++i) {
+              data.addColumn('number', raw_data[i][0]);    
+            }
+            
+            data.addRows(years.length);
+          
+            for (var j = 0; j < years.length; ++j) {    
+              data.setValue(j, 0, years[j].toString());    
+            }
+            for (var i = 0; i  < raw_data.length; ++i) {
+              for (var j = 1; j  < raw_data[i].length; ++j) {
+                data.setValue(j-1, i+1, raw_data[i][j]);    
+              }
+            }
+            
+            // Create and draw the visualization.
+            new google.visualization.BarChart(document.getElementById('chart1')).
+                draw(data,
+                     {title:"Time it takes to do 50 requests on a 10k line file",
+                      width:600, height:400,
+                      vAxis: {title: "Time"},
+                      hAxis: {title: "Seconds"}}
+                );
+    }
+      
+      
+      function drawChart2() {
+            // Create and populate the data table.
+            var data = new google.visualization.DataTable();
+            
+            var raw_data = [
+            ['MysqlA', 2.7686369419098, 2.7253029346466, 2.7522926330566, 2.7956855297089, 2.7553255558014],['MysqlB', 2.7607343196869, 2.7075021266937, 2.7039449214935, 2.7256145477295, 2.7321860790253],['MysqlC', 2.7155947685242, 2.72824883461, 2.7569189071655, 2.7329955101013, 2.7297141551971],['Files', 3.1052844524384, 2.9411017894745, 2.9503200054169, 2.9294714927673, 2.9646718502045]                            ];
+            
+            var years = ['1st', '2nd', '3rd', '4th', '5th'];
+                            
+            data.addColumn('string', 'Time');
+            for (var i = 0; i  < raw_data.length; ++i) {
+              data.addColumn('number', raw_data[i][0]);    
+            }
+            
+            data.addRows(years.length);
+          
+            for (var j = 0; j < years.length; ++j) {    
+              data.setValue(j, 0, years[j].toString());    
+            }
+            for (var i = 0; i  < raw_data.length; ++i) {
+              for (var j = 1; j  < raw_data[i].length; ++j) {
+                data.setValue(j-1, i+1, raw_data[i][j]);    
+              }
+            }
+            
+            // Create and draw the visualization.
+            new google.visualization.BarChart(document.getElementById('chart2')).
+                draw(data,
+                     {title:"Time it takes to do 50 requests on a 100k line file",
+                      width:600, height:400,
+                      vAxis: {title: "Time"},
+                      hAxis: {title: "Seconds"}}
+                );
+    }
+      
+      function drawChart3() {
+            // Create and populate the data table.
+            var data = new google.visualization.DataTable();
+            
+            var raw_data = [
+['MysqlA', 933.21640467644, 922.54734373093, 901.86389923096, 897.49964690208, 914.76998758316],['MysqlB', 910.93939828873, 943.68561029434, 881.8849363327, 899.31127691269, 909.59679913521],['MysqlC', 915.86891436577, 880.2218747139, 927.45656728745, 984.30798196793, 900.75863146782],['Files', 317.53111505508, 323.88458108902, 327.25870728493, 346.53602385521, 325.13826751709]
+            
+            
+            ];
+            
+            var years = ['1st', '2nd', '3rd', '4th', '5th'];
+                            
+            data.addColumn('string', 'Time');
+            for (var i = 0; i  < raw_data.length; ++i) {
+              data.addColumn('number', raw_data[i][0]);    
+            }
+            
+            data.addRows(years.length);
+          
+            for (var j = 0; j < years.length; ++j) {    
+              data.setValue(j, 0, years[j].toString());    
+            }
+            for (var i = 0; i  < raw_data.length; ++i) {
+              for (var j = 1; j  < raw_data[i].length; ++j) {
+                data.setValue(j-1, i+1, raw_data[i][j]);    
+              }
+            }
+            
+            // Create and draw the visualization.
+            new google.visualization.BarChart(document.getElementById('chart3')).
+                draw(data,
+                     {title:"Time it takes to do 50 requests on a 10M line file",
+                      width:600, height:400,
+                      vAxis: {title: "Time"},
+                      hAxis: {title: "Seconds"}}
+                );
+    }
+    </script>
+  
+    <div id="charts_div"><div id="chart1"></div><div id="chart2"></div><div id="chart3"></div></div>
+<h2>Conclusiones</h2>
+<p>Si esperamos sólo 10k de inserts, podemos observar que lo mejor sería usar un archivo de texto plano para almacenar las IP y irlo borrando con cada noche (cron).  También vemos que el algorismo MysqlA (cargar todos los resultados en memoria para tratarlos) es el más lento en la mayoría de casos.</p>
+<p>Si esperamos 100k de inserts, vemos que usar un archivo de texto plano ya no es una alternativa ya que le saca aproximadamente medio segundo más a cualquier alternativa de mysql y aprovecha mucho mejor el caché (fijaos en el tiempo del primer resultado y el siguiente) Tampoco la opción mysqlA es una alternativa, siempre es más lenta que el resto.</p>
+<p>Si esperamos 10M de inserts, lo primero sería cambiar mysql por otra base de datos más profesional como por ejemplo Oracle (aquí el DBA de mi empresa estaría orgulloso de mí :P), y lo segundo es que extrañamente el uso de archivos de texto plano es muchisimo más rápido, hasta 3 veces más, que cualquiera de los algorismos que usan base de datos.</p>
+<p>And the winner is &#8230; (tambores) &#8230; Archivos de texto plano!</p>
+<p>Nota: Cabe decir que no se ha probado alguna de las bases de datos NoSQL, eso lo dejo para el próximo artículo <img src="https://s.w.org/images/core/emoji/72x72/1f61b.png" alt="😛" class="wp-smiley" style="height: 1em; max-height: 1em;" /><br />
+Nota2: Podeis encontrar el codigo en <a href="https://github.com/franhp/BenchmarkingTestClass">https://github.com/franhp/BenchmarkingTestClass</a></p>
+]]></content:encoded>
+			<wfw:commentRss>http://filadeatras.com/2011/05/15/benchmarking-de-sistema-antispam/feed/</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+		<item>
+		<title>Rotar imagenes aleatoriamente con Javascript + PHP</title>
+		<link>http://filadeatras.com/2011/03/26/rotar-imagenes-aleatoriamente-con-javascript-php/</link>
+		<comments>http://filadeatras.com/2011/03/26/rotar-imagenes-aleatoriamente-con-javascript-php/#respond</comments>
+		<pubDate>Sat, 26 Mar 2011 01:12:35 +0000</pubDate>
+		<dc:creator><![CDATA[hektor]]></dc:creator>
+				<category><![CDATA[javascript]]></category>
+		<category><![CDATA[PHP]]></category>
+		<category><![CDATA[image]]></category>
+		<category><![CDATA[php]]></category>
+		<category><![CDATA[random]]></category>
+
+		<guid isPermaLink="false">http://filadeatras.com/?p=214</guid>
+		<description><![CDATA[Hola filadeatra-seros, como bien sabéis estamos ya metidos de pleno con Java en nuestra querida asignatura de POO :D. Pues os presento el método cachis-pistachis y digno de los cagorrismos de Franhp, que me he sacado de la manga para mostrar imagenes aleatoriamente y sin jQuery! La ejecución &#60;!-- Iniciamos el bucle con la propiedad [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Hola filadeatra-seros,<br />
+como bien sabéis estamos ya metidos de pleno con Java en nuestra querida asignatura de POO :D.<br />
+Pues os presento el método cachis-pistachis y digno de los cagorrismos de Franhp, que me he sacado de la manga para mostrar imagenes aleatoriamente y sin jQuery!</p>
+<h3>La ejecución</h3>
+<div class="codecolorer-container html4strict geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="html4strict codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"><span style="color: #808080; font-style: italic;">&lt;!-- Iniciamos el bucle con la propiedad onLoad --&gt;</span><br />
+<span style="color: #009900;">&lt;<a href="http://december.com/html/4/element/body.html"><span style="color: #000000; font-weight: bold;">body</span></a> <span style="color: #000066;">onLoad</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;randomImg()&quot;</span>&gt;</span><br />
+<span style="color: #808080; font-style: italic;">&lt;!-- Solo necesitamos una imagen --&gt;</span><br />
+<span style="color: #009900;">&lt;<a href="http://december.com/html/4/element/img.html"><span style="color: #000000; font-weight: bold;">img</span></a> <span style="color: #000066;">id</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;imagenAleatoria&quot;</span> <span style="color: #000066;">src</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;&quot;</span> <span style="color: #66cc66;">/</span>&gt;</span> <br />
+<span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><a href="http://december.com/html/4/element/body.html"><span style="color: #000000; font-weight: bold;">body</span></a>&gt;</span></div></div>
+<h3>randomImg()</h3>
+<div class="codecolorer-container javascript geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="javascript codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"><span style="color: #003366; font-weight: bold;">function</span> randomImg<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; images <span style="color: #339933;">=</span> <span style="color: #003366; font-weight: bold;">new</span> Array<span style="color: #009900;">&#40;</span><span style="color: #339933;">&lt;?</span>php getImages<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;?&gt;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <span style="color: #006600; font-style: italic;">//llamamos a la función getImages() en php</span><br />
+&nbsp; &nbsp; rand <span style="color: #339933;">=</span> Math.<span style="color: #660066;">floor</span><span style="color: #009900;">&#40;</span>Math.<span style="color: #660066;">random</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">*</span><span style="color: #009900;">&#40;</span>images.<span style="color: #660066;">length</span> <span style="color: #339933;">-</span><span style="color: #CC0000;">1</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <span style="color: #006600; font-style: italic;">//generamos un numero aleatorio</span><br />
+&nbsp; &nbsp; <span style="color: #006600; font-style: italic;">//hacemos la magia cambiando la propiedad src de la imagen</span><br />
+&nbsp; &nbsp; document.<span style="color: #660066;">getElementById</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">'imagenAleatoria'</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">setAttribute</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">'src'</span><span style="color: #339933;">,</span><span style="color: #3366CC;">''</span><span style="color: #339933;">+</span>images<span style="color: #009900;">&#91;</span>rand<span style="color: #009900;">&#93;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; setTimeout<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;randomImg()&quot;</span><span style="color: #339933;">,</span><span style="color: #CC0000;">10000</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <span style="color: #006600; font-style: italic;">//con un timeout recursivo hacemos que se llame a si misma hasta el infinito -1</span><br />
+&nbsp; &nbsp; <span style="color: #006600; font-style: italic;">// eso si, cada 10000 milisegundos :P</span><br />
+<span style="color: #009900;">&#125;</span></div></div>
+<h3>getImages()</h3>
+<div class="codecolorer-container php geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="php codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"><span style="color: #000000; font-weight: bold;">&lt;?php</span><br />
+<span style="color: #000000; font-weight: bold;">function</span> getImages <span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; <span style="color: #000088;">$string</span> <span style="color: #339933;">=</span> <span style="color: #0000ff;">&quot;&quot;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; <span style="color: #000088;">$handler</span> <span style="color: #339933;">=</span> <span style="color: #339933;">@</span><a href="http://www.php.net/opendir"><span style="color: #990000;">opendir</span></a><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">&quot;directorio&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; <span style="color: #b1b100;">while</span> <span style="color: #009900;">&#40;</span><span style="color: #000088;">$file</span> <span style="color: #339933;">=</span> <span style="color: #339933;">@</span><a href="http://www.php.net/readdir"><span style="color: #990000;">readdir</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$handler</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span><span style="color: #000088;">$file</span> <span style="color: #339933;">!=</span> <span style="color: #0000ff;">&quot;.&quot;</span> <span style="color: #339933;">&amp;&amp;</span> <span style="color: #000088;">$file</span> <span style="color: #339933;">!=</span> <span style="color: #0000ff;">&quot;..&quot;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000088;">$string</span><span style="color: #339933;">.=</span> &nbsp;<span style="color: #0000ff;">&quot;<span style="color: #000099; font-weight: bold;">\&quot;</span><span style="color: #006699; font-weight: bold;">$file</span><span style="color: #000099; font-weight: bold;">\&quot;</span>,&quot;</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">//creamos el string con el formato[ &quot;imagen1.jpg&quot;, ]</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <a href="http://www.php.net/closedir"><span style="color: #990000;">closedir</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$handler</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; <span style="color: #b1b100;">echo</span> <a href="http://www.php.net/substr"><span style="color: #990000;">substr</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$string</span><span style="color: #339933;">,</span><span style="color: #cc66cc;">0</span><span style="color: #339933;">,-</span><span style="color: #cc66cc;">1</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">//escupimos el string borrando la última coma XD</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<span style="color: #000000; font-weight: bold;">?&gt;</span></div></div>
+]]></content:encoded>
+			<wfw:commentRss>http://filadeatras.com/2011/03/26/rotar-imagenes-aleatoriamente-con-javascript-php/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Introducción a Google AdWords</title>
+		<link>http://filadeatras.com/2011/02/10/introduccion-a-google-adwords/</link>
+		<comments>http://filadeatras.com/2011/02/10/introduccion-a-google-adwords/#respond</comments>
+		<pubDate>Thu, 10 Feb 2011 14:19:18 +0000</pubDate>
+		<dc:creator><![CDATA[hektor]]></dc:creator>
+				<category><![CDATA[internet]]></category>
+		<category><![CDATA[adwords]]></category>
+		<category><![CDATA[google]]></category>
+		<category><![CDATA[introduccion]]></category>
+
+		<guid isPermaLink="false">http://filadeatras.com/?p=130</guid>
+		<description><![CDATA[Buenas compañeros, hoy os presento una pequeña introducción a: Veremos el comportamiento que tiene más o menos el servicio de publicidad de Google e incluso a calcular el posicionamiento y el coste final orientativo de nuestros anuncios. Introducción Google AdWords no solo depende de cuanto estemos dispuestos a pagar por un anuncio, sino que depende [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Buenas compañeros, hoy os presento una pequeña introducción a:</p>
+<p style="text-align: center;"><a href="http://adwords.google.com"><img class="aligncenter" title="Google adwords" src="http://www.google.com/images/logos/adwords_logo.gif" alt="" width="210" height="40" /></a></p>
+<p>Veremos el comportamiento que tiene más o menos el servicio de publicidad de Google e incluso a calcular el posicionamiento y el coste final orientativo de nuestros anuncios.<br />
+<span id="more-130"></span></p>
+<h3>Introducción</h3>
+<p><strong>Google AdWords</strong> no solo depende de cuanto estemos dispuestos a pagar por un anuncio, sino que depende de un algoritmo que determina a partir de varios factores la posición y el coste de éstos.</p>
+<p>Cuando creamos una campaña publicitaria en Google AdWords, escogemos entre otras cosas, unas palabras clave, un presupuesto, una franja horaria en que mostraremos esos anuncios y un <u>precio máximo por clic</u>. Para empezar esto significa que el precio del clic es variable y no tenemos porqué pagar el máximo que hemos definido. En realidad el precio por clic depende de nuestro <strong>Ad Ranking </strong>.</p>
+<h3>Ad Ranking</h3>
+<p>El Ad Ranking define la posición/ranking de nuestros anuncios patrocinados. Es muy importante tener siempre un buen Ad Ranking, ya que uno bajo podría significar que incluso no se mostrara nuestro anuncio. </p>
+<p>Hay una fórmula conocida para determinarlo:<br />
+<center><br />
+<h3><em>Ad Ranking = (CPC Max) x QS</em></h3>
+<p>CPC Max = Coste por Clic Máximo (Cost Per Clic)<br />
+QS = Puntuación de Calidad (Quality Score)<br />
+</center></p>
+<h3>Quality Score</h3>
+<p>El QS es un concepto un tanto dificil de explicar para un novato como yo, pero viene a ser una suma de varios factores:<br />
+<center><br />
+<h3><em>QS = CTR + Relevance + Landing page</em></h3>
+<p>CTR = Proporción de clics (Clickthrough rate)<br />
+Relevance = Relevancia<br />
+Landing Page = Página de aterrizaje<br />
+</center><br />
+Podríamos ordenar los tres factores según prioridad: <strong>CTR > Relevance > Landing Page</strong>. </p>
+<ul>
+<li>
+Más del 50% del QS proviene del CTR. El <a href="http://es.wikipedia.org/wiki/Proporci%C3%B3n_de_clics">CTR</a> es la usabilidad, el atractivo visual de nuestro banner.</li>
+<li>Alrededor de un 30% viene de la <a href="http://adwords.google.com/support/aw/bin/answer.py?hl=en&#038;answer=14089">Relevancia</a>. Se define como el grado de afinidad que tiene un resultado en relacion al anuncio, la palabra clave y la página.</li>
+<li>El % restante hace referencia a la <a href="http://adwords.google.com/support/aw/bin/answer.py?hl=en&#038;answer=47884">Landing Page</a>, es la pagina web a la que iremos a parar al hacer clic en el banner. Según Google para que una página web sea una buena página de aterrizaje, ésta tiene que contener: un buen contenido original, transparencia y navegabilidad.</li>
+</ul>
+<h3>Determinación de la posición</h3>
+<p>Ahora veamos un ejemplo práctico de como determinar la posición en el ranking de una página web.</p>
+<p>Suponiendo que tenemos 3 anunciantes que han pagado un CPC Max de 0.40€, 0.30€ y 0.20€ y tienen un QS de 3, 6 y 8 respectivamente:</p>
+<style>
+table {
+margin-bottom: 10px;
+margin-top: 10px;
+border: 1px solid black;
+}
+table td{
+ padding:2px 7px 2px 7px;
+text-align: center;
+border: 1px solid black;
+}
+</style>
+<table align="center">
+<tr>
+<td>Anunciante</td>
+<td>CPC Max
+<td>QS</td>
+<td>Ad Ranking</td>
+<td>Posición</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0.40€
+<td>3</td>
+<td>1.20</td>
+<td><strong>3</strong></td>
+</tr>
+<tr>
+<td>2</td>
+<td>0.30€
+<td>6</td>
+<td>1.80</td>
+<td><strong>1</strong></td>
+</tr>
+<tr>
+<td>3</td>
+<td>0.20€
+<td>8</td>
+<td>1.60</td>
+<td><strong>2</strong></td>
+</tr>
+</table>
+<p><strong>Conclusión:</strong> El <strong>Quality Score</strong> es <u>lo más importante de un anuncio AdWords</u>, y por tanto tenemos que ponerle dedicación a conseguir una alta puntuación en esa parte. Como vemos de nada sirve pagar hasta 0.40€ por clic, si nuestro QS es muy bajo siempre saldremos los últimos o quizá no saldremos.</p>
+<h3>Determinación del coste final</h3>
+<p>Pero el QS no solo influye en el posicionamiento de nuestros anuncios, sinó tambien en el precio final que pagamos por clic. Para verlo en profundidad vamos a usar la tabla anterior con un nuevo anunciante, suponiendo que todos los anunciantes pagan 0.40€ de CPC Max y lo único que varia es el QS:</p>
+<table align="center">
+<tr>
+<td>Anunciante</td>
+<td>CPC Max
+<td>QS</td>
+<td>Ad Ranking</td>
+<td>Posición</td>
+<td>CPC Final*</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0.40€
+<td>8</td>
+<td>3.20</td>
+<td>1</td>
+<td><strong>0.30+0.01€</strong></td>
+</tr>
+<tr>
+<td>2</td>
+<td>0.40€
+<td>6</td>
+<td>2.40</td>
+<td>2</td>
+<td>
+<h3><u>0.20+0.01€</u></h3>
+</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0.40€
+<td>3</td>
+<td>1.20</td>
+<td>3</td>
+<td><strong>0.24+0.01€</strong></td>
+</tr>
+<tr>
+<td>4</td>
+<td>0.40€
+<td>2</td>
+<td>0.80</td>
+<td>4</td>
+<td><strong>0.05€-0.19+0.01€**</strong></td>
+</tr>
+</table>
+<p>*<em>Actual CPC = (Next advertisers Ad Rank / QS) + $0.01 (supondremos 0.01€)</em><br />
+**<em>En la última posición se toma del mínimo</em></p>
+<h3>Conclusión final</h3>
+<p>La clave está en conseguir un buen QS y conocer el entorno en el que vamos a publicitarnos, ya que nuestro CPC Final viene dado también en parte al Ad Ranking de nuestros competidores.</p>
+<p>Antes de acabar os dejo un enlace en que explican como mejorar el CTR: <a href="http://www.mp3dseo.com/que-es-el-ctr-y-como-mejorarlo/">link</a><br />
+Espero que sirva de ayuda para empezar con esto del AdWords.</p>
+<p>Saludos!</p>
+<h3>Bibliografía</h3>
+<p><a href="http://adwords.google.com/support/aw/bin/answer.py?hl=en&amp;answer=6111">http://adwords.google.com/support/aw/bin/answer.py?hl=en&amp;answer=6111</a><br />
+<a href="http://adwords.google.com/support/aw/bin/answer.py?hl=es-419&amp;hlrm=en&amp;answer=10215">http://adwords.google.com/support/aw/bin/answer.py?hl=es-419&amp;hlrm=en&amp;answer=10215</a><br />
+<a href="http://hubpages.com/hub/quality-score-impacts">http://hubpages.com/hub/quality-score-impacts</a><br />
+<a href="http://www.youtube.com/user/mercadeoglobal">http://www.youtube.com/user/mercadeoglobal</a></p>
+]]></content:encoded>
+			<wfw:commentRss>http://filadeatras.com/2011/02/10/introduccion-a-google-adwords/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Fuentes como imágenes con PHP + GD</title>
+		<link>http://filadeatras.com/2011/01/27/fuentes-como-imagenes-con-php-gd/</link>
+		<comments>http://filadeatras.com/2011/01/27/fuentes-como-imagenes-con-php-gd/#comments</comments>
+		<pubDate>Thu, 27 Jan 2011 22:58:23 +0000</pubDate>
+		<dc:creator><![CDATA[hektor]]></dc:creator>
+				<category><![CDATA[internet]]></category>
+		<category><![CDATA[PHP]]></category>
+		<category><![CDATA[gd]]></category>
+		<category><![CDATA[image]]></category>
+		<category><![CDATA[text]]></category>
+
+		<guid isPermaLink="false">http://filadeatras.com/?p=83</guid>
+		<description><![CDATA[Como no podía ser de otra manera, Franhp ha hecho crítica constructiva del post anterior y me ha dicho: &#8211; No entiendo por qué en vez de utilizar un recurso exterior no lo haces con PHP + GD. Yo le he contestado  &#8220;Claaaaaaaaro&#8221;. He usado un recurso exterior (libreria .js) porqué fue una cosa que [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Como no podía ser de otra manera, Franhp ha hecho crítica constructiva del post anterior y me ha dicho:</p>
+<blockquote><p>&#8211; No entiendo por qué en vez de utilizar un recurso exterior no lo haces con PHP + GD.</p></blockquote>
+<p>Yo le he contestado  &#8220;Claaaaaaaaro&#8221;. He usado un recurso exterior (libreria .js) porqué fue una cosa que encontré sobre la marcha en un blog, y como me llamó la atención os expliqué como se hace. Ahora bien, si franhp quiere hacerlo en GD yo lo hago en GD.</p>
+<p>Aquí os enseño dos formas de hacer algo parecido, aunque más currado.<span id="more-83"></span></p>
+<h3>Primera manera: gd puro</h3>
+<p><image src="http://filadeatras.com/files/fuente_gd/Manera1/" /></p>
+<p>Esta forma no necesita importar una fuente. Todo se genera con PHP y GD. <a href="http://filadeatras.com/files/fuente_gd/Manera1/">http://filadeatras.com/files/fuente_gd/Manera1/</a></p>
+<div class="codecolorer-container php geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="php codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"><a href="http://www.php.net/header"><span style="color: #990000;">header</span></a><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">&quot;Content-type: image/jpeg&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">//tipo del archivo, imagen jpeg</span><br />
+<span style="color: #000088;">$texto</span> <span style="color: #339933;">=</span> <span style="color: #0000ff;">&quot;FilaDeAtras: Comunidad hacker&quot;</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">//texto</span><br />
+<span style="color: #000088;">$fuente</span> <span style="color: #339933;">=</span> <span style="color: #cc66cc;">5</span> <span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">//tamaño de la fuente, de 1 a 5</span><br />
+<span style="color: #000088;">$ancho</span> &nbsp;<span style="color: #339933;">=</span> <a href="http://www.php.net/imagefontwidth"><span style="color: #990000;">ImageFontWidth</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$fuente</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">*</span> <a href="http://www.php.net/strlen"><span style="color: #990000;">strlen</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$texto</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">+</span> <span style="color: #cc66cc;">6</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">//ancho de la imagen</span><br />
+<span style="color: #000088;">$alto</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/imagefontheight"><span style="color: #990000;">ImageFontHeight</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$fuente</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">+</span> <span style="color: #cc66cc;">6</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">//alto de la imagen</span><br />
+<span style="color: #000088;">$imagen</span> <span style="color: #339933;">=</span> <span style="color: #339933;">@</span><a href="http://www.php.net/imagecreatetruecolor"><span style="color: #990000;">imagecreatetruecolor</span></a> <span style="color: #009900;">&#40;</span><span style="color: #000088;">$ancho</span><span style="color: #339933;">,</span> <span style="color: #000088;">$alto</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">//creamos el fondo</span><br />
+<span style="color: #666666; font-style: italic;">//le añadimos color de fondo</span><br />
+<span style="color: #000088;">$background_color</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/imagecolorallocate"><span style="color: #990000;">imagecolorallocate</span></a> <span style="color: #009900;">&#40;</span><span style="color: #000088;">$imagen</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">255</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">255</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">255</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #666666; font-style: italic;">//y el color del texto</span><br />
+<span style="color: #000088;">$text_color</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/imagecolorallocate"><span style="color: #990000;">imagecolorallocate</span></a> <span style="color: #009900;">&#40;</span><span style="color: #000088;">$imagen</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">255</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">0</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #666666; font-style: italic;">//enclastamos el texto</span><br />
+<a href="http://www.php.net/imagestring"><span style="color: #990000;">imagestring</span></a> <span style="color: #009900;">&#40;</span><span style="color: #000088;">$imagen</span><span style="color: #339933;">,</span> <span style="color: #000088;">$fuente</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">3</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">2</span><span style="color: #339933;">,</span> &nbsp;<span style="color: #000088;">$texto</span><span style="color: #339933;">,</span> <span style="color: #000088;">$text_color</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<a href="http://www.php.net/imagejpeg"><span style="color: #990000;">imagejpeg</span></a> <span style="color: #009900;">&#40;</span><span style="color: #000088;">$imagen</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">//creamos la imagen para visualizarla</span><br />
+<a href="http://www.php.net/imagedestroy"><span style="color: #990000;">imagedestroy</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$imagen</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">//la borramos del servidor</span></div></div>
+<h3>Segunda manera: gd + imagen de fondo</h3>
+<p><image src="http://filadeatras.com/files/fuente_gd/Manera2/"></img></p>
+<p>Es la forma que queda mejor. Requiere una imagen de fondo y una fuente ttf. <a href="http://filadeatras.com/files/fuente_gd/Manera2/">http://filadeatras.com/files/fuente_gd/Manera2/</a></p>
+<div class="codecolorer-container php geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="php codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"><span style="color: #666666; font-style: italic;">//tipo del archivo que se creará dinámicamente, imagen jpeg</span><br />
+<a href="http://www.php.net/header"><span style="color: #990000;">header</span></a><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'Content-type: image/jpeg'</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #666666; font-style: italic;">//ruta de la imagen de fondo</span><br />
+<span style="color: #000088;">$imagen</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/imagecreatefromjpeg"><span style="color: #990000;">imagecreatefromjpeg</span></a><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'vicky.jpeg'</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #000088;">$blanco</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/imagecolorallocate"><span style="color: #990000;">imagecolorallocate</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$imagen</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">255</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">255</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">255</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">//color blanco</span><br />
+<span style="color: #000088;">$azul</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/imagecolorallocate"><span style="color: #990000;">imagecolorallocate</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$imagen</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">255</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">255</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">//color azul</span><br />
+<br />
+<span style="color: #666666; font-style: italic;">//fusionamos los elementos con imagefttext(), atributos por orden:</span><br />
+<span style="color: #666666; font-style: italic;">//ruta_imagen, tamaño_fuente, grado_inclinación, margen_izquierdo,</span><br />
+<span style="color: #666666; font-style: italic;">//margen_superior, color, ruta_tipografía, cadena_texto</span><br />
+<a href="http://www.php.net/imagefttext"><span style="color: #990000;">imagefttext</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$imagen</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">80</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">250</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">210</span><span style="color: #339933;">,</span> <span style="color: #000088;">$azul</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'AngelicWar.ttf'</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'Vicky'</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<a href="http://www.php.net/imagefttext"><span style="color: #990000;">imagefttext</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$imagen</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">50</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">35</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">325</span><span style="color: #339933;">,</span> <span style="color: #000088;">$blanco</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'AngelicWar.ttf'</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'El Vikingo Fumeta'</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<br />
+<a href="http://www.php.net/imagejpeg"><span style="color: #990000;">imagejpeg</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$imagen</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">//creamos la imagen para que se visualice</span><br />
+<a href="http://www.php.net/imagedestroy"><span style="color: #990000;">imagedestroy</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$imagen</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">//la borramos</span></div></div>
+]]></content:encoded>
+			<wfw:commentRss>http://filadeatras.com/2011/01/27/fuentes-como-imagenes-con-php-gd/feed/</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+		<item>
+		<title>Fuentes como imágenes con Cufón</title>
+		<link>http://filadeatras.com/2011/01/27/fuentes-como-imagenes-con-cufon/</link>
+		<comments>http://filadeatras.com/2011/01/27/fuentes-como-imagenes-con-cufon/#respond</comments>
+		<pubDate>Thu, 27 Jan 2011 01:47:38 +0000</pubDate>
+		<dc:creator><![CDATA[hektor]]></dc:creator>
+				<category><![CDATA[internet]]></category>
+		<category><![CDATA[cufon]]></category>
+		<category><![CDATA[image]]></category>
+		<category><![CDATA[js]]></category>
+		<category><![CDATA[text]]></category>
+
+		<guid isPermaLink="false">http://filadeatras.com/?p=75</guid>
+		<description><![CDATA[Hola compañeros, ayer estaba mirando un blog y me fijé que los títulos de los post eran demasiado cool, tal como me temía, eran imágenes. Primero pensé que quizá el autor se lo curraba y ponía el título en una imágen y luego la metía en la cabecera del post; pero rápidamente comprendí que nadie [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Hola compañeros,</p>
+<p>ayer estaba mirando un blog y me fijé que los títulos de los post eran demasiado cool, tal como me temía, eran imágenes. Primero pensé que quizá el autor se lo curraba y ponía el título en una imágen y luego la metía en la cabecera del post; pero rápidamente comprendí que nadie se mata tanto en hacer eso. Con un simple clic analicé el header grácias a firebug, y como me imaginé era javascript.</p>
+<p>La libreria, script o lo que sea, se llama Cufón, <a href="http://cufon.shoqolate.com/generate/" target="_blank">http://cufon.shoqolate.com/generate/</a> y después de incluirla nos permite manipular cualquier imagen de fuente como si fuera texto.</p>
+<p>Utilizarlo es de lo más fácil. <span id="more-75"></span>Primero buscamos la fuente (True Type) que queremos utilizar como imagen, (me abstengo de decir nada sobre el tema del copyright así que ir con cuidado), entramos a la página anterior, subimos la fuente y ésta nos devuelve un archivo .js con su nombre.</p>
+<p><a href="http://filadeatras.com/wp-content/uploads/2011/01/Captura.jpg"><img src="http://filadeatras.com/wp-content/uploads/2011/01/Captura-300x188.jpg" alt="" title="Captura" width="300" height="188" class="alignnone size-medium wp-image-76" srcset="http://filadeatras.com/wp-content/uploads/2011/01/Captura-300x188.jpg 300w, http://filadeatras.com/wp-content/uploads/2011/01/Captura.jpg 907w" sizes="(max-width: 300px) 100vw, 300px" /></a></p>
+<p>Entonces en el header html incluimos la librería Cufón y las fuentes .js:</p>
+<div class="codecolorer-container html4strict geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="html4strict codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"><span style="color: #009900;">&lt;<a href="http://december.com/html/4/element/script.html"><span style="color: #000000; font-weight: bold;">script</span></a> <span style="color: #000066;">src</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;cufon-yui.js&quot;</span> <span style="color: #000066;">type</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;text/javascript&quot;</span>&gt;&lt;<span style="color: #66cc66;">/</span><a href="http://december.com/html/4/element/script.html"><span style="color: #000000; font-weight: bold;">script</span></a>&gt;</span> <br />
+<span style="color: #009900;">&lt;<a href="http://december.com/html/4/element/script.html"><span style="color: #000000; font-weight: bold;">script</span></a> <span style="color: #000066;">src</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;Angelic_War_400.font.js&quot;</span> <span style="color: #000066;">type</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;text/javascript&quot;</span>&gt;&lt;<span style="color: #66cc66;">/</span><a href="http://december.com/html/4/element/script.html"><span style="color: #000000; font-weight: bold;">script</span></a>&gt;</span><br />
+<span style="color: #009900;">&lt;<a href="http://december.com/html/4/element/script.html"><span style="color: #000000; font-weight: bold;">script</span></a> <span style="color: #000066;">src</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;Demon_400.font.js&quot;</span> <span style="color: #000066;">type</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;text/javascript&quot;</span>&gt;&lt;<span style="color: #66cc66;">/</span><a href="http://december.com/html/4/element/script.html"><span style="color: #000000; font-weight: bold;">script</span></a>&gt;</span></div></div>
+<p>Ahora definiremos el elemento con el texto que queremos substituir por la imagen de la fuente. Por ejemplo una h1, div, p&#8230;</p>
+<div class="codecolorer-container html4strict geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="html4strict codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"><span style="color: #009900;">&lt;<a href="http://december.com/html/4/element/script.html"><span style="color: #000000; font-weight: bold;">script</span></a> <span style="color: #000066;">type</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;text/javascript&quot;</span>&gt;</span><br />
+Cufon.replace('h1', {fontFamily:'Demon'});<br />
+Cufon.replace('h2', {fontFamily:'Angelic'});<br />
+<span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><a href="http://december.com/html/4/element/script.html"><span style="color: #000000; font-weight: bold;">script</span></a>&gt;</span></div></div>
+<p>Una ventaja de usar jQuery junto con esta librería es que se puede definir más de un elemento en la misma línea:</p>
+<div class="codecolorer-container html4strict geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="html4strict codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"><span style="color: #009900;">&lt;<a href="http://december.com/html/4/element/script.html"><span style="color: #000000; font-weight: bold;">script</span></a> <span style="color: #000066;">type</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;text/javascript&quot;</span>&gt;</span><br />
+Cufon.replace('h1', h2, .elem, #div', {fontFamily:'Demon'});<br />
+<span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><a href="http://december.com/html/4/element/script.html"><span style="color: #000000; font-weight: bold;">script</span></a>&gt;</span></div></div>
+<p>Por ultimo decir que se le puede añadir CSS y funciona igualmente.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://filadeatras.com/2011/01/27/fuentes-como-imagenes-con-cufon/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>C# FtpWebRequest ContentLength, Fail?</title>
+		<link>http://filadeatras.com/2011/01/22/c-ftpwebrequest-contentlength-fail/</link>
+		<comments>http://filadeatras.com/2011/01/22/c-ftpwebrequest-contentlength-fail/#comments</comments>
+		<pubDate>Sat, 22 Jan 2011 17:20:41 +0000</pubDate>
+		<dc:creator><![CDATA[hektor]]></dc:creator>
+				<category><![CDATA[C#]]></category>
+		<category><![CDATA[internet]]></category>
+		<category><![CDATA[550]]></category>
+		<category><![CDATA[error]]></category>
+		<category><![CDATA[ftp]]></category>
+		<category><![CDATA[FtpWebRequest]]></category>
+
+		<guid isPermaLink="false">http://filadeatras.com/?p=61</guid>
+		<description><![CDATA[Hoy he tenido un curioso problema, estaba implementando un cliente ftp en C# ayudándome del ejemplo http://www.vcskicks.com/download-file-ftp.php Una vez conectado con el Servidor FTP y listo para descarga del archivo, el programador quiere guardar la longitud del archivo para utilizarla en un ProgressBar. Pues bien, resulta que la aplicación hacía Pim, pam, plin y daba [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Hoy he tenido un curioso problema,</p>
+<p>estaba implementando un cliente ftp en C# ayudándome del ejemplo http://www.vcskicks.com/download-file-ftp.php</p>
+<p>Una vez conectado con el Servidor FTP y listo para descarga del archivo, el programador quiere guardar la<strong> longitud</strong> del archivo para utilizarla en un ProgressBar.</p>
+<p>Pues bien, resulta que la aplicación hacía Pim, pam, plin y daba la excepción:</p>
+<p><a href="http://filadeatras.com/wp-content/uploads/2011/01/ops.jpg"><img class="alignnone size-full wp-image-62" title="ops" src="http://filadeatras.com/wp-content/uploads/2011/01/ops.jpg" alt="" width="514" height="101" /></a></p>
+<p>Me he quedao rallao, porque después de comprovar por activa y pasiva la ruta del archivo, ésta era correcta, y por tanto no podía ser que no se encontrara el archivo. Así pues el problema podía  ser el acceso.<br />
+<span id="more-61"></span><br />
+Indagando por Google, y después de realizar una serie de pruebas, he conseguido obtener respuesta del servidor,</p>
+<p><a href="http://filadeatras.com/wp-content/uploads/2011/01/ops2.jpg"><img class="alignnone size-full wp-image-63" title="ops2" src="http://filadeatras.com/wp-content/uploads/2011/01/ops2.jpg" alt="" width="543" height="142" srcset="http://filadeatras.com/wp-content/uploads/2011/01/ops2-300x78.jpg 300w, http://filadeatras.com/wp-content/uploads/2011/01/ops2.jpg 543w" sizes="(max-width: 543px) 100vw, 543px" /></a></p>
+<p>Mmmmm&#8230;. ¿-1? Imposible, un archivo no puede ocupar -1 Bytes xD.  Ya no cabe duda, el problema es del servidor, que no quiere dar la longitud del archivo.</p>
+<p>Como soy muy curioso he intentado buscar el porqué de todo ésto, y lo he encontrado en MSDN:</p>
+<blockquote><p><em>The <strong>ContentLength</strong> property contains the value of the  Content-Length header returned with the response. If the Content-Length  header is not set in the response, <strong>ContentLength</strong> is set to the value -1.</em></p></blockquote>
+<p dir="ltr"><a href="http://en.wikipedia.org/wiki/List_of_HTTP_header_fields">http://en.wikipedia.org/wiki/List_of_HTTP_header_fields</a> &#8211; The length of the request body in <a title="Octet (computing)" href="http://en.wikipedia.org/wiki/Octet_%28computing%29">octets</a> (8-bit bytes)</p>
+<p dir="ltr"><strong><em>&gt;&gt; El servidor puede desconocer el </em><em>Content</em>&#8211;<em>Length </em><em>o simplemente omitirlo, tocate los webos. </em></strong></p>
+<p dir="ltr">Resumiendo, parece que no voy a poder saber el tamaño del archivo antes de descargarlo sin antes hacer una lista a fondo de ellos.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://filadeatras.com/2011/01/22/c-ftpwebrequest-contentlength-fail/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>Gravatar en los post</title>
+		<link>http://filadeatras.com/2010/10/11/gravatar-en-los-post/</link>
+		<comments>http://filadeatras.com/2010/10/11/gravatar-en-los-post/#respond</comments>
+		<pubDate>Mon, 11 Oct 2010 17:31:04 +0000</pubDate>
+		<dc:creator><![CDATA[hektor]]></dc:creator>
+				<category><![CDATA[internet]]></category>
+		<category><![CDATA[tips]]></category>
+		<category><![CDATA[entry]]></category>
+		<category><![CDATA[gravatar]]></category>
+		<category><![CDATA[wordpress]]></category>
+
+		<guid isPermaLink="false">http://filadeatras.com/?p=40</guid>
+		<description><![CDATA[Es muy sencillo, en los archivos &#8216;index.php&#8217; y &#8216;single.php&#8217; del theme, añadir: &#60;?php $author_email = get_the_author_email&#40;&#41;; echo get_avatar&#40;$author_email, '32'&#41;; ?&#62; Si quieres añadirle CSS: .avatar-autor &#123; &#160; &#160; &#160; background: #fff; &#160; &#160; &#160; border: 1px solid #ddd; &#160; &#160; &#160; display: inline; &#160; &#160; &#160; float: left; &#160; &#160; &#160; margin-right: 20px &#125; Y [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Es muy sencillo,</p>
+<p>en los archivos &#8216;index.php&#8217; y &#8216;single.php&#8217; del theme, añadir:</p>
+<div class="codecolorer-container php geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="php codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"><span style="color: #000000; font-weight: bold;">&lt;?php</span> <br />
+<span style="color: #000088;">$author_email</span> <span style="color: #339933;">=</span> get_the_author_email<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <br />
+<span style="color: #b1b100;">echo</span> get_avatar<span style="color: #009900;">&#40;</span><span style="color: #000088;">$author_email</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'32'</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <br />
+<span style="color: #000000; font-weight: bold;">?&gt;</span></div></div>
+<p><span id="more-40"></span>Si quieres añadirle CSS:</p>
+<div class="codecolorer-container css geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="css codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"><span style="color: #6666ff;">.avatar-autor</span><br />
+<span style="color: #00AA00;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; <span style="color: #000000; font-weight: bold;">background</span><span style="color: #00AA00;">:</span> <span style="color: #cc00cc;">#fff</span><span style="color: #00AA00;">;</span><br />
+&nbsp; &nbsp; &nbsp; <span style="color: #000000; font-weight: bold;">border</span><span style="color: #00AA00;">:</span> <span style="color: #933;">1px</span> <span style="color: #993333;">solid</span> <span style="color: #cc00cc;">#ddd</span><span style="color: #00AA00;">;</span><br />
+&nbsp; &nbsp; &nbsp; <span style="color: #000000; font-weight: bold;">display</span><span style="color: #00AA00;">:</span> <span style="color: #993333;">inline</span><span style="color: #00AA00;">;</span><br />
+&nbsp; &nbsp; &nbsp; <span style="color: #000000; font-weight: bold;">float</span><span style="color: #00AA00;">:</span> <span style="color: #000000; font-weight: bold;">left</span><span style="color: #00AA00;">;</span><br />
+&nbsp; &nbsp; &nbsp; <span style="color: #000000; font-weight: bold;">margin-right</span><span style="color: #00AA00;">:</span> <span style="color: #933;">20px</span><br />
+<span style="color: #00AA00;">&#125;</span></div></div>
+<p>Y luego llamas a la clase:</p>
+<div class="codecolorer-container php geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="php codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">&lt;div class=&quot;avatar-autor&quot;&gt;<br />
+<span style="color: #000000; font-weight: bold;">&lt;?php</span> <br />
+<span style="color: #000088;">$author_email</span> <span style="color: #339933;">=</span> get_the_author_email<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <br />
+<span style="color: #b1b100;">echo</span> get_avatar<span style="color: #009900;">&#40;</span><span style="color: #000088;">$author_email</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'32'</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <br />
+<span style="color: #000000; font-weight: bold;">?&gt;</span><br />
+&lt;/div&gt;</div></div>
+<p>El 32 indica el tamaño del avatar, puedes modificarlo a voluntad.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://filadeatras.com/2010/10/11/gravatar-en-los-post/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

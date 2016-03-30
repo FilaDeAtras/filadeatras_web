@@ -1,0 +1,296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head profile="http://gmpg.org/xfn/11"><title>FilaDeAtras » Benchmarking de sistema antispam II</title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="generator" content="WordPress 4.4.2"><meta name="google-site-verification" content="a09lkpdBlbDQlEXCeKS2oNIwYvyRjGrS9-JhS02f6V0"><!-- leave this for stats please --><link href="http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold" rel="stylesheet" type="text/css"><link rel="stylesheet" href="http://filadeatras.com/wp-content/themes/fda-theme/style.css" type="text/css" media="screen"><link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://filadeatras.com/feed/"><link rel="alternate" type="text/xml" title="RSS .92" href="http://filadeatras.com/feed/rss/"><link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="http://filadeatras.com/feed/atom/"><link rel="pingback" href="http://filadeatras.com/xmlrpc.php"><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script><script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.3/jquery-ui.min.js" type="text/javascript"></script><script type="text/javascript" src="http://filadeatras.com/wp-content/themes/fda-theme/js/jquery.corner.js"></script><script type="text/javascript" src="http://filadeatras.com/wp-content/themes/fda-theme/js/jquery.gradient.js"></script><script type="text/javascript" src="http://filadeatras.com/wp-content/themes/fda-theme/js/jquery.dimensions.js"></script><link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.3/themes/base/jquery-ui.css" type="text/css" media="all"><link rel="stylesheet" href="http://static.jquery.com/ui/css/demo-docs-theme/ui.theme.css" type="text/css" media="all"><link rel="alternate" type="application/rss+xml" title="FilaDeAtras » Benchmarking de sistema antispam II Comments Feed" href="http://filadeatras.com/2011/05/16/benchmarking-de-sistema-antispam-ii/feed/"><script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/filadeatras.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.4.2"}};
+			!function(a,b,c){function d(a){var c,d=b.createElement("canvas"),e=d.getContext&&d.getContext("2d"),f=String.fromCharCode;return e&&e.fillText?(e.textBaseline="top",e.font="600 32px Arial","flag"===a?(e.fillText(f(55356,56806,55356,56826),0,0),d.toDataURL().length>3e3):"diversity"===a?(e.fillText(f(55356,57221),0,0),c=e.getImageData(16,16,1,1).data.toString(),e.fillText(f(55356,57221,55356,57343),0,0),c!==e.getImageData(16,16,1,1).data.toString()):("simple"===a?e.fillText(f(55357,56835),0,0):e.fillText(f(55356,57135),0,0),0!==e.getImageData(16,16,1,1).data[0])):!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g;c.supports={simple:d("simple"),flag:d("flag"),unicode8:d("unicode8"),diversity:d("diversity")},c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.simple&&c.supports.flag&&c.supports.unicode8&&c.supports.diversity||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style><style type="text/css">.codecolorer, .codecolorer *, .codecolorer-container, .codecolorer-container * { font: 11px/1.3em Monaco, Lucida Console, monospace }</style><link rel="stylesheet" id="psr_style-css" href="http://filadeatras.com/wp-content/plugins/post-star-rating/css/style.css?ver=4.4.2" type="text/css" media="all"><link rel="stylesheet" id="codecolorer-css" href="http://filadeatras.com/wp-content/plugins/codecolorer/codecolorer.css?ver=0.9.9" type="text/css" media="screen"><script type="text/javascript" src="http://filadeatras.com/wp-includes/js/jquery/jquery.js?ver=1.11.3"></script><script type="text/javascript" src="http://filadeatras.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1"></script><script type="text/javascript">
+/* <![CDATA[ */
+var psr_ajax = {"url":"http:\/\/filadeatras.com\/wp-admin\/admin-ajax.php","nonce":"15c06f6b1a"};
+/* ]]> */
+</script><script type="text/javascript" src="http://filadeatras.com/wp-content/plugins/post-star-rating/js/script.js?ver=4.4.2"></script><link rel="https://api.w.org/" href="http://filadeatras.com/wp-json/"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://filadeatras.com/xmlrpc.php?rsd"><link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://filadeatras.com/wp-includes/wlwmanifest.xml"><link rel="prev" title="Benchmarking de sistema antispam" href="http://filadeatras.com/2011/05/15/benchmarking-de-sistema-antispam/"><link rel="next" title="Utilidades del comando dd" href="http://filadeatras.com/2011/05/19/utilidades-del-comando-dd/"><meta name="generator" content="WordPress 4.4.2"><link rel="canonical" href="http://filadeatras.com/2011/05/16/benchmarking-de-sistema-antispam-ii/"><link rel="shortlink" href="http://filadeatras.com/?p=298"><link rel="alternate" type="application/json+oembed" href="http://filadeatras.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Ffiladeatras.com%2F2011%2F05%2F16%2Fbenchmarking-de-sistema-antispam-ii%2F"><link rel="alternate" type="text/xml+oembed" href="http://filadeatras.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Ffiladeatras.com%2F2011%2F05%2F16%2Fbenchmarking-de-sistema-antispam-ii%2F&amp;format=xml"><script type="text/javascript">
+	    $(document).ready(function() {
+		    $('#pagemenu').corner("7px");
+		    $('.sidebar').corner("10px");
+		    $('.allpost').corner("15px");
+		    $('#footer').corner("10px");
+		    $('.logo').corner("15px");
+		    $('.autorimg').corner("5px");
+		    $('.logo').click(function() {
+			 $(window.location).attr('href', 'http://filadeatras.com/files/vigilante.gif');
+		      });
+		    $("#tabs").tabs();
+	    });
+
+	</script></head><body>
+<div id="wrapper">
+
+<div id="header">
+	<div class="logo" title="Una bonita Fila De Atras... eh?"></div>
+	<div id="inheader"><h1><a href="http://filadeatras.com">FilaDeAtras</a></h1>
+	<h3>con la fila en el corazón</h3><a href="http://filadeatras.com/rss" title="Subscribete a los cuchicheos de la FDA!"><img class="rss" alt="rss img" src="http://filadeatras.com/wp-content/themes/fda-theme/images/rss.png"></a></div>
+	<div id="pagemenu">
+		<!--<ul class="pages"><li class="page_item"><a href="http://filadeatras.com"></a></li>--><li class="page_item page-item-2"><a href="http://filadeatras.com/about/">About</a></li>
+<li class="page_item page-item-36"><a href="http://filadeatras.com/projects/">Proyectos</a></li>
+<li class="page_item page-item-28"><a href="http://filadeatras.com/users/">Users</a></li>
+	</div>
+	
+	
+
+</div>
+
+<div id="pages">
+	<div id="pages_subcont">	</div>
+</div>
+<div id="container">
+	        
+        <div class="allpost">		<div id="post-298">
+			<h2 class="title2"><a href="http://filadeatras.com/2011/05/16/benchmarking-de-sistema-antispam-ii/" title="Benchmarking de sistema antispam II">Benchmarking de sistema antispam II</a></h2> <!--titulo de la entrada-->
+			<p class="postmetadata"><span class="autorimg"><img alt="" src="http://0.gravatar.com/avatar/673869ae2ba03109cebe531abcecdf0d?s=48&amp;d=mm&amp;r=g" srcset="http://0.gravatar.com/avatar/673869ae2ba03109cebe531abcecdf0d?s=96&amp;d=mm&amp;r=g" class="avatar avatar-48 photo" height="48" width="48"></span>
+				Autor:  <b>hektor</b>   Fecha:&amp;nbsp May 16, 2011<br></p>
+			<div class="entry">
+				<p>Bien, primero de todo darle las gracias a fran por esa clase de Benchmarks tan interesantes que nos ha proporcionado.</p>
+<p>Segundo decirle, que ya que hace algo al menos que lo haga bien! Es broma, pero he encontrado algo interesante que podrías probar, y también todos los que queráis <img src="http://filadeatras.com/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;"></p>
+<p>En fin… ante los extraños resultados que le ha proporcionado el experimento del post anterior, me he decidido a repetirlo en mi compu, al menos las versiones de 10k y 100k.</p>
+<p>A continuación os doy los resultados:</p>
+<p><span id="more-298"></span></p>
+<p><img class="aligncenter" title="cap1" src="http://filadeatras.com/wp-content/uploads/2011/05/cap1.jpg" alt="" width="560" height="372"></p>
+<p><img class="aligncenter" title="cap2" src="http://filadeatras.com/wp-content/uploads/2011/05/cap2.jpg" alt="" width="565" height="382"></p>
+<p>Bien, a primera vista y a última son realmente parecidos a los de fran. El archivo de texto plano apaliza a mysql en 10k, y por contra en 100k, (aqui se ve que el disco duro de fran no debe tener muy buenos tiempos de lectura…) es algo superior, más o menos unos 0.15 segundos.</p>
+<p>Así pues la pregunta es, ¿pero como es posible? Ni por asomo debería ser más rápido un fichero que una base de datos, entonces como se puede leer un fichero más rápido que una consulta…</p>
+<p>Bueno, primero dejar claro que mysql se portará bien con nosotros si nosotros nos portamos bien con él, es decir, si diseñamos bien nuestra base de datos, él nos dará buenos resultados, y si no, nos dará por culo … (¡ha dicho culo!) perdón por la expresión XD. Veamos a lo que me refiero echando un vistazo a la base de datos de la clase benchmark:</p>
+<blockquote><p>CREATE TABLE IF NOT EXISTS `lista` (<br>
+`id` int(11) NOT NULL AUTO_INCREMENT,<br>
+`num` varchar(16) NOT NULL,<br>
+`timestamp` timestamp NOT NULL …,<br>
+PRIMARY KEY (`id`)<br>
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10258450 ;</p></blockquote>
+<p>El caso es que las malas lenguas dicen que se puede multiplicar la velocidad de una consulta varias veces por el simple hecho de usar índices, y más en un caso como éste que siempre hacemos una consulta de dos campos: num y timestamp. ¿Lo probamos?</p>
+<blockquote><p>CREATE TABLE IF NOT EXISTS `lista` (<br>
+`id` int(11) NOT NULL AUTO_INCREMENT,<br>
+`num` varchar(16) NOT NULL,<br>
+`timestamp` timestamp NOT NULL …,<br>
+PRIMARY KEY (`id`),<br>
+KEY `n` (`num`),<br>
+KEY `t` (`timestamp`)<br>
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;</p></blockquote>
+<p>Y ahora vamos a repetir las pruebas…</p>
+<p><a href="http://filadeatras.com/wp-content/uploads/2011/05/cap4.jpg"><img class="aligncenter size-full wp-image-302" title="cap4" src="http://filadeatras.com/wp-content/uploads/2011/05/cap4.jpg" alt="" width="595" height="391" srcset="http://filadeatras.com/wp-content/uploads/2011/05/cap4.jpg" sizes="(max-width: 595px) 100vw, 595px"></a></p>
+<p><a href="http://filadeatras.com/wp-content/uploads/2011/05/cap3.jpg"><img class="aligncenter size-full wp-image-301" title="cap3" src="http://filadeatras.com/wp-content/uploads/2011/05/cap3.jpg" alt="" width="583" height="385" srcset="http://filadeatras.com/wp-content/uploads/2011/05/cap3.jpg" sizes="(max-width: 583px) 100vw, 583px"></a></p>
+<p>Anda…. pues parece que era cierto! XD</p>
+<p> </p>
+<p><strong>CONCLUSIÓN</strong></p>
+<p><strong> </strong></p>
+<p>Con el simple hecho de añadir índices a nuestra tabla de mysql hemos logrado reducir a la mitad el tiempo de las consultas y por tanto, texto plano pierde las apuestas!</p>
+<p>Ahora solo nos falta que alguien haga el test de los 10 Millones  y podremos sacar conclusiones muchísimo más fiables, ¿quien se apunta?</p>
+<p> </p>
+<p><strong>———————– EDITADO:  —————————-</strong></p>
+<p><strong> </strong>Ya he realizado el último test sobre 10 Millones de entradas y los resultados son muy interesantes:</p>
+<p><a href="http://filadeatras.com/wp-content/uploads/2011/05/Captura.jpg"><img class="aligncenter size-full wp-image-315" title="Captura" src="http://filadeatras.com/wp-content/uploads/2011/05/Captura.jpg" alt="" width="578" height="372" srcset="http://filadeatras.com/wp-content/uploads/2011/05/Captura.jpg" sizes="(max-width: 578px) 100vw, 578px"></a></p>
+<p><a href="http://filadeatras.com/wp-content/uploads/2011/05/Captura.jpg"></a>Como vemos, aún con índices, en este punto el fichero de texto plano se lleva la palma… Sin embargo hay que aclarar algunas cosas:</p>
+<ol><li>Hemos conseguido reducir casi 5 veces la velocidad de MySQL por usar indices.</li>
+<li>La velocidad en que se tratan los ficheros depende mucho de la CPU y tambíen del disco duro y de la memoria RAM.</li>
+<li>Para este experimento se ha tenido que configurar la opción de PHP memory_limit así:  <em>ini_set(“memory_limit”,”10000M”); </em>lo que significa que se ha establecido el límite de memoria que PHP puede usar en 10GB, cosa que es una burrada tremenda, pero que sin ella no era posible tratar con archivos con tantas líneas… de hecho ha habido momentos en que el consumo de RAM por parte de PHP superaba 1 GB, os imagináis la memoria necesaria entonces para procesar un archivo de 100M de líneas? Es totalmente inviable…</li>
+</ol><p>Así que pues, dejémonos de archivos de texto plano y usemos bases de datos bien diseñadas y con índices <img src="http://filadeatras.com/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;"></p>
+                                			</div>
+			<p class="postmetadata">
+			</p><div class="PSR_container"><div class="PSR_stars"><span class="PSR_full_star">*</span><span class="PSR_full_star">*</span><span class="PSR_full_star">*</span><span class="PSR_full_star">*</span><span class="PSR_full_star">*</span><span class="PSR_votes">11</span><span class="PSR_tvotes">votes</span></div></div>			<a href="http://filadeatras.com/2011/05/16/benchmarking-de-sistema-antispam-ii/#comments">2 Comentarios »</a>			 | Categorías: 			<a href="http://filadeatras.com/category/filadeatras/" rel="category tag">filadeatras</a>, <a href="http://filadeatras.com/category/internet/" rel="category tag">internet</a>, <a href="http://filadeatras.com/category/internet/php/" rel="category tag">PHP</a>, <a href="http://filadeatras.com/category/programacion/" rel="category tag">programación</a>			Tags: <a href="http://filadeatras.com/tag/benchmarking/" rel="tag">benchmarking</a>, <a href="http://filadeatras.com/tag/mysql/" rel="tag">mysql</a>			
+			<br><div class="comments-template">
+                            <div id="comments">
+
+			<h3 id="comments-title">2 Responses to <em>Benchmarking de sistema antispam II</em></h3>
+
+
+			<ol class="commentlist"><li class="comment byuser comment-author-franhp even thread-even depth-1" id="li-comment-51">
+		<div id="comment-51">
+		<div class="comment-author vcard">
+			<img alt="" src="http://2.gravatar.com/avatar/e1294499a82c1916fe6ac56b677295f2?s=40&amp;d=mm&amp;r=g" srcset="http://2.gravatar.com/avatar/e1294499a82c1916fe6ac56b677295f2?s=80&amp;d=mm&amp;r=g" class="avatar avatar-40 photo" height="40" width="40"><cite class="fn"><a href="http://franhp.net" rel="external nofollow" class="url">franhp</a></cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="http://filadeatras.com/2011/05/16/benchmarking-de-sistema-antispam-ii/#comment-51">
+			May 16, 2011 at 3:04 pm</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>Justo esta mañana se lo he preguntado al DBA de la empresa a ver que se le ocurría y me ha dicho que era un “zokete” por no haberle puesto index <img src="http://filadeatras.com/wp-includes/images/smilies/frownie.png" alt=":(" class="wp-smiley" style="height: 1em; max-height: 1em;"> Este post tendría que haberlo escrito yo esta tarde XDDD</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="http://filadeatras.com/2011/05/16/benchmarking-de-sistema-antispam-ii/?replytocom=51#respond" onclick='return addComment.moveForm( "comment-51", "51", "respond", "298" )' aria-label="Reply to franhp">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	<ul class="children"><li class="comment byuser comment-author-hektor bypostauthor odd alt depth-2" id="li-comment-52">
+		<div id="comment-52">
+		<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/673869ae2ba03109cebe531abcecdf0d?s=40&amp;d=mm&amp;r=g" srcset="http://0.gravatar.com/avatar/673869ae2ba03109cebe531abcecdf0d?s=80&amp;d=mm&amp;r=g" class="avatar avatar-40 photo" height="40" width="40"><cite class="fn"><a href="http://hcosta.info" rel="external nofollow" class="url">hektor</a></cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="http://filadeatras.com/2011/05/16/benchmarking-de-sistema-antispam-ii/#comment-52">
+			May 16, 2011 at 3:14 pm</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>espero que te animes y cuelgues los resultados nuevos, quiero ver si cambia mucho el de las 10M , tu que ya las tienes en la DB 😛</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="http://filadeatras.com/2011/05/16/benchmarking-de-sistema-antispam-ii/?replytocom=52#respond" onclick='return addComment.moveForm( "comment-52", "52", "respond", "298" )' aria-label="Reply to hektor">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+</ul><!-- .children --></li><!-- #comment-## -->
+			</ol><div id="respond" class="comment-respond">
+			<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://filadeatras.com/2011/05/16/benchmarking-de-sistema-antispam-ii/#respond" style="display:none;">Cancel reply</a></small></h3>				<form action="http://filadeatras.com/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+					<p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" required="required"></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" aria-required="true" required="required"></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" aria-describedby="email-notes" aria-required="true" required="required"></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="text" value="" size="30"></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment"><input type="hidden" name="comment_post_ID" value="298" id="comment_post_ID"><input type="hidden" name="comment_parent" id="comment_parent" value="0"></p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="d0fcfb0448"></p><p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="20"></p>				</form>
+					</div><!-- #respond -->
+		 
+
+
+</div><!-- #comments -->                        </div>	
+                 </div>
+	</div>
+		
+	<div id="navigation">
+		« <a href="http://filadeatras.com/2011/05/15/benchmarking-de-sistema-antispam/" rel="prev">Benchmarking de sistema antispam</a>  <a href="http://filadeatras.com/2011/05/19/utilidades-del-comando-dd/" rel="next">Utilidades del comando dd</a> »	</div><br></div>
+
+<div class="sidebar">
+	<ul><li id="meta" class="widget widget_meta">			<h2 class="widgettitle">Meta</h2>
+			<ul><li><a href="http://filadeatras.com/wp-login.php">Log in</a></li>
+			<li><a href="http://filadeatras.com/feed/" title="Syndicate this site using RSS 2.0">Entries <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="http://filadeatras.com/comments/feed/" title="The latest comments to all posts in RSS">Comments <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+						</ul></li>
+<li id="the-last-comment-3" class="widget the_last_comment_widget"><h2 class="widgettitle">Last comment</h2>
+        <div class="the_last_comment">
+            <div class="the_last_comment_author"> Juan Jose</div>            <div class="the_last_comment_content">Esto puede ayudar
+
+http://msdn.microsoft.com/es-es/library/dd207004.aspx <a href="http://filadeatras.com/2011/05/09/create-database-permission-denied-in-database-master/#comment-146">»</a></div>
+                    </div>
+        </li>
+<li id="search-3" class="widget widget_search"><h2 class="widgettitle">Buscador</h2>
+<form method="get" id="searchform" action="http://filadeatras.com/">
+<div>
+	<input type="text" value="" name="s" id="s" size="15">  
+	<!--<input type="submit" id="searchsubmit" value="Search" />-->
+</div>
+</form></li>
+<li id="categories-3" class="widget widget_categories"><h2 class="widgettitle">Categorías</h2>
+		<ul><li class="cat-item cat-item-41"><a href="http://filadeatras.com/category/c/">C#</a> (1)
+</li>
+	<li class="cat-item cat-item-95"><a href="http://filadeatras.com/category/css/">css</a> (3)
+</li>
+	<li class="cat-item cat-item-34"><a href="http://filadeatras.com/category/filadeatras/">filadeatras</a> (4)
+</li>
+	<li class="cat-item cat-item-17"><a href="http://filadeatras.com/category/gnulinux/">gnu/linux</a> (8)
+<ul class="children"><li class="cat-item cat-item-21"><a href="http://filadeatras.com/category/gnulinux/administracion-gnulinux/">administración</a> (5)
+</li>
+	<li class="cat-item cat-item-18"><a href="http://filadeatras.com/category/gnulinux/noticias/">noticias</a> (1)
+</li>
+	<li class="cat-item cat-item-33"><a href="http://filadeatras.com/category/gnulinux/ubuntu/">ubuntu</a> (1)
+</li>
+</ul></li>
+	<li class="cat-item cat-item-28"><a href="http://filadeatras.com/category/howto/">howto</a> (2)
+</li>
+	<li class="cat-item cat-item-3"><a href="http://filadeatras.com/category/internet/">internet</a> (10)
+<ul class="children"><li class="cat-item cat-item-65"><a href="http://filadeatras.com/category/internet/javascript/">javascript</a> (1)
+</li>
+	<li class="cat-item cat-item-39"><a href="http://filadeatras.com/category/internet/php/">PHP</a> (5)
+</li>
+</ul></li>
+	<li class="cat-item cat-item-13"><a href="http://filadeatras.com/category/multimedia/">multimedia</a> (1)
+</li>
+	<li class="cat-item cat-item-79"><a href="http://filadeatras.com/category/programacion/">programación</a> (2)
+</li>
+	<li class="cat-item cat-item-82"><a href="http://filadeatras.com/category/reflexiones/">reflexiones</a> (1)
+</li>
+	<li class="cat-item cat-item-37"><a href="http://filadeatras.com/category/tips/">tips</a> (4)
+</li>
+	<li class="cat-item cat-item-64"><a href="http://filadeatras.com/category/videos/">videos</a> (1)
+</li>
+	<li class="cat-item cat-item-112"><a href="http://filadeatras.com/category/videotaller/">videotaller</a> (1)
+</li>
+	<li class="cat-item cat-item-9"><a href="http://filadeatras.com/category/windows/">windows</a> (2)
+<ul class="children"><li class="cat-item cat-item-10"><a href="http://filadeatras.com/category/windows/administracion/">administración</a> (1)
+</li>
+</ul></li>
+		</ul></li>
+<li id="archives-2" class="widget widget_archive"><h2 class="widgettitle">Archivos</h2>
+		<ul><li><a href="http://filadeatras.com/2011/07/">July 2011</a> (1)</li>
+	<li><a href="http://filadeatras.com/2011/06/">June 2011</a> (5)</li>
+	<li><a href="http://filadeatras.com/2011/05/">May 2011</a> (7)</li>
+	<li><a href="http://filadeatras.com/2011/03/">March 2011</a> (1)</li>
+	<li><a href="http://filadeatras.com/2011/02/">February 2011</a> (1)</li>
+	<li><a href="http://filadeatras.com/2011/01/">January 2011</a> (4)</li>
+	<li><a href="http://filadeatras.com/2010/10/">October 2010</a> (3)</li>
+	<li><a href="http://filadeatras.com/2010/08/">August 2010</a> (4)</li>
+		</ul></li>
+<li id="tag_cloud-3" class="widget widget_tag_cloud"><h2 class="widgettitle">Nube de tags</h2>
+<div class="tagcloud"><a href="http://filadeatras.com/tag/64bits/" class="tag-link-32" title="1 topic" style="font-size: 8pt;">64bits</a>
+<a href="http://filadeatras.com/tag/550/" class="tag-link-55" title="1 topic" style="font-size: 8pt;">550</a>
+<a href="http://filadeatras.com/tag/adwords/" class="tag-link-62" title="1 topic" style="font-size: 8pt;">adwords</a>
+<a href="http://filadeatras.com/tag/arranque/" class="tag-link-26" title="1 topic" style="font-size: 8pt;">arranque</a>
+<a href="http://filadeatras.com/tag/awn-dock/" class="tag-link-45" title="1 topic" style="font-size: 8pt;">awn dock</a>
+<a href="http://filadeatras.com/tag/benchmarking/" class="tag-link-81" title="2 topics" style="font-size: 16.4pt;">benchmarking</a>
+<a href="http://filadeatras.com/tag/boot-local/" class="tag-link-25" title="1 topic" style="font-size: 8pt;">boot.local</a>
+<a href="http://filadeatras.com/tag/c/" class="tag-link-128" title="1 topic" style="font-size: 8pt;">C#</a>
+<a href="http://filadeatras.com/tag/comandos/" class="tag-link-22" title="1 topic" style="font-size: 8pt;">comandos</a>
+<a href="http://filadeatras.com/tag/css/" class="tag-link-131" title="3 topics" style="font-size: 22pt;">css</a>
+<a href="http://filadeatras.com/tag/cufon/" class="tag-link-51" title="1 topic" style="font-size: 8pt;">cufon</a>
+<a href="http://filadeatras.com/tag/dalle/" class="tag-link-44" title="1 topic" style="font-size: 8pt;">dalle</a>
+<a href="http://filadeatras.com/tag/debian/" class="tag-link-19" title="2 topics" style="font-size: 16.4pt;">debian</a>
+<a href="http://filadeatras.com/tag/entry/" class="tag-link-60" title="1 topic" style="font-size: 8pt;">entry</a>
+<a href="http://filadeatras.com/tag/error/" class="tag-link-56" title="1 topic" style="font-size: 8pt;">error</a>
+<a href="http://filadeatras.com/tag/filadeatras/" class="tag-link-126" title="1 topic" style="font-size: 8pt;">filadeatras</a>
+<a href="http://filadeatras.com/tag/flash/" class="tag-link-31" title="1 topic" style="font-size: 8pt;">flash</a>
+<a href="http://filadeatras.com/tag/ftp/" class="tag-link-54" title="2 topics" style="font-size: 16.4pt;">ftp</a>
+<a href="http://filadeatras.com/tag/ftpwebrequest/" class="tag-link-57" title="1 topic" style="font-size: 8pt;">FtpWebRequest</a>
+<a href="http://filadeatras.com/tag/gd/" class="tag-link-50" title="1 topic" style="font-size: 8pt;">gd</a>
+<a href="http://filadeatras.com/tag/google/" class="tag-link-61" title="1 topic" style="font-size: 8pt;">google</a>
+<a href="http://filadeatras.com/tag/gravatar/" class="tag-link-59" title="1 topic" style="font-size: 8pt;">gravatar</a>
+<a href="http://filadeatras.com/tag/image/" class="tag-link-49" title="3 topics" style="font-size: 22pt;">image</a>
+<a href="http://filadeatras.com/tag/introduccion/" class="tag-link-63" title="1 topic" style="font-size: 8pt;">introduccion</a>
+<a href="http://filadeatras.com/tag/javascript/" class="tag-link-130" title="1 topic" style="font-size: 8pt;">javascript</a>
+<a href="http://filadeatras.com/tag/jdownloader/" class="tag-link-43" title="1 topic" style="font-size: 8pt;">jdownloader</a>
+<a href="http://filadeatras.com/tag/js/" class="tag-link-52" title="1 topic" style="font-size: 8pt;">js</a>
+<a href="http://filadeatras.com/tag/linux/" class="tag-link-23" title="1 topic" style="font-size: 8pt;">linux</a>
+<a href="http://filadeatras.com/tag/mkv/" class="tag-link-14" title="1 topic" style="font-size: 8pt;">mkv</a>
+<a href="http://filadeatras.com/tag/mkvmerge/" class="tag-link-15" title="1 topic" style="font-size: 8pt;">mkvmerge</a>
+<a href="http://filadeatras.com/tag/mkvtoolnix/" class="tag-link-16" title="1 topic" style="font-size: 8pt;">mkvtoolnix</a>
+<a href="http://filadeatras.com/tag/mysql/" class="tag-link-80" title="2 topics" style="font-size: 16.4pt;">mysql</a>
+<a href="http://filadeatras.com/tag/opacity/" class="tag-link-97" title="2 topics" style="font-size: 16.4pt;">opacity</a>
+<a href="http://filadeatras.com/tag/php-2/" class="tag-link-66" title="1 topic" style="font-size: 8pt;">php</a>
+<a href="http://filadeatras.com/tag/plugins/" class="tag-link-35" title="1 topic" style="font-size: 8pt;">plugins</a>
+<a href="http://filadeatras.com/tag/random/" class="tag-link-67" title="1 topic" style="font-size: 8pt;">random</a>
+<a href="http://filadeatras.com/tag/rc-local/" class="tag-link-24" title="1 topic" style="font-size: 8pt;">rc.local</a>
+<a href="http://filadeatras.com/tag/script/" class="tag-link-73" title="1 topic" style="font-size: 8pt;">script</a>
+<a href="http://filadeatras.com/tag/squeeze/" class="tag-link-20" title="1 topic" style="font-size: 8pt;">squeeze</a>
+<a href="http://filadeatras.com/tag/text/" class="tag-link-48" title="2 topics" style="font-size: 16.4pt;">text</a>
+<a href="http://filadeatras.com/tag/tips/" class="tag-link-127" title="1 topic" style="font-size: 8pt;">tips</a>
+<a href="http://filadeatras.com/tag/ubuntu/" class="tag-link-125" title="2 topics" style="font-size: 16.4pt;">ubuntu</a>
+<a href="http://filadeatras.com/tag/users/" class="tag-link-36" title="1 topic" style="font-size: 8pt;">users</a>
+<a href="http://filadeatras.com/tag/windows/" class="tag-link-123" title="2 topics" style="font-size: 16.4pt;">windows</a>
+<a href="http://filadeatras.com/tag/wordpress/" class="tag-link-58" title="1 topic" style="font-size: 8pt;">wordpress</a></div>
+</li>
+	</ul></div><div id="footer">
+<div style="display: none;"><a href="http://www.escueladevideojuegos.net">escueladevideojuegos.net</a></div>
+	© Copyleft - <a href="http://filadeatras.com">FilaDeAtras</a> - All lefts reserved<br>Theme FDA v1 by <a href="http://hcosta.info">hektor</a> - Powered by WordPress - Have fun!
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-50592649-1', 'filadeatras.com');
+  ga('send', 'pageview');
+
+</script></div>
+</div>
+
+</body></html>

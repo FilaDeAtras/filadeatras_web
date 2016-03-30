@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>ckeditor &#8211; FilaDeAtras</title>
+	<atom:link href="http://filadeatras.com/tag/ckeditor/feed/" rel="self" type="application/rss+xml" />
+	<link>http://filadeatras.com</link>
+	<description>con la fila en el corazón</description>
+	<lastBuildDate>Sat, 12 May 2012 20:43:14 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.4.2</generator>
+	<item>
+		<title>Howto: Codeigniter 2.0 + Ckeditor 3.6 + Kcfinder 2.21</title>
+		<link>http://filadeatras.com/2011/06/08/howto-codeigniter-2-0-ckeditor-3-6-kcfinder-2-21/</link>
+		<comments>http://filadeatras.com/2011/06/08/howto-codeigniter-2-0-ckeditor-3-6-kcfinder-2-21/#comments</comments>
+		<pubDate>Wed, 08 Jun 2011 23:12:31 +0000</pubDate>
+		<dc:creator><![CDATA[hektor]]></dc:creator>
+				<category><![CDATA[howto]]></category>
+		<category><![CDATA[PHP]]></category>
+		<category><![CDATA[ckeditor]]></category>
+		<category><![CDATA[ckfinder]]></category>
+		<category><![CDATA[codeigniter]]></category>
+
+		<guid isPermaLink="false">http://filadeatras.com/?p=344</guid>
+		<description><![CDATA[CLICA AQUI PARA IR AL MANUAL ACTUALIZADO PARA CodeIgniter 2.1 + Ckeditor 3.6.1 + kcfinder 2.51 Os presento la forma más cómoda de tener un editor WYSIWYG con capacidad para subir ficheros e imágenes al server, integrado en el Framework PHP CodeIgniter! La alternativa a la librería multimedia CKFinder (que es de pago), es KCFinder, [&#8230;]]]></description>
+				<content:encoded><![CDATA[<h2 style="color: red;"><a style="color: red;" href="http://www.hcosta.info/wp/2012/05/howto-codeigniter-2-1-ckeditor-3-6-1-kcfinder-2-51/">CLICA AQUI PARA IR AL MANUAL ACTUALIZADO PARA CodeIgniter 2.1 + Ckeditor 3.6.1 + kcfinder 2.51</a></h2>
+<p>Os presento la forma más cómoda de tener un editor WYSIWYG con capacidad para subir ficheros e imágenes al server, integrado en el Framework PHP CodeIgniter! La alternativa a la librería multimedia CKFinder (que es de pago), es KCFinder, y como no he encontrado en ningún sitio una guía explícita sobre como hacerlo os lo explico en este HowTo. </p>
+<p><img src="http://codeigniter.com/user_guide/images/ci_logo_flame.jpg" alt="" /></p>
+<p><a href="http://codeigniter.com/">CodeIgniter</a><br />
+<a href="http://ckeditor.com/">CKEditor</a><br />
+<a href="http://kcfinder.sunhater.com/">KCFinder</a></p>
+<p>Asumiendo que tenemos CodeIgniter y los ficheros descargados&#8230;</p>
+<p><span id="more-344"></span></p>
+<ol>
+<li>Descomprimir CKEditor en el directorio raiz del proyecto: <em>xampp\htdocs\codeigniter\ckeditor</em></li>
+<li>Descomprimir KCFinder dentro del directorio de CKEditor:<em> <em>xampp\htdocs\codeigniter\ckeditor\kcfinder</em></em></li>
+<li>Copiar fichero<em><em> <em><em>ckeditor\</em></em>ckeditor_php5.php</em></em> a <em>codeigniter\application\libraries\ckeditor.php</em></li>
+<li>Editamos el fichero que acabamos de copiar:<br />
+<h3>ckeditor.php</h3>
+<div class="codecolorer-container php geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="php codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"><span style="color: #666666; font-style: italic;">/* al inicio del archivo */</span><br />
+<span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span><span style="color: #339933;">!</span><a href="http://www.php.net/defined"><span style="color: #990000;">defined</span></a><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'BASEPATH'</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span> <a href="http://www.php.net/exit"><span style="color: #990000;">exit</span></a><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'No direct script access allowed'</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #000000; font-weight: bold;">function</span> __construct<span style="color: #009900;">&#40;</span><span style="color: #000088;">$array</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+<span style="color: #000088;">$this</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">InstanceName</span> &nbsp; &nbsp;<span style="color: #339933;">=</span> <span style="color: #000088;">$array</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'instanceName'</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">;</span><br />
+<span style="color: #000088;">$this</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">basePath</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #339933;">=</span> <span style="color: #000088;">$array</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'basePath'</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">;</span><br />
+<span style="color: #000088;">$this</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">returnOutput</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #339933;">=</span> <span style="color: #000088;">$array</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'outPut'</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">;</span><br />
+<span style="color: #b1b100;">echo</span> <span style="color: #000088;">$this</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">basePath</span> <span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span></div></div>
+</li>
+<li>Luego modificamos la función <em>private function ckeditorPath() </em>del mismo archivo de la siguiente forma:<br />
+<h3>ckeditor.php</h3>
+<div class="codecolorer-container php geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="php codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"><span style="color: #009933; font-style: italic;">/**<br />
+* Return path to ckeditor.js.<br />
+*/</span><br />
+<span style="color: #000000; font-weight: bold;">private</span> <span style="color: #000000; font-weight: bold;">function</span> ckeditorPath<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+<span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span><span style="color: #339933;">!</span><a href="http://www.php.net/empty"><span style="color: #990000;">empty</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$this</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">basePath</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+<span style="color: #b1b100;">return</span> <span style="color: #000088;">$this</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">basePath</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">&quot;basePath&quot;</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span></div></div>
+</li>
+<li>En nuestro login y logout tendremos que configurar KCFinder:<br />
+<h3>Login controller</h3>
+<div class="codecolorer-container php geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="php codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"><span style="color: #009933; font-style: italic;">/**<br />
+* Login<br />
+*/</span><br />
+<span style="color: #000088;">$_SESSION</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'KCFINDER'</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/array"><span style="color: #990000;">array</span></a><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #000088;">$_SESSION</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'KCFINDER'</span><span style="color: #009900;">&#93;</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'disabled'</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> <span style="color: #009900; font-weight: bold;">false</span><span style="color: #339933;">;</span><br />
+<br />
+<span style="color: #009933; font-style: italic;">/**<br />
+* Logout<br />
+*/</span><br />
+<span style="color: #000088;">$_SESSION</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'KCFINDER'</span><span style="color: #009900;">&#93;</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'disabled'</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> <span style="color: #009900; font-weight: bold;">true</span><span style="color: #339933;">;</span></div></div>
+</li>
+<li>Ahora podemos crearnos un controlador para probar un formulario (esto es una variante de un controlador que encontré para ckfinder, gracias a quien fuera XD), por ejemplo <em>application\controllers\Form.php</em>:<br />
+<h3>form controller</h3>
+<div class="codecolorer-container php geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;height:300px;"><div class="php codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"><span style="color: #000000; font-weight: bold;">&lt;?php</span> <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span> <span style="color: #339933;">!</span> <a href="http://www.php.net/defined"><span style="color: #990000;">defined</span></a><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'BASEPATH'</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span> <a href="http://www.php.net/exit"><span style="color: #990000;">exit</span></a><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'No direct script access allowed'</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <br />
+<br />
+<span style="color: #000000; font-weight: bold;">class</span> Form <span style="color: #000000; font-weight: bold;">extends</span> CI_Controller <span style="color: #009900;">&#123;</span> &nbsp; &nbsp; &nbsp; <br />
+&nbsp; &nbsp;<br />
+<span style="color: #000000; font-weight: bold;">function</span> index<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> &nbsp; &nbsp; <span style="color: #009900;">&#123;</span> &nbsp; &nbsp; <br />
+&nbsp; &nbsp; &nbsp;<br />
+<span style="color: #000088;">$this</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">load</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">library</span><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'ckeditor'</span><span style="color: #339933;">,</span><a href="http://www.php.net/array"><span style="color: #990000;">array</span></a><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'instanceName'</span> <span style="color: #339933;">=&gt;</span> <span style="color: #0000ff;">'CKEDITOR1'</span><span style="color: #339933;">,</span><span style="color: #0000ff;">'basePath'</span> <span style="color: #339933;">=&gt;</span> base_url<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">.</span><span style="color: #0000ff;">&quot;ckeditor/&quot;</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'outPut'</span> <span style="color: #339933;">=&gt;</span> <span style="color: #009900; font-weight: bold;">true</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<br />
+<span style="color: #666666; font-style: italic;">// declaracion de arreglo</span><br />
+<span style="color: #000088;">$config</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/array"><span style="color: #990000;">array</span></a><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<br />
+<span style="color: #666666; font-style: italic;">// indicamos la ruta para ckFinder</span><br />
+<span style="color: #000088;">$config</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'filebrowserBrowseUrl'</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> base_url<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">.</span><span style="color: #0000ff;">&quot;ckeditor/kcfinder/browse.php&quot;</span><span style="color: #339933;">;</span><br />
+<br />
+<span style="color: #666666; font-style: italic;">// indicamos la ruta para el boton de la toolbar para subir imagenes</span><br />
+<span style="color: #000088;">$config</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'filebrowserImageBrowseUrl'</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> base_url<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">.</span><span style="color: #0000ff;">&quot;ckeditor/kcfinder/browse.php?type=images&quot;</span><span style="color: #339933;">;</span><br />
+<br />
+<span style="color: #666666; font-style: italic;">// indicamos la ruta para subir archivos desde la pestaña de la toolbar (Quick Upload)</span><br />
+<span style="color: #000088;">$config</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'filebrowserUploadUrl'</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> base_url<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">.</span><span style="color: #0000ff;">&quot;ckeditor/kcfinder/upload.php?type=files&quot;</span><span style="color: #339933;">;</span><br />
+<br />
+<span style="color: #666666; font-style: italic;">// indicamos la ruta para subir imagenesdesde la pestaña de la toolbar (Quick Upload)</span><br />
+<span style="color: #000088;">$config</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'filebrowserImageUploadUrl'</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> base_url<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">.</span><span style="color: #0000ff;">&quot;ckeditor/kcfinder/upload.php?type=images&quot;</span><span style="color: #339933;">;</span><br />
+<br />
+<span style="color: #000088;">$config</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'toolbar'</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/array"><span style="color: #990000;">array</span></a><span style="color: #009900;">&#40;</span><br />
+<a href="http://www.php.net/array"><span style="color: #990000;">array</span></a><span style="color: #009900;">&#40;</span> <span style="color: #0000ff;">'Source'</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'-'</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'Bold'</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'Italic'</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'Underline'</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'Strike'</span> <span style="color: #009900;">&#41;</span><span style="color: #339933;">,</span><br />
+<a href="http://www.php.net/array"><span style="color: #990000;">array</span></a><span style="color: #009900;">&#40;</span> <span style="color: #0000ff;">'Image'</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'Link'</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'Unlink'</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'Anchor'</span> <span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<br />
+<span style="color: #666666; font-style: italic;">// cargamos al arreglo que será enviado a la vista con el textarea ya convertido a editor de texto :D</span><br />
+<span style="color: #000088;">$data</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'fck1'</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> <span style="color: #000088;">$this</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">ckeditor</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">editor</span><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">&quot;mi-textarea&quot;</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">&quot;Valor inicial.&quot;</span><span style="color: #339933;">,</span><span style="color: #000088;">$config</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<br />
+<span style="color: #666666; font-style: italic;">// vista</span><br />
+<span style="color: #000088;">$this</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">load</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">view</span><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'form_view'</span><span style="color: #339933;">,</span><span style="color: #000088;">$data</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <br />
+&nbsp; &nbsp; &nbsp;<span style="color: #009900;">&#125;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<span style="color: #000000; font-weight: bold;">?&gt;</span></div></div>
+</li>
+<li>Creamos una vista vacía para hacer solo la prueba&#8230; <b>views/form_view.php</b></li>
+<li>Y el resultado: <br />
+<a href="http://filadeatras.com/wp-content/uploads/2011/06/CI.png"><img class="aligncenter size-medium wp-image-354" title="CI" src="http://filadeatras.com/wp-content/uploads/2011/06/CI-300x285.png" alt="" width="300" height="285" /></a>
+</li>
+<li>Por último recordar que podemos usar KCFinder como biblioteca accediendo desde la propia raiz <em>codeigniter/ckeditor/kcfinder/browse.php</em>: <a href="http://filadeatras.com/wp-content/uploads/2011/06/CI2.png"><br />
+<a href="http://filadeatras.com/wp-content/uploads/2011/06/CI2.png"><img class="aligncenter size-medium wp-image-355" title="CI2" src="http://filadeatras.com/wp-content/uploads/2011/06/CI2-300x232.png" alt="" width="300" height="232" /></a>
+</li>
+</ol>
+<p>Cualquier duda comentad :&#8211;D</p>
+]]></content:encoded>
+			<wfw:commentRss>http://filadeatras.com/2011/06/08/howto-codeigniter-2-0-ckeditor-3-6-kcfinder-2-21/feed/</wfw:commentRss>
+		<slash:comments>23</slash:comments>
+		</item>
+	</channel>
+</rss>

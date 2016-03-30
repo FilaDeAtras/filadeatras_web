@@ -1,0 +1,1011 @@
+/*
+   
+Theme Name: FilaDeAtras Theme
+
+Theme URI: http://www.FilaDeAtras.com
+
+Description: The FDA theme :D.
+
+Version: 1.0
+
+Author: hektor
+
+Author URI: http://www.hcosta.info/
+
+Icons by: http://www.fritula.hr/
+
+*/
+
+body, h1, h2, h3, h4, h5, h6, blockquote, p, form{
+
+	margin: 0;
+
+	padding: 0;
+
+}
+
+
+
+body{
+
+	margin: 0;
+
+	font-family: 'Droid Sans','Helvetica Neue',Arial,sans-serif;
+
+	font-size: 13px;
+
+	text-align: center;
+
+	background-color: #f2f2f2;
+
+	vertical-align: top;
+
+	color: #000000;
+
+}
+
+
+
+h1{
+
+	font-family: 'Droid Sans','Helvetica Neue',Arial,sans-serif;
+
+	font-size: 38px;
+
+	padding: 10px 0 10px 0;
+
+}
+
+
+
+a:link, a:visited{
+
+	text-decoration: underline;
+
+	color: #336699;
+
+}
+
+
+
+a:hover{
+
+	text-decoration: none;
+
+}
+
+
+
+p{
+
+	padding: 10px 0 0 0;
+
+}
+
+
+
+#wrapper{
+
+	margin: 0 auto 0 auto;
+	
+	width: 950px;
+	
+	text-align: left;
+
+}
+
+
+
+#header{
+
+	margin-top: 15px;
+	
+	float: left;
+	
+	width: 950px;
+	
+}
+
+
+#inheader h1{
+	
+	margin: 0px;
+	
+	padding: 0px;
+	
+	padding-left: 0px;
+	
+	margin-bottom: 5px;
+	
+}
+
+
+#inheader a{
+	
+	text-decoration: none;
+	
+}
+
+
+#inheader a:hover{
+	
+	text-decoration: underline;
+	
+}
+
+
+#inheader h3{
+	
+	margin: 0px;
+	
+	padding: 0px;
+	
+	padding-left: 0px;
+	
+	margin-bottom: 5px;
+}
+
+
+#container{
+
+	float: left;
+	
+	margin-left: 0px;
+	
+	width: 749px;
+
+}
+
+
+.allpost {
+	
+	margin-top: 10px;
+	
+	text-align: justify;
+	
+	padding: 10px 15px 0px 10px;
+	
+	line-height: 20px;
+	
+	border: 3px solid #ccc;
+	
+	margin-bottom: 20px;
+	
+	background-color: #ffffff;
+	
+}
+
+.allpost h2{
+
+	font-family: 'Droid Sans','Helvetica Neue',Arial,sans-serif;
+	
+	margin-left: 0px;
+	
+	padding-left: 0px;
+	
+}
+
+
+.entry {
+	
+	width: 97%;
+	
+	padding: 0px 10px 5px 10px;
+	
+	margin:0px 5px 10px 0px;
+	
+	background-color: white;
+	
+	border: solid #CCC;
+	
+	border-width:  0px 0px 0px 1px;
+	
+}
+
+
+.entry h1,h2,h3,h4{
+	
+	padding-top: 10px;
+	
+	padding-bottom: 10px;
+
+}
+.entry p{
+	
+	padding: 4px 0px 4px 0px;
+
+}
+
+p.postmetadata{
+
+	padding: 2px 5px 0px 0px;
+	
+	margin:  0 0 10px 0;
+
+}
+
+
+#pagemenu{
+	
+	height: 15px;
+	
+	padding: 10px;
+	
+	padding-top: 15px;
+	
+	width:730px;
+	
+	margin: 10px 0px 10px 0px;
+	
+	background-color: #d8d8d8;
+	
+	border: 0px grey solid;
+	
+}
+
+
+#navigation{
+	
+	position: relative;
+	
+	margin-bottom: 10px;
+	
+	z-index: 0;
+}
+
+#navigation a{
+	color: black;
+	text-decoration: underline;
+}
+
+
+#navigation a:hover{
+	color: black;
+	
+	text-decoration: none;
+}
+
+
+.sidebar{
+
+	text-align: left;
+	
+	width: 175px;
+
+	background: #d8d8d8;
+
+	margin-top: 20px;
+
+	margin-left: 772px;
+	
+	position: absolute;
+
+}
+
+
+.sidebar ul{
+
+	list-style-type: none;
+
+	margin: 0;
+
+	padding: 0 10px 0 10px;
+
+}
+
+
+
+.sidebar ul li{
+
+	padding: 10px 0 10px 0;
+
+}
+
+
+
+.sidebar ul li h2{
+
+	font-family: 'Droid Sans','Helvetica Neue',Arial,sans-serif;
+
+	font-size: 14px;
+	
+	padding-top: 2px;
+	
+	padding-bottom: 2px;
+
+}
+
+
+
+.sidebar ul ul li{
+
+	padding: 0;
+
+	line-height: 24px;
+
+}
+
+
+
+table#wp-calendar{
+
+	width: 	100%;
+	text-align: center;
+	
+
+}
+
+
+
+#footer{
+	
+	text-align: right;
+	
+	clear: both;
+	
+	float: left;
+	
+	height: 40px;
+	
+	padding: 10px;
+	
+	width:730px;
+	
+	margin: 5px 0px 16px 0px;
+	
+	background-color: #d8d8d8;
+	
+	border: 0px grey solid;
+	
+	line-height: 20px;
+	
+}
+
+
+#pagemenu{
+	
+	height: 15px;
+	
+	padding: 10px;
+	
+	width: 290px;
+	
+	margin: 10px 0px 10px 0px;
+	
+	background-color: #d8d8d8;
+	
+	border: 0px grey solid;
+	
+	
+	text-align: center;
+}
+
+
+.autorimg{
+	
+	background: #fff;
+	
+	display: inline;
+	
+	float: right;
+	
+	z-index: 0;
+	
+	margin-right: -8px;
+	
+	margin-top: -21px;
+	
+	
+}
+
+.autorimg img{
+	
+	padding: 0px;
+	
+	margin: 0px;
+	
+}
+
+
+.pages{
+	
+	display: inline;
+	
+	margin: 0;
+	
+	padding: 10px;
+	
+	
+}
+
+
+.page_item  {
+	
+	display: inline;
+	
+	margin-left: 5px;
+	
+	padding: 10px;
+	
+}
+
+
+.page_item:hover {
+	
+	color: black;
+	
+	text-decoration: underline;
+	
+}
+
+
+.title2{
+	
+	margin-top: 0px;
+	
+	padding: 0px;
+	
+	font-size: 18px;
+	
+	max-width: 655px;
+	
+}
+
+
+.title2 a{
+	
+	text-decoration: none;
+	
+}
+
+
+.title2 a:hover{
+	
+	text-decoration: underline;
+	
+}
+
+
+#pagemenu a{
+	
+	color: black;
+	
+	text-decoration: none;
+	
+}
+
+
+blockquote{
+	
+	margin-left: 20px;
+	
+	border-left: 4px double grey;
+	
+	margin-top: 10px;
+	
+	padding: 2px;
+	
+	padding-top: 0px;
+	
+	margin-bottom: 4px;
+	
+	padding-bottom: 4px;
+	
+	padding-left: 10px;
+	
+	font-style: italic;
+	
+	letter-spacing: 1px;
+	
+	background-color: #D8D8D8;
+	
+	color: #090909;
+	
+}
+
+
+.post-ratings{
+	
+	z-index: 1;
+}
+
+
+blockquote p{
+	
+	margin: 1px;
+	
+	padding: 1px;
+	
+}
+
+
+
+img{
+	
+	border: 0px;
+	
+	margin-bottom: 5px;
+	
+}
+
+
+
+.rss{
+	
+	position: absolute;
+	
+	margin-top: -57px;
+	
+	margin-left: 255px;
+
+	cursor: pointer;
+}
+
+
+
+.logo{
+	margin-top: 5px;
+	
+	position: absolute;
+	
+	width: 409px;
+	
+	height: 101px;
+	
+	border: 3px lightgrey solid;
+	
+	display: inline;
+	
+	background-image: url('http://filadeatras.com/wp-content/themes/fda-theme/images/logo.jpg');
+	
+	margin-left: 333px;
+	
+	cursor: pointer;
+	
+}
+
+#comments {
+	
+	
+	clear: both;
+	
+	
+}
+
+
+
+#comments .navigation {
+	
+	
+	padding: 0 0 18px 0;
+	
+	
+}
+
+
+
+h3#comments-title,
+
+
+
+h3#reply-title {
+	
+	color: #000;
+	
+	font-size: 20px;
+	
+	font-weight: bold;
+	
+	margin-bottom: 0;
+	
+}
+
+
+h3#comments-title {
+	
+	padding: 10px 0;
+
+}
+
+
+
+.commentlist {
+	
+	list-style: none;
+	
+	margin: 0;
+	
+}
+
+
+
+.commentlist li.comment {
+	
+	border-bottom: 1px solid #e7e7e7;
+	
+	line-height: 20px;
+	
+	margin: 0 0 10px 0;
+	
+	padding: 0 0 0 15px;
+	
+	position: relative;
+	
+}
+
+
+
+
+.commentlist li:last-child {
+	
+	border-bottom: none;
+	
+	margin-bottom: 0;
+	
+}
+
+
+
+#comments .comment-body ul,
+
+
+
+#comments .comment-body ol {
+	
+	margin-bottom: 18px;
+	
+}
+
+
+
+#comments .comment-body p:last-child {
+	
+	margin-bottom: 6px;
+	
+}
+
+
+
+#comments .comment-body blockquote p:last-child {
+	
+	margin-bottom: 24px;
+	
+}
+
+
+
+.commentlist ol {
+	
+	list-style: decimal;
+	
+}
+
+
+
+.commentlist .avatar {
+	
+	position: absolute;
+	
+	top: 4px;
+	
+	left: -35px;
+}
+
+
+
+.comment-author {
+}
+
+
+
+.comment-author cite {
+	
+	color: #000;
+	
+	font-style: normal;
+	
+	font-weight: bold;
+	
+}
+
+
+
+.comment-author .says {
+	font-style: italic;
+}
+
+
+
+.comment-meta {
+	
+	font-size: 12px;
+	
+	margin: 0 0 5px 0;
+	
+}
+
+
+.comment-meta a:link,
+
+
+.comment-meta a:visited {
+	
+	color: #888;
+	
+	text-decoration: none;
+	
+}
+
+
+.comment-meta a:active,
+
+
+.comment-meta a:hover {
+	color: #ff4b33;
+}
+
+
+
+
+.reply {
+	
+	font-size: 12px;
+	
+	padding: 0 0 24px 0;
+	
+}
+
+
+
+.reply a,
+a.comment-edit-link {
+	
+	color: #888;
+	
+}
+
+
+
+
+.reply a:hover,
+a.comment-edit-link:hover {
+	
+	color: #ff4b33;
+	
+}
+
+
+
+.commentlist .children {
+	
+	list-style: none;
+	
+	margin: 0;
+	
+}
+
+
+
+
+.commentlist .children li {
+	
+	border: none;
+	
+	margin: 0;
+	
+}
+
+
+
+.nopassword,
+.nocomments {
+	display: none;
+}
+
+
+
+
+#comments .pingback {
+	
+	border-bottom: 1px solid #e7e7e7;
+	
+	margin-bottom: 18px;
+	
+	padding-bottom: 18px;
+	
+}
+
+
+
+
+.commentlist li.comment+li.pingback {
+	margin-top: -6px;
+}
+
+
+
+#comments .pingback p {
+	
+	color: #888;
+	
+	display: block;
+	
+	font-size: 12px;
+	
+	line-height: 18px;
+	
+	margin: 0;
+}
+
+
+
+#comments .pingback .url {
+	
+	font-size: 13px;
+	
+	font-style: italic;
+	
+}
+
+
+input[type=submit] {
+	
+	color: #333;
+	
+}
+
+
+
+#respond {
+	
+	border-top: 1px solid #e7e7e7;
+	
+	margin: 10px 0;
+	
+	overflow: hidden;
+	
+	position: relative;
+	
+}
+
+
+
+#respond p {
+	
+	margin: 0;
+	padding: 0;
+	
+}
+
+
+
+#respond .comment-notes {
+	
+	margin-bottom: 1em;
+	
+}
+
+
+
+.form-allowed-tags {
+	
+	line-height: 1em;
+	
+}
+
+
+
+.children #respond {
+	
+	margin: 0 48px 0 0;
+	
+}
+
+
+h3#reply-title {
+	
+	padding: 5px 0px;
+	
+	margin: 2px 0;
+	
+}
+
+
+#comments-list #respond {
+	
+	margin: 0 0 5px 0;
+	
+}
+
+
+
+#comments-list ul #respond {
+	
+	margin: 0;
+	
+}
+
+
+
+#cancel-comment-reply-link {
+	
+	font-size: 12px;
+	
+	font-weight: normal;
+	
+	line-height: 18px;
+	
+}
+
+
+#respond .required {
+	
+	color: #ff4b33;
+	
+	font-weight: bold;
+	
+}
+
+
+
+#respond label {
+	
+	color: #888;
+	
+	font-size: 12px;
+	
+}
+
+
+
+#respond input {
+	
+	margin: 0 0 9px;
+	
+	width: 98%;
+	
+}
+
+
+
+#respond textarea {
+	width: 98%;
+}
+
+
+
+#respond .form-allowed-tags {
+	
+	color: #888;
+	
+	font-size: 12px;
+	
+	line-height: 18px;
+	
+}
+
+
+
+#respond .form-allowed-tags code {
+	
+	font-size: 11px;
+	
+}
+
+
+
+#respond .form-submit {
+	
+	margin: 2px 0;
+	
+}
+
+
+
+#respond .form-submit input {
+	
+	font-size: 14px;
+	
+	width: auto;
+	
+}

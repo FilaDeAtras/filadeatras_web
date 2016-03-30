@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>ftp &#8211; FilaDeAtras</title>
+	<atom:link href="http://filadeatras.com/tag/ftp/feed/" rel="self" type="application/rss+xml" />
+	<link>http://filadeatras.com</link>
+	<description>con la fila en el corazón</description>
+	<lastBuildDate>Sat, 12 May 2012 20:43:14 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.4.2</generator>
+	<item>
+		<title>Tareas FTP en un script Bash</title>
+		<link>http://filadeatras.com/2011/05/20/tareas-ftp-en-un-script-bash/</link>
+		<comments>http://filadeatras.com/2011/05/20/tareas-ftp-en-un-script-bash/#respond</comments>
+		<pubDate>Fri, 20 May 2011 10:23:48 +0000</pubDate>
+		<dc:creator><![CDATA[cendi7]]></dc:creator>
+				<category><![CDATA[administración]]></category>
+		<category><![CDATA[gnu/linux]]></category>
+		<category><![CDATA[backup]]></category>
+		<category><![CDATA[bash]]></category>
+		<category><![CDATA[ftp]]></category>
+		<category><![CDATA[script]]></category>
+
+		<guid isPermaLink="false">http://filadeatras.com/?p=247</guid>
+		<description><![CDATA[Pongamos por caso que necesitas hacer el backup de un archivo por FTP cada día (un backup para los amigos) y te gustaría automatizarlo. Pues creas un script como el siguiente: #!/bin/bash ftp -inv servidor.ftp&#60;&#60;EOF user usuario password binary cd backups lcd /backups/ put backup_de_hoy.tar.gz bye EOF NOTA: Rsync lo hace mucho mejor en estos [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Pongamos por caso que necesitas hacer el backup de un archivo por FTP cada día (un backup para los amigos) y te gustaría automatizarlo. Pues creas un script como el siguiente:</p>
+<div class="codecolorer-container bash geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="bash codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"><span style="color: #666666; font-style: italic;">#!/bin/bash</span><br />
+<span style="color: #c20cb9; font-weight: bold;">ftp</span> <span style="color: #660033;">-inv</span> servidor.ftp<span style="color: #cc0000; font-style: italic;">&lt;&lt;EOF<br />
+user usuario password<br />
+binary<br />
+cd backups<br />
+lcd /backups/<br />
+put backup_de_hoy.tar.gz<br />
+bye<br />
+EOF</span></div></div>
+<p>NOTA: <a href="http://en.wikipedia.org/wiki/Rsync">Rsync </a>lo hace mucho mejor en estos casos, pero no se me ocurría otro caso de uso &#8230;</p>
+]]></content:encoded>
+			<wfw:commentRss>http://filadeatras.com/2011/05/20/tareas-ftp-en-un-script-bash/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>C# FtpWebRequest ContentLength, Fail?</title>
+		<link>http://filadeatras.com/2011/01/22/c-ftpwebrequest-contentlength-fail/</link>
+		<comments>http://filadeatras.com/2011/01/22/c-ftpwebrequest-contentlength-fail/#comments</comments>
+		<pubDate>Sat, 22 Jan 2011 17:20:41 +0000</pubDate>
+		<dc:creator><![CDATA[hektor]]></dc:creator>
+				<category><![CDATA[C#]]></category>
+		<category><![CDATA[internet]]></category>
+		<category><![CDATA[550]]></category>
+		<category><![CDATA[error]]></category>
+		<category><![CDATA[ftp]]></category>
+		<category><![CDATA[FtpWebRequest]]></category>
+
+		<guid isPermaLink="false">http://filadeatras.com/?p=61</guid>
+		<description><![CDATA[Hoy he tenido un curioso problema, estaba implementando un cliente ftp en C# ayudándome del ejemplo http://www.vcskicks.com/download-file-ftp.php Una vez conectado con el Servidor FTP y listo para descarga del archivo, el programador quiere guardar la longitud del archivo para utilizarla en un ProgressBar. Pues bien, resulta que la aplicación hacía Pim, pam, plin y daba [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Hoy he tenido un curioso problema,</p>
+<p>estaba implementando un cliente ftp en C# ayudándome del ejemplo http://www.vcskicks.com/download-file-ftp.php</p>
+<p>Una vez conectado con el Servidor FTP y listo para descarga del archivo, el programador quiere guardar la<strong> longitud</strong> del archivo para utilizarla en un ProgressBar.</p>
+<p>Pues bien, resulta que la aplicación hacía Pim, pam, plin y daba la excepción:</p>
+<p><a href="http://filadeatras.com/wp-content/uploads/2011/01/ops.jpg"><img class="alignnone size-full wp-image-62" title="ops" src="http://filadeatras.com/wp-content/uploads/2011/01/ops.jpg" alt="" width="514" height="101" /></a></p>
+<p>Me he quedao rallao, porque después de comprovar por activa y pasiva la ruta del archivo, ésta era correcta, y por tanto no podía ser que no se encontrara el archivo. Así pues el problema podía  ser el acceso.<br />
+<span id="more-61"></span><br />
+Indagando por Google, y después de realizar una serie de pruebas, he conseguido obtener respuesta del servidor,</p>
+<p><a href="http://filadeatras.com/wp-content/uploads/2011/01/ops2.jpg"><img class="alignnone size-full wp-image-63" title="ops2" src="http://filadeatras.com/wp-content/uploads/2011/01/ops2.jpg" alt="" width="543" height="142" srcset="http://filadeatras.com/wp-content/uploads/2011/01/ops2-300x78.jpg 300w, http://filadeatras.com/wp-content/uploads/2011/01/ops2.jpg 543w" sizes="(max-width: 543px) 100vw, 543px" /></a></p>
+<p>Mmmmm&#8230;. ¿-1? Imposible, un archivo no puede ocupar -1 Bytes xD.  Ya no cabe duda, el problema es del servidor, que no quiere dar la longitud del archivo.</p>
+<p>Como soy muy curioso he intentado buscar el porqué de todo ésto, y lo he encontrado en MSDN:</p>
+<blockquote><p><em>The <strong>ContentLength</strong> property contains the value of the  Content-Length header returned with the response. If the Content-Length  header is not set in the response, <strong>ContentLength</strong> is set to the value -1.</em></p></blockquote>
+<p dir="ltr"><a href="http://en.wikipedia.org/wiki/List_of_HTTP_header_fields">http://en.wikipedia.org/wiki/List_of_HTTP_header_fields</a> &#8211; The length of the request body in <a title="Octet (computing)" href="http://en.wikipedia.org/wiki/Octet_%28computing%29">octets</a> (8-bit bytes)</p>
+<p dir="ltr"><strong><em>&gt;&gt; El servidor puede desconocer el </em><em>Content</em>&#8211;<em>Length </em><em>o simplemente omitirlo, tocate los webos. </em></strong></p>
+<p dir="ltr">Resumiendo, parece que no voy a poder saber el tamaño del archivo antes de descargarlo sin antes hacer una lista a fondo de ellos.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://filadeatras.com/2011/01/22/c-ftpwebrequest-contentlength-fail/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+	</channel>
+</rss>

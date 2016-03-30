@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>administración &#8211; FilaDeAtras</title>
+	<atom:link href="http://filadeatras.com/category/gnulinux/administracion-gnulinux/feed/" rel="self" type="application/rss+xml" />
+	<link>http://filadeatras.com</link>
+	<description>con la fila en el corazón</description>
+	<lastBuildDate>Sat, 12 May 2012 20:43:14 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.4.2</generator>
+	<item>
+		<title>Restaurar home del usuario con rsync</title>
+		<link>http://filadeatras.com/2011/05/22/restaurar-home-del-usuario-con-rsync/</link>
+		<comments>http://filadeatras.com/2011/05/22/restaurar-home-del-usuario-con-rsync/#respond</comments>
+		<pubDate>Sun, 22 May 2011 11:32:11 +0000</pubDate>
+		<dc:creator><![CDATA[cendi7]]></dc:creator>
+				<category><![CDATA[administración]]></category>
+		<category><![CDATA[gnu/linux]]></category>
+
+		<guid isPermaLink="false">http://filadeatras.com/?p=328</guid>
+		<description><![CDATA[En este post explicaré como restaurar de manera sencilla el home de un usuario con rsync. Lo usamos en el instituto para restaurar el home del alumno al estado por defecto y evitar que degraden en exceso su directorio personal. Lo primero que tendremos que hacer es configurar el home del alumno hasta tenerlo como [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>En este post explicaré como restaurar de manera sencilla el home de un usuario con rsync. Lo usamos en el instituto para restaurar el home del alumno al estado por defecto y evitar que degraden en exceso su directorio personal.</p>
+<p>Lo primero que  tendremos que hacer es configurar el home del alumno hasta tenerlo como lo queramos. Una vez lo tenemos todo preparado ejecutamos:</p>
+<div class="codecolorer-container text geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="text codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">rsync -a --delete /home/alumno /root/backup_home_alumno</div></div>
+<p>Con esto tendremos guardada una copia del home del alumno en la carpeta del root.</p>
+<p>A continuación creamos un script con el siguiente contenido:</p>
+<div class="codecolorer-container text geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="text codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">#!/bin/bash<br />
+rsync -a --delete /root/backup_home_alumno /home/alumno<br />
+chown -R alumno:alumno /home/alumno</div></div>
+<p>Este script deberemos colocarlo en la carpeta /etc/init.d/ para que se ejecute al iniciar el sistema y de esta manera restaurar el home del alumno.</p>
+<p>Hay que tener en cuenta que siempre que hagamos una modificación en el home del alumno deberemos volver a ejecutar el rsync para actualizar la copia del home que guardamos en la carpeta del root.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://filadeatras.com/2011/05/22/restaurar-home-del-usuario-con-rsync/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Tareas FTP en un script Bash</title>
+		<link>http://filadeatras.com/2011/05/20/tareas-ftp-en-un-script-bash/</link>
+		<comments>http://filadeatras.com/2011/05/20/tareas-ftp-en-un-script-bash/#respond</comments>
+		<pubDate>Fri, 20 May 2011 10:23:48 +0000</pubDate>
+		<dc:creator><![CDATA[cendi7]]></dc:creator>
+				<category><![CDATA[administración]]></category>
+		<category><![CDATA[gnu/linux]]></category>
+		<category><![CDATA[backup]]></category>
+		<category><![CDATA[bash]]></category>
+		<category><![CDATA[ftp]]></category>
+		<category><![CDATA[script]]></category>
+
+		<guid isPermaLink="false">http://filadeatras.com/?p=247</guid>
+		<description><![CDATA[Pongamos por caso que necesitas hacer el backup de un archivo por FTP cada día (un backup para los amigos) y te gustaría automatizarlo. Pues creas un script como el siguiente: #!/bin/bash ftp -inv servidor.ftp&#60;&#60;EOF user usuario password binary cd backups lcd /backups/ put backup_de_hoy.tar.gz bye EOF NOTA: Rsync lo hace mucho mejor en estos [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Pongamos por caso que necesitas hacer el backup de un archivo por FTP cada día (un backup para los amigos) y te gustaría automatizarlo. Pues creas un script como el siguiente:</p>
+<div class="codecolorer-container bash geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="bash codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"><span style="color: #666666; font-style: italic;">#!/bin/bash</span><br />
+<span style="color: #c20cb9; font-weight: bold;">ftp</span> <span style="color: #660033;">-inv</span> servidor.ftp<span style="color: #cc0000; font-style: italic;">&lt;&lt;EOF<br />
+user usuario password<br />
+binary<br />
+cd backups<br />
+lcd /backups/<br />
+put backup_de_hoy.tar.gz<br />
+bye<br />
+EOF</span></div></div>
+<p>NOTA: <a href="http://en.wikipedia.org/wiki/Rsync">Rsync </a>lo hace mucho mejor en estos casos, pero no se me ocurría otro caso de uso &#8230;</p>
+]]></content:encoded>
+			<wfw:commentRss>http://filadeatras.com/2011/05/20/tareas-ftp-en-un-script-bash/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Utilidades del comando dd</title>
+		<link>http://filadeatras.com/2011/05/19/utilidades-del-comando-dd/</link>
+		<comments>http://filadeatras.com/2011/05/19/utilidades-del-comando-dd/#respond</comments>
+		<pubDate>Thu, 19 May 2011 19:42:57 +0000</pubDate>
+		<dc:creator><![CDATA[cendi7]]></dc:creator>
+				<category><![CDATA[administración]]></category>
+		<category><![CDATA[gnu/linux]]></category>
+
+		<guid isPermaLink="false">http://filadeatras.com/?p=320</guid>
+		<description><![CDATA[Bueno hace ya mucho que no escribo y como os veo muy puestos algo habrá que hacer. Me he decidido a hacer un pequeño post con algunas utilidades del comando dd ya que cada vez lo uso mas a menudo y se pueden hacer bastantes cosillas con el. Sintaxis del comando dd if=origen of=destino Crear [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Bueno hace ya mucho que no escribo y como os veo muy puestos algo habrá que hacer. Me he decidido a hacer un pequeño post con algunas utilidades del comando dd ya que cada vez lo uso mas a menudo y se pueden hacer bastantes cosillas con el.</p>
+<p><strong>Sintaxis del comando</strong><br />
+dd if=origen of=destino</p>
+<p><strong>Crear usb bootable</strong></p>
+<p>dd if=imagen.iso of=/dev/sdX</p>
+<p>sdX será nuestro dispositivo usb. Lo uso mucho para instalar mis sistemas operativos GNU/Linux y no desperdiciar CD&#8217;s.</p>
+<p><strong>Crear imagen ISO de un CD o DVD</strong><br />
+dd if=/dev/dvd of=dvd.iso<br />
+dd if=/dev/cdrom of=cd.iso</p>
+<p>Luego podemos usar esta imagen iso y montarla en nuestro sistema con el siguiente comando:<br />
+mount -t iso9660 -o loop imagen.iso /media/iso</p>
+<p><strong>Clonar disco duro o partición</strong><br />
+dd if=/dev/sda of=/dev/sdb # Clonar disco duro</p>
+<p>Para hacerlo con una partición es lo mismo sólo que tendremos que indicar el numero de la partición:<br />
+dd if=/dev/sda2 of=/dev/sdb2 # Clonar partición</p>
+<p><strong>Formatear a bajo nivel</strong><br />
+dd if=/dev/zero of=/dev/sdX</p>
+<p>/dev/zero és un tipo de archivo que viene en sistemas Unix y que nos va a permitir rellenar el disco duro con caracteres <i>null</i> sobrescribiendo con ellos todo el contenido de nuestro disco duro o partición.</p>
+<p><strong>Backup de un disco duro o partición y restaurarla</strong><br />
+dd if=/dev/sdX of=backup.img</p>
+<p>Para restaurarla ejecutamos el comando intercambiando el origen y el destino:<br />
+dd if=backup.img of=/dev/sdX</p>
+]]></content:encoded>
+			<wfw:commentRss>http://filadeatras.com/2011/05/19/utilidades-del-comando-dd/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Ejecutar comandos en el arranque de Linux</title>
+		<link>http://filadeatras.com/2010/08/25/ejecutar-comandos-en-el-arranque-de-linux/</link>
+		<comments>http://filadeatras.com/2010/08/25/ejecutar-comandos-en-el-arranque-de-linux/#respond</comments>
+		<pubDate>Wed, 25 Aug 2010 00:29:00 +0000</pubDate>
+		<dc:creator><![CDATA[franhp]]></dc:creator>
+				<category><![CDATA[administración]]></category>
+		<category><![CDATA[gnu/linux]]></category>
+		<category><![CDATA[arranque]]></category>
+		<category><![CDATA[boot.local]]></category>
+		<category><![CDATA[rc.local]]></category>
+
+		<guid isPermaLink="false">http://filadeatras.com/?p=18</guid>
+		<description><![CDATA[Muchas veces me he preguntado como ejecutar algún comando cada vez que se inicia el sistema, tanto en Linux como en cualquier *nix. La solución consiste en editar el fichero /etc/rc.local. En el caso de las distribuciones basadas en Suse, el mismo archivo se encuentra en /etc/init.d/boot.local Cualquier comando que se ponga al final de [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Muchas veces me he preguntado como ejecutar algún comando cada vez que  se inicia el sistema, tanto en Linux como en cualquier *nix. La solución  consiste en editar el fichero <strong>/etc/rc.local</strong>. En el caso de las distribuciones basadas en Suse, el mismo archivo se encuentra en <strong>/etc/init.d/boot.local</strong><br />
+Cualquier comando que se ponga al final de este fichero será ejecutado  después de haber acabado con todos los comandos del runlevel  correspondiente, es decir, tras haber ejecutado todos los scripts de  arranque.<br />
+Por ejemplo:<br />
+<img src="http://localhost/images/blog/rclocal.jpg" alt="" /></p>
+<h3>Alternativas</h3>
+<p><a href="https://help.ubuntu.com/community/RcLocalHowto">RcLocal como script de init.d en ubuntu</a></p>
+]]></content:encoded>
+			<wfw:commentRss>http://filadeatras.com/2010/08/25/ejecutar-comandos-en-el-arranque-de-linux/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Comandos útiles en ubuntu o debian</title>
+		<link>http://filadeatras.com/2010/08/17/comandos-utiles-en-ubuntu-o-debian/</link>
+		<comments>http://filadeatras.com/2010/08/17/comandos-utiles-en-ubuntu-o-debian/#respond</comments>
+		<pubDate>Tue, 17 Aug 2010 00:26:57 +0000</pubDate>
+		<dc:creator><![CDATA[francesc81]]></dc:creator>
+				<category><![CDATA[administración]]></category>
+		<category><![CDATA[gnu/linux]]></category>
+		<category><![CDATA[comandos]]></category>
+		<category><![CDATA[linux]]></category>
+
+		<guid isPermaLink="false">http://filadeatras.com/?p=16</guid>
+		<description><![CDATA[A modo de bloc de notas público voy a dejar un par de comandos de linux, muy frecuentes y que habitualmente no recuerdo, como mínimo me servirá para no tener que googlear y mirarlo aquí directamente&#8230; 1. Instalar un paquete deb: dpkg -i nombre_del_paquete.deb Si da error por dependencias, las resolvemos con: apt-get install -f [&#8230;]]]></description>
+				<content:encoded><![CDATA[<div id="articleText">
+<p>A modo de bloc de notas público voy a dejar un  par de comandos de linux, muy frecuentes y que habitualmente no  recuerdo, como mínimo me servirá para no tener que googlear y mirarlo  aquí directamente&#8230;</p>
+<ul>1. Instalar un paquete deb:<br />
+<strong>dpkg -i nombre_del_paquete.deb</strong><br />
+Si da error por dependencias, las resolvemos con:<br />
+<strong>apt-get install -f</strong></ul>
+<ul>2. Instalar las headers del kernel:<br />
+<strong>apt-get install linux-headers-$(uname -r)</strong></ul>
+<p>Estos comandos hay que escribirlos en modo root, así que recordar el <strong>su</strong> si sois debianeros o el <strong>sudo</strong> delante si usáis ubuntu</li>
+</div>
+]]></content:encoded>
+			<wfw:commentRss>http://filadeatras.com/2010/08/17/comandos-utiles-en-ubuntu-o-debian/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

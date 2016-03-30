@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>text &#8211; FilaDeAtras</title>
+	<atom:link href="http://filadeatras.com/tag/text/feed/" rel="self" type="application/rss+xml" />
+	<link>http://filadeatras.com</link>
+	<description>con la fila en el corazón</description>
+	<lastBuildDate>Sat, 12 May 2012 20:43:14 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.4.2</generator>
+	<item>
+		<title>Fuentes como imágenes con PHP + GD</title>
+		<link>http://filadeatras.com/2011/01/27/fuentes-como-imagenes-con-php-gd/</link>
+		<comments>http://filadeatras.com/2011/01/27/fuentes-como-imagenes-con-php-gd/#comments</comments>
+		<pubDate>Thu, 27 Jan 2011 22:58:23 +0000</pubDate>
+		<dc:creator><![CDATA[hektor]]></dc:creator>
+				<category><![CDATA[internet]]></category>
+		<category><![CDATA[PHP]]></category>
+		<category><![CDATA[gd]]></category>
+		<category><![CDATA[image]]></category>
+		<category><![CDATA[text]]></category>
+
+		<guid isPermaLink="false">http://filadeatras.com/?p=83</guid>
+		<description><![CDATA[Como no podía ser de otra manera, Franhp ha hecho crítica constructiva del post anterior y me ha dicho: &#8211; No entiendo por qué en vez de utilizar un recurso exterior no lo haces con PHP + GD. Yo le he contestado  &#8220;Claaaaaaaaro&#8221;. He usado un recurso exterior (libreria .js) porqué fue una cosa que [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Como no podía ser de otra manera, Franhp ha hecho crítica constructiva del post anterior y me ha dicho:</p>
+<blockquote><p>&#8211; No entiendo por qué en vez de utilizar un recurso exterior no lo haces con PHP + GD.</p></blockquote>
+<p>Yo le he contestado  &#8220;Claaaaaaaaro&#8221;. He usado un recurso exterior (libreria .js) porqué fue una cosa que encontré sobre la marcha en un blog, y como me llamó la atención os expliqué como se hace. Ahora bien, si franhp quiere hacerlo en GD yo lo hago en GD.</p>
+<p>Aquí os enseño dos formas de hacer algo parecido, aunque más currado.<span id="more-83"></span></p>
+<h3>Primera manera: gd puro</h3>
+<p><image src="http://filadeatras.com/files/fuente_gd/Manera1/" /></p>
+<p>Esta forma no necesita importar una fuente. Todo se genera con PHP y GD. <a href="http://filadeatras.com/files/fuente_gd/Manera1/">http://filadeatras.com/files/fuente_gd/Manera1/</a></p>
+<div class="codecolorer-container php geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="php codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"><a href="http://www.php.net/header"><span style="color: #990000;">header</span></a><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">&quot;Content-type: image/jpeg&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">//tipo del archivo, imagen jpeg</span><br />
+<span style="color: #000088;">$texto</span> <span style="color: #339933;">=</span> <span style="color: #0000ff;">&quot;FilaDeAtras: Comunidad hacker&quot;</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">//texto</span><br />
+<span style="color: #000088;">$fuente</span> <span style="color: #339933;">=</span> <span style="color: #cc66cc;">5</span> <span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">//tamaño de la fuente, de 1 a 5</span><br />
+<span style="color: #000088;">$ancho</span> &nbsp;<span style="color: #339933;">=</span> <a href="http://www.php.net/imagefontwidth"><span style="color: #990000;">ImageFontWidth</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$fuente</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">*</span> <a href="http://www.php.net/strlen"><span style="color: #990000;">strlen</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$texto</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">+</span> <span style="color: #cc66cc;">6</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">//ancho de la imagen</span><br />
+<span style="color: #000088;">$alto</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/imagefontheight"><span style="color: #990000;">ImageFontHeight</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$fuente</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">+</span> <span style="color: #cc66cc;">6</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">//alto de la imagen</span><br />
+<span style="color: #000088;">$imagen</span> <span style="color: #339933;">=</span> <span style="color: #339933;">@</span><a href="http://www.php.net/imagecreatetruecolor"><span style="color: #990000;">imagecreatetruecolor</span></a> <span style="color: #009900;">&#40;</span><span style="color: #000088;">$ancho</span><span style="color: #339933;">,</span> <span style="color: #000088;">$alto</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">//creamos el fondo</span><br />
+<span style="color: #666666; font-style: italic;">//le añadimos color de fondo</span><br />
+<span style="color: #000088;">$background_color</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/imagecolorallocate"><span style="color: #990000;">imagecolorallocate</span></a> <span style="color: #009900;">&#40;</span><span style="color: #000088;">$imagen</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">255</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">255</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">255</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #666666; font-style: italic;">//y el color del texto</span><br />
+<span style="color: #000088;">$text_color</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/imagecolorallocate"><span style="color: #990000;">imagecolorallocate</span></a> <span style="color: #009900;">&#40;</span><span style="color: #000088;">$imagen</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">255</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">0</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #666666; font-style: italic;">//enclastamos el texto</span><br />
+<a href="http://www.php.net/imagestring"><span style="color: #990000;">imagestring</span></a> <span style="color: #009900;">&#40;</span><span style="color: #000088;">$imagen</span><span style="color: #339933;">,</span> <span style="color: #000088;">$fuente</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">3</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">2</span><span style="color: #339933;">,</span> &nbsp;<span style="color: #000088;">$texto</span><span style="color: #339933;">,</span> <span style="color: #000088;">$text_color</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<a href="http://www.php.net/imagejpeg"><span style="color: #990000;">imagejpeg</span></a> <span style="color: #009900;">&#40;</span><span style="color: #000088;">$imagen</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">//creamos la imagen para visualizarla</span><br />
+<a href="http://www.php.net/imagedestroy"><span style="color: #990000;">imagedestroy</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$imagen</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">//la borramos del servidor</span></div></div>
+<h3>Segunda manera: gd + imagen de fondo</h3>
+<p><image src="http://filadeatras.com/files/fuente_gd/Manera2/"></img></p>
+<p>Es la forma que queda mejor. Requiere una imagen de fondo y una fuente ttf. <a href="http://filadeatras.com/files/fuente_gd/Manera2/">http://filadeatras.com/files/fuente_gd/Manera2/</a></p>
+<div class="codecolorer-container php geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="php codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"><span style="color: #666666; font-style: italic;">//tipo del archivo que se creará dinámicamente, imagen jpeg</span><br />
+<a href="http://www.php.net/header"><span style="color: #990000;">header</span></a><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'Content-type: image/jpeg'</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #666666; font-style: italic;">//ruta de la imagen de fondo</span><br />
+<span style="color: #000088;">$imagen</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/imagecreatefromjpeg"><span style="color: #990000;">imagecreatefromjpeg</span></a><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'vicky.jpeg'</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #000088;">$blanco</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/imagecolorallocate"><span style="color: #990000;">imagecolorallocate</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$imagen</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">255</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">255</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">255</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">//color blanco</span><br />
+<span style="color: #000088;">$azul</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/imagecolorallocate"><span style="color: #990000;">imagecolorallocate</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$imagen</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">255</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">255</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">//color azul</span><br />
+<br />
+<span style="color: #666666; font-style: italic;">//fusionamos los elementos con imagefttext(), atributos por orden:</span><br />
+<span style="color: #666666; font-style: italic;">//ruta_imagen, tamaño_fuente, grado_inclinación, margen_izquierdo,</span><br />
+<span style="color: #666666; font-style: italic;">//margen_superior, color, ruta_tipografía, cadena_texto</span><br />
+<a href="http://www.php.net/imagefttext"><span style="color: #990000;">imagefttext</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$imagen</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">80</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">250</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">210</span><span style="color: #339933;">,</span> <span style="color: #000088;">$azul</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'AngelicWar.ttf'</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'Vicky'</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<a href="http://www.php.net/imagefttext"><span style="color: #990000;">imagefttext</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$imagen</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">50</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">35</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">325</span><span style="color: #339933;">,</span> <span style="color: #000088;">$blanco</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'AngelicWar.ttf'</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'El Vikingo Fumeta'</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<br />
+<a href="http://www.php.net/imagejpeg"><span style="color: #990000;">imagejpeg</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$imagen</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">//creamos la imagen para que se visualice</span><br />
+<a href="http://www.php.net/imagedestroy"><span style="color: #990000;">imagedestroy</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$imagen</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">//la borramos</span></div></div>
+]]></content:encoded>
+			<wfw:commentRss>http://filadeatras.com/2011/01/27/fuentes-como-imagenes-con-php-gd/feed/</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+		<item>
+		<title>Fuentes como imágenes con Cufón</title>
+		<link>http://filadeatras.com/2011/01/27/fuentes-como-imagenes-con-cufon/</link>
+		<comments>http://filadeatras.com/2011/01/27/fuentes-como-imagenes-con-cufon/#respond</comments>
+		<pubDate>Thu, 27 Jan 2011 01:47:38 +0000</pubDate>
+		<dc:creator><![CDATA[hektor]]></dc:creator>
+				<category><![CDATA[internet]]></category>
+		<category><![CDATA[cufon]]></category>
+		<category><![CDATA[image]]></category>
+		<category><![CDATA[js]]></category>
+		<category><![CDATA[text]]></category>
+
+		<guid isPermaLink="false">http://filadeatras.com/?p=75</guid>
+		<description><![CDATA[Hola compañeros, ayer estaba mirando un blog y me fijé que los títulos de los post eran demasiado cool, tal como me temía, eran imágenes. Primero pensé que quizá el autor se lo curraba y ponía el título en una imágen y luego la metía en la cabecera del post; pero rápidamente comprendí que nadie [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Hola compañeros,</p>
+<p>ayer estaba mirando un blog y me fijé que los títulos de los post eran demasiado cool, tal como me temía, eran imágenes. Primero pensé que quizá el autor se lo curraba y ponía el título en una imágen y luego la metía en la cabecera del post; pero rápidamente comprendí que nadie se mata tanto en hacer eso. Con un simple clic analicé el header grácias a firebug, y como me imaginé era javascript.</p>
+<p>La libreria, script o lo que sea, se llama Cufón, <a href="http://cufon.shoqolate.com/generate/" target="_blank">http://cufon.shoqolate.com/generate/</a> y después de incluirla nos permite manipular cualquier imagen de fuente como si fuera texto.</p>
+<p>Utilizarlo es de lo más fácil. <span id="more-75"></span>Primero buscamos la fuente (True Type) que queremos utilizar como imagen, (me abstengo de decir nada sobre el tema del copyright así que ir con cuidado), entramos a la página anterior, subimos la fuente y ésta nos devuelve un archivo .js con su nombre.</p>
+<p><a href="http://filadeatras.com/wp-content/uploads/2011/01/Captura.jpg"><img src="http://filadeatras.com/wp-content/uploads/2011/01/Captura-300x188.jpg" alt="" title="Captura" width="300" height="188" class="alignnone size-medium wp-image-76" srcset="http://filadeatras.com/wp-content/uploads/2011/01/Captura-300x188.jpg 300w, http://filadeatras.com/wp-content/uploads/2011/01/Captura.jpg 907w" sizes="(max-width: 300px) 100vw, 300px" /></a></p>
+<p>Entonces en el header html incluimos la librería Cufón y las fuentes .js:</p>
+<div class="codecolorer-container html4strict geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="html4strict codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"><span style="color: #009900;">&lt;<a href="http://december.com/html/4/element/script.html"><span style="color: #000000; font-weight: bold;">script</span></a> <span style="color: #000066;">src</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;cufon-yui.js&quot;</span> <span style="color: #000066;">type</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;text/javascript&quot;</span>&gt;&lt;<span style="color: #66cc66;">/</span><a href="http://december.com/html/4/element/script.html"><span style="color: #000000; font-weight: bold;">script</span></a>&gt;</span> <br />
+<span style="color: #009900;">&lt;<a href="http://december.com/html/4/element/script.html"><span style="color: #000000; font-weight: bold;">script</span></a> <span style="color: #000066;">src</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;Angelic_War_400.font.js&quot;</span> <span style="color: #000066;">type</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;text/javascript&quot;</span>&gt;&lt;<span style="color: #66cc66;">/</span><a href="http://december.com/html/4/element/script.html"><span style="color: #000000; font-weight: bold;">script</span></a>&gt;</span><br />
+<span style="color: #009900;">&lt;<a href="http://december.com/html/4/element/script.html"><span style="color: #000000; font-weight: bold;">script</span></a> <span style="color: #000066;">src</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;Demon_400.font.js&quot;</span> <span style="color: #000066;">type</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;text/javascript&quot;</span>&gt;&lt;<span style="color: #66cc66;">/</span><a href="http://december.com/html/4/element/script.html"><span style="color: #000000; font-weight: bold;">script</span></a>&gt;</span></div></div>
+<p>Ahora definiremos el elemento con el texto que queremos substituir por la imagen de la fuente. Por ejemplo una h1, div, p&#8230;</p>
+<div class="codecolorer-container html4strict geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="html4strict codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"><span style="color: #009900;">&lt;<a href="http://december.com/html/4/element/script.html"><span style="color: #000000; font-weight: bold;">script</span></a> <span style="color: #000066;">type</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;text/javascript&quot;</span>&gt;</span><br />
+Cufon.replace('h1', {fontFamily:'Demon'});<br />
+Cufon.replace('h2', {fontFamily:'Angelic'});<br />
+<span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><a href="http://december.com/html/4/element/script.html"><span style="color: #000000; font-weight: bold;">script</span></a>&gt;</span></div></div>
+<p>Una ventaja de usar jQuery junto con esta librería es que se puede definir más de un elemento en la misma línea:</p>
+<div class="codecolorer-container html4strict geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="html4strict codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"><span style="color: #009900;">&lt;<a href="http://december.com/html/4/element/script.html"><span style="color: #000000; font-weight: bold;">script</span></a> <span style="color: #000066;">type</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;text/javascript&quot;</span>&gt;</span><br />
+Cufon.replace('h1', h2, .elem, #div', {fontFamily:'Demon'});<br />
+<span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><a href="http://december.com/html/4/element/script.html"><span style="color: #000000; font-weight: bold;">script</span></a>&gt;</span></div></div>
+<p>Por ultimo decir que se le puede añadir CSS y funciona igualmente.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://filadeatras.com/2011/01/27/fuentes-como-imagenes-con-cufon/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

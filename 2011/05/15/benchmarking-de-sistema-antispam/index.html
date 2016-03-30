@@ -1,0 +1,394 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head profile="http://gmpg.org/xfn/11"><title>FilaDeAtras » Benchmarking de sistema antispam</title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="generator" content="WordPress 4.4.2"><meta name="google-site-verification" content="a09lkpdBlbDQlEXCeKS2oNIwYvyRjGrS9-JhS02f6V0"><!-- leave this for stats please --><link href="http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold" rel="stylesheet" type="text/css"><link rel="stylesheet" href="http://filadeatras.com/wp-content/themes/fda-theme/style.css" type="text/css" media="screen"><link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://filadeatras.com/feed/"><link rel="alternate" type="text/xml" title="RSS .92" href="http://filadeatras.com/feed/rss/"><link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="http://filadeatras.com/feed/atom/"><link rel="pingback" href="http://filadeatras.com/xmlrpc.php"><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script><script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.3/jquery-ui.min.js" type="text/javascript"></script><script type="text/javascript" src="http://filadeatras.com/wp-content/themes/fda-theme/js/jquery.corner.js"></script><script type="text/javascript" src="http://filadeatras.com/wp-content/themes/fda-theme/js/jquery.gradient.js"></script><script type="text/javascript" src="http://filadeatras.com/wp-content/themes/fda-theme/js/jquery.dimensions.js"></script><link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.3/themes/base/jquery-ui.css" type="text/css" media="all"><link rel="stylesheet" href="http://static.jquery.com/ui/css/demo-docs-theme/ui.theme.css" type="text/css" media="all"><link rel="alternate" type="application/rss+xml" title="FilaDeAtras » Benchmarking de sistema antispam Comments Feed" href="http://filadeatras.com/2011/05/15/benchmarking-de-sistema-antispam/feed/"><script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/filadeatras.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.4.2"}};
+			!function(a,b,c){function d(a){var c,d=b.createElement("canvas"),e=d.getContext&&d.getContext("2d"),f=String.fromCharCode;return e&&e.fillText?(e.textBaseline="top",e.font="600 32px Arial","flag"===a?(e.fillText(f(55356,56806,55356,56826),0,0),d.toDataURL().length>3e3):"diversity"===a?(e.fillText(f(55356,57221),0,0),c=e.getImageData(16,16,1,1).data.toString(),e.fillText(f(55356,57221,55356,57343),0,0),c!==e.getImageData(16,16,1,1).data.toString()):("simple"===a?e.fillText(f(55357,56835),0,0):e.fillText(f(55356,57135),0,0),0!==e.getImageData(16,16,1,1).data[0])):!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g;c.supports={simple:d("simple"),flag:d("flag"),unicode8:d("unicode8"),diversity:d("diversity")},c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.simple&&c.supports.flag&&c.supports.unicode8&&c.supports.diversity||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style><style type="text/css">.codecolorer, .codecolorer *, .codecolorer-container, .codecolorer-container * { font: 11px/1.3em Monaco, Lucida Console, monospace }</style><link rel="stylesheet" id="psr_style-css" href="http://filadeatras.com/wp-content/plugins/post-star-rating/css/style.css?ver=4.4.2" type="text/css" media="all"><link rel="stylesheet" id="codecolorer-css" href="http://filadeatras.com/wp-content/plugins/codecolorer/codecolorer.css?ver=0.9.9" type="text/css" media="screen"><script type="text/javascript" src="http://filadeatras.com/wp-includes/js/jquery/jquery.js?ver=1.11.3"></script><script type="text/javascript" src="http://filadeatras.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1"></script><script type="text/javascript">
+/* <![CDATA[ */
+var psr_ajax = {"url":"http:\/\/filadeatras.com\/wp-admin\/admin-ajax.php","nonce":"15c06f6b1a"};
+/* ]]> */
+</script><script type="text/javascript" src="http://filadeatras.com/wp-content/plugins/post-star-rating/js/script.js?ver=4.4.2"></script><link rel="https://api.w.org/" href="http://filadeatras.com/wp-json/"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://filadeatras.com/xmlrpc.php?rsd"><link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://filadeatras.com/wp-includes/wlwmanifest.xml"><link rel="prev" title="CREATE DATABASE Permission denied in database ‘master’" href="http://filadeatras.com/2011/05/09/create-database-permission-denied-in-database-master/"><link rel="next" title="Benchmarking de sistema antispam II" href="http://filadeatras.com/2011/05/16/benchmarking-de-sistema-antispam-ii/"><meta name="generator" content="WordPress 4.4.2"><link rel="canonical" href="http://filadeatras.com/2011/05/15/benchmarking-de-sistema-antispam/"><link rel="shortlink" href="http://filadeatras.com/?p=236"><link rel="alternate" type="application/json+oembed" href="http://filadeatras.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Ffiladeatras.com%2F2011%2F05%2F15%2Fbenchmarking-de-sistema-antispam%2F"><link rel="alternate" type="text/xml+oembed" href="http://filadeatras.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Ffiladeatras.com%2F2011%2F05%2F15%2Fbenchmarking-de-sistema-antispam%2F&amp;format=xml"><script type="text/javascript">
+	    $(document).ready(function() {
+		    $('#pagemenu').corner("7px");
+		    $('.sidebar').corner("10px");
+		    $('.allpost').corner("15px");
+		    $('#footer').corner("10px");
+		    $('.logo').corner("15px");
+		    $('.autorimg').corner("5px");
+		    $('.logo').click(function() {
+			 $(window.location).attr('href', 'http://filadeatras.com/files/vigilante.gif');
+		      });
+		    $("#tabs").tabs();
+	    });
+
+	</script></head><body>
+<div id="wrapper">
+
+<div id="header">
+	<div class="logo" title="Una bonita Fila De Atras... eh?"></div>
+	<div id="inheader"><h1><a href="http://filadeatras.com">FilaDeAtras</a></h1>
+	<h3>con la fila en el corazón</h3><a href="http://filadeatras.com/rss" title="Subscribete a los cuchicheos de la FDA!"><img class="rss" alt="rss img" src="http://filadeatras.com/wp-content/themes/fda-theme/images/rss.png"></a></div>
+	<div id="pagemenu">
+		<!--<ul class="pages"><li class="page_item"><a href="http://filadeatras.com"></a></li>--><li class="page_item page-item-2"><a href="http://filadeatras.com/about/">About</a></li>
+<li class="page_item page-item-36"><a href="http://filadeatras.com/projects/">Proyectos</a></li>
+<li class="page_item page-item-28"><a href="http://filadeatras.com/users/">Users</a></li>
+	</div>
+	
+	
+
+</div>
+
+<div id="pages">
+	<div id="pages_subcont">	</div>
+</div>
+<div id="container">
+	        
+        <div class="allpost">		<div id="post-236">
+			<h2 class="title2"><a href="http://filadeatras.com/2011/05/15/benchmarking-de-sistema-antispam/" title="Benchmarking de sistema antispam">Benchmarking de sistema antispam</a></h2> <!--titulo de la entrada-->
+			<p class="postmetadata"><span class="autorimg"><img alt="" src="http://0.gravatar.com/avatar/94a86d1d5c9ec3e06615271ba79f66fe?s=48&amp;d=mm&amp;r=g" srcset="http://0.gravatar.com/avatar/94a86d1d5c9ec3e06615271ba79f66fe?s=96&amp;d=mm&amp;r=g" class="avatar avatar-48 photo" height="48" width="48"></span>
+				Autor:  <b>francesc81</b>   Fecha:&amp;nbsp May 15, 2011<br></p>
+			<div class="entry">
+				<p>El otro día se me ocurrió preguntar a los componentes de la FilaDeAtras sobre como evitarian que alguna IP hiciera más inserts de la cuenta en una web en PHP que estoy haciendo y dos componentes respondieron audazmente con dos algorismos diferentes. Me entró curiosidad sobre cual de los dos sería más rápido y por lo tanto me permitiría hacer una web más ligera.</p>
+<ul><li>franhp propuso guardar una IP y un timestamp con cada insert en la base de datos</li>
+<li>hektor propuso guardar las IP en un archivo de texto plano</li>
+</ul><p><span id="more-236"></span>Para realizar estas pruebas he creado una base de datos con 10k, 100k y 10M de registros (las tablas contienen un campo varchar(16) en el que se almacena la IP y un timestamp de la hora que se insertaron) así como archivos de texto plano con la misma cantidad de datos. Después he creado unos scripts en PHP que generaban 50 peticiones 5 veces y calcula cuanto se ha tardado en total en hacerlas. Posteriormente he pensado en los siguientes algorismos:</p>
+<ul><li>MysqlA: Se cargan todos los resultados de la consulta en memoria y allí se busca</li>
+</ul><div class="codecolorer-container php geshi" style="overflow:auto;white-space:nowrap;width:670px;"><div class="php codecolorer" style="white-space:nowrap"><span style="color: #000088;">$num</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/rand"><span style="color: #990000;">rand</span></a><span style="color: #009900;">(</span><span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span><span style="color: #cc66cc;">255</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br><span style="color: #000088;">$query</span> <span style="color: #339933;">=</span> <span style="color: #0000ff;">'select num from lista where num = '</span><span style="color: #339933;">.</span><span style="color: #000088;">$num</span><span style="color: #339933;">.</span><span style="color: #0000ff;">' and timestamp &amp;gt; from_unixtime('</span><span style="color: #339933;">.</span><a href="http://www.php.net/mktime"><span style="color: #990000;">mktime</span></a><span style="color: #009900;">(</span><span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span> <a href="http://www.php.net/date"><span style="color: #990000;">date</span></a><span style="color: #009900;">(</span><span style="color: #0000ff;">'m'</span><span style="color: #009900;">)</span><span style="color: #339933;">,</span> <a href="http://www.php.net/date"><span style="color: #990000;">date</span></a><span style="color: #009900;">(</span><span style="color: #0000ff;">'d'</span><span style="color: #009900;">)</span><span style="color: #339933;">-</span><span style="color: #cc66cc;">1</span><span style="color: #339933;">,</span> <a href="http://www.php.net/date"><span style="color: #990000;">date</span></a><span style="color: #009900;">(</span><span style="color: #0000ff;">'Y'</span><span style="color: #009900;">)</span><span style="color: #009900;">)</span><span style="color: #339933;">.</span><span style="color: #0000ff;">')'</span><span style="color: #339933;">;</span><br><span style="color: #000088;">$result</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/mysql_query"><span style="color: #990000;">mysql_query</span></a><span style="color: #009900;">(</span><span style="color: #000088;">$query</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br><span style="color: #000088;">$i</span> <span style="color: #339933;">=</span> <span style="color: #339933;">-</span><span style="color: #cc66cc;">1</span><span style="color: #339933;">;</span><br><span style="color: #b1b100;">while</span><span style="color: #009900;">(</span><span style="color: #000088;">$row</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/mysql_fetch_row"><span style="color: #990000;">mysql_fetch_row</span></a><span style="color: #009900;">(</span><span style="color: #000088;">$result</span><span style="color: #009900;">)</span><span style="color: #009900;">)</span><span style="color: #009900;">{</span><br><span style="color: #000088;">$i</span><span style="color: #339933;">++;</span><br><span style="color: #009900;">}</span></div></div>
+<ul><li>MysqlB: Se confía en la capacidad de contar de mysql</li>
+</ul><div class="codecolorer-container php geshi" style="overflow:auto;white-space:nowrap;width:670px;"><div class="php codecolorer" style="white-space:nowrap"><span style="color: #000088;">$num</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/rand"><span style="color: #990000;">rand</span></a><span style="color: #009900;">(</span><span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span><span style="color: #cc66cc;">255</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br><span style="color: #000088;">$query</span> <span style="color: #339933;">=</span> <span style="color: #0000ff;">'select count(*) from lista where num = '</span><span style="color: #339933;">.</span><span style="color: #000088;">$num</span><span style="color: #339933;">.</span><span style="color: #0000ff;">' and timestamp &amp;gt; from_unixtime('</span><span style="color: #339933;">.</span><a href="http://www.php.net/mktime"><span style="color: #990000;">mktime</span></a><span style="color: #009900;">(</span><span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span> <a href="http://www.php.net/date"><span style="color: #990000;">date</span></a><span style="color: #009900;">(</span><span style="color: #0000ff;">'m'</span><span style="color: #009900;">)</span><span style="color: #339933;">,</span> <a href="http://www.php.net/date"><span style="color: #990000;">date</span></a><span style="color: #009900;">(</span><span style="color: #0000ff;">'d'</span><span style="color: #009900;">)</span><span style="color: #339933;">-</span><span style="color: #cc66cc;">1</span><span style="color: #339933;">,</span> <a href="http://www.php.net/date"><span style="color: #990000;">date</span></a><span style="color: #009900;">(</span><span style="color: #0000ff;">'Y'</span><span style="color: #009900;">)</span><span style="color: #009900;">)</span><span style="color: #339933;">.</span><span style="color: #0000ff;">')'</span><span style="color: #339933;">;</span><br><span style="color: #000088;">$result</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/mysql_query"><span style="color: #990000;">mysql_query</span></a><span style="color: #009900;">(</span><span style="color: #000088;">$query</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br><span style="color: #000088;">$row</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/mysql_fetch_row"><span style="color: #990000;">mysql_fetch_row</span></a><span style="color: #009900;">(</span><span style="color: #000088;">$result</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></div></div>
+<ul><li>MysqlC: Se usa el mismo comando de contar pero desde php</li>
+</ul><div class="codecolorer-container php geshi" style="overflow:auto;white-space:nowrap;width:670px;"><div class="php codecolorer" style="white-space:nowrap"><span style="color: #000088;">$num</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/rand"><span style="color: #990000;">rand</span></a><span style="color: #009900;">(</span><span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span><span style="color: #cc66cc;">255</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br><span style="color: #000088;">$query</span> <span style="color: #339933;">=</span> <span style="color: #0000ff;">'select num from lista where num = '</span><span style="color: #339933;">.</span><span style="color: #000088;">$num</span><span style="color: #339933;">.</span><span style="color: #0000ff;">' and timestamp &amp;gt; from_unixtime('</span><span style="color: #339933;">.</span><a href="http://www.php.net/mktime"><span style="color: #990000;">mktime</span></a><span style="color: #009900;">(</span><span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span> <a href="http://www.php.net/date"><span style="color: #990000;">date</span></a><span style="color: #009900;">(</span><span style="color: #0000ff;">'m'</span><span style="color: #009900;">)</span><span style="color: #339933;">,</span> <a href="http://www.php.net/date"><span style="color: #990000;">date</span></a><span style="color: #009900;">(</span><span style="color: #0000ff;">'d'</span><span style="color: #009900;">)</span><span style="color: #339933;">-</span><span style="color: #cc66cc;">1</span><span style="color: #339933;">,</span> <a href="http://www.php.net/date"><span style="color: #990000;">date</span></a><span style="color: #009900;">(</span><span style="color: #0000ff;">'Y'</span><span style="color: #009900;">)</span><span style="color: #009900;">)</span><span style="color: #339933;">.</span><span style="color: #0000ff;">')'</span><span style="color: #339933;">;</span><br><span style="color: #000088;">$result</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/mysql_query"><span style="color: #990000;">mysql_query</span></a><span style="color: #009900;">(</span><span style="color: #000088;">$query</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br><span style="color: #000088;">$i</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/mysql_numrows"><span style="color: #990000;">mysql_numrows</span></a><span style="color: #009900;">(</span><span style="color: #000088;">$result</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></div></div>
+<ul><li>Files: Se carga el archivo en memoria y luego se hace un foreach para buscar coincidencias</li>
+</ul><div class="codecolorer-container php geshi" style="overflow:auto;white-space:nowrap;width:670px;"><div class="php codecolorer" style="white-space:nowrap"><span style="color: #000088;">$lines</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/file"><span style="color: #990000;">file</span></a><span style="color: #009900;">(</span><span style="color: #000088;">$file</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br><span style="color: #000088;">$num</span> <span style="color: #339933;">=</span> <a href="http://www.php.net/rand"><span style="color: #990000;">rand</span></a><span style="color: #009900;">(</span><span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span><span style="color: #cc66cc;">255</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br><span style="color: #000088;">$i</span> <span style="color: #339933;">=</span> <span style="color: #cc66cc;">0</span><span style="color: #339933;">;</span><br><span style="color: #b1b100;">foreach</span><span style="color: #009900;">(</span><span style="color: #000088;">$lines</span> <span style="color: #b1b100;">as</span> <span style="color: #000088;">$line</span><span style="color: #009900;">)</span><span style="color: #009900;">{</span><br><span style="color: #b1b100;">if</span><span style="color: #009900;">(</span><span style="color: #000088;">$line</span> <span style="color: #339933;">==</span> <span style="color: #000088;">$num</span><span style="color: #009900;">)</span> <span style="color: #000088;">$i</span><span style="color: #339933;">++;</span><br><span style="color: #009900;">}</span></div></div>
+<h2>Resultados</h2>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script><script type="text/javascript">
+    
+      google.load('visualization', '1', {'packages':['corechart']});
+      google.setOnLoadCallback(drawCharts);
+      
+      function drawCharts(){
+        drawChart1();
+        drawChart2();
+        drawChart3();
+      }
+      
+      
+      function drawChart1() {
+            // Create and populate the data table.
+            var data = new google.visualization.DataTable();
+            
+            var raw_data = [
+            ['MysqlA', 0.47137904167175, 0.45942568778992, 0.46913623809814, 0.47044014930725, 0.46680450439453],['MysqlB', 0.45121359825134, 0.46103501319885, 0.46196246147156, 0.46554064750671, 0.45803475379944],['MysqlC', 0.45845675468445, 0.45847320556641, 0.45470786094666, 0.47418141365051, 0.46465516090393],['Files', 0.2754271030426, 0.27704167366028, 0.2813892364502, 0.28424429893494, 0.27748584747314]                            ];
+            
+            var years = ['1st', '2nd', '3rd', '4th', '5th'];
+                            
+            data.addColumn('string', 'Time');
+            for (var i = 0; i  < raw_data.length; ++i) {
+              data.addColumn('number', raw_data[i][0]);    
+            }
+            
+            data.addRows(years.length);
+          
+            for (var j = 0; j < years.length; ++j) {    
+              data.setValue(j, 0, years[j].toString());    
+            }
+            for (var i = 0; i  < raw_data.length; ++i) {
+              for (var j = 1; j  < raw_data[i].length; ++j) {
+                data.setValue(j-1, i+1, raw_data[i][j]);    
+              }
+            }
+            
+            // Create and draw the visualization.
+            new google.visualization.BarChart(document.getElementById('chart1')).
+                draw(data,
+                     {title:"Time it takes to do 50 requests on a 10k line file",
+                      width:600, height:400,
+                      vAxis: {title: "Time"},
+                      hAxis: {title: "Seconds"}}
+                );
+    }
+      
+      
+      function drawChart2() {
+            // Create and populate the data table.
+            var data = new google.visualization.DataTable();
+            
+            var raw_data = [
+            ['MysqlA', 2.7686369419098, 2.7253029346466, 2.7522926330566, 2.7956855297089, 2.7553255558014],['MysqlB', 2.7607343196869, 2.7075021266937, 2.7039449214935, 2.7256145477295, 2.7321860790253],['MysqlC', 2.7155947685242, 2.72824883461, 2.7569189071655, 2.7329955101013, 2.7297141551971],['Files', 3.1052844524384, 2.9411017894745, 2.9503200054169, 2.9294714927673, 2.9646718502045]                            ];
+            
+            var years = ['1st', '2nd', '3rd', '4th', '5th'];
+                            
+            data.addColumn('string', 'Time');
+            for (var i = 0; i  < raw_data.length; ++i) {
+              data.addColumn('number', raw_data[i][0]);    
+            }
+            
+            data.addRows(years.length);
+          
+            for (var j = 0; j < years.length; ++j) {    
+              data.setValue(j, 0, years[j].toString());    
+            }
+            for (var i = 0; i  < raw_data.length; ++i) {
+              for (var j = 1; j  < raw_data[i].length; ++j) {
+                data.setValue(j-1, i+1, raw_data[i][j]);    
+              }
+            }
+            
+            // Create and draw the visualization.
+            new google.visualization.BarChart(document.getElementById('chart2')).
+                draw(data,
+                     {title:"Time it takes to do 50 requests on a 100k line file",
+                      width:600, height:400,
+                      vAxis: {title: "Time"},
+                      hAxis: {title: "Seconds"}}
+                );
+    }
+      
+      function drawChart3() {
+            // Create and populate the data table.
+            var data = new google.visualization.DataTable();
+            
+            var raw_data = [
+['MysqlA', 933.21640467644, 922.54734373093, 901.86389923096, 897.49964690208, 914.76998758316],['MysqlB', 910.93939828873, 943.68561029434, 881.8849363327, 899.31127691269, 909.59679913521],['MysqlC', 915.86891436577, 880.2218747139, 927.45656728745, 984.30798196793, 900.75863146782],['Files', 317.53111505508, 323.88458108902, 327.25870728493, 346.53602385521, 325.13826751709]
+            
+            
+            ];
+            
+            var years = ['1st', '2nd', '3rd', '4th', '5th'];
+                            
+            data.addColumn('string', 'Time');
+            for (var i = 0; i  < raw_data.length; ++i) {
+              data.addColumn('number', raw_data[i][0]);    
+            }
+            
+            data.addRows(years.length);
+          
+            for (var j = 0; j < years.length; ++j) {    
+              data.setValue(j, 0, years[j].toString());    
+            }
+            for (var i = 0; i  < raw_data.length; ++i) {
+              for (var j = 1; j  < raw_data[i].length; ++j) {
+                data.setValue(j-1, i+1, raw_data[i][j]);    
+              }
+            }
+            
+            // Create and draw the visualization.
+            new google.visualization.BarChart(document.getElementById('chart3')).
+                draw(data,
+                     {title:"Time it takes to do 50 requests on a 10M line file",
+                      width:600, height:400,
+                      vAxis: {title: "Time"},
+                      hAxis: {title: "Seconds"}}
+                );
+    }
+    </script><div id="charts_div"><div id="chart1"></div><div id="chart2"></div><div id="chart3"></div></div>
+<h2>Conclusiones</h2>
+<p>Si esperamos sólo 10k de inserts, podemos observar que lo mejor sería usar un archivo de texto plano para almacenar las IP y irlo borrando con cada noche (cron).  También vemos que el algorismo MysqlA (cargar todos los resultados en memoria para tratarlos) es el más lento en la mayoría de casos.</p>
+<p>Si esperamos 100k de inserts, vemos que usar un archivo de texto plano ya no es una alternativa ya que le saca aproximadamente medio segundo más a cualquier alternativa de mysql y aprovecha mucho mejor el caché (fijaos en el tiempo del primer resultado y el siguiente) Tampoco la opción mysqlA es una alternativa, siempre es más lenta que el resto.</p>
+<p>Si esperamos 10M de inserts, lo primero sería cambiar mysql por otra base de datos más profesional como por ejemplo Oracle (aquí el DBA de mi empresa estaría orgulloso de mí :P), y lo segundo es que extrañamente el uso de archivos de texto plano es muchisimo más rápido, hasta 3 veces más, que cualquiera de los algorismos que usan base de datos.</p>
+<p>And the winner is … (tambores) … Archivos de texto plano!</p>
+<p>Nota: Cabe decir que no se ha probado alguna de las bases de datos NoSQL, eso lo dejo para el próximo artículo 😛<br>
+Nota2: Podeis encontrar el codigo en <a href="https://github.com/franhp/BenchmarkingTestClass">https://github.com/franhp/BenchmarkingTestClass</a></p>
+                                			</div>
+			<p class="postmetadata">
+			</p><div class="PSR_container"><div class="PSR_stars"><span class="PSR_full_star">*</span><span class="PSR_full_star">*</span><span class="PSR_full_star">*</span><span class="PSR_full_star">*</span><span class="PSR_full_star">*</span><span class="PSR_votes">6</span><span class="PSR_tvotes">votes</span></div></div>			<a href="http://filadeatras.com/2011/05/15/benchmarking-de-sistema-antispam/#comments">2 Comentarios »</a>			 | Categorías: 			<a href="http://filadeatras.com/category/filadeatras/" rel="category tag">filadeatras</a>, <a href="http://filadeatras.com/category/internet/" rel="category tag">internet</a>, <a href="http://filadeatras.com/category/internet/php/" rel="category tag">PHP</a>, <a href="http://filadeatras.com/category/programacion/" rel="category tag">programación</a>			Tags: <a href="http://filadeatras.com/tag/benchmarking/" rel="tag">benchmarking</a>, <a href="http://filadeatras.com/tag/mysql/" rel="tag">mysql</a>			
+			<br><div class="comments-template">
+                            <div id="comments">
+
+			<h3 id="comments-title">2 Responses to <em>Benchmarking de sistema antispam</em></h3>
+
+
+			<ol class="commentlist"><li class="comment byuser comment-author-hektor even thread-even depth-1" id="li-comment-49">
+		<div id="comment-49">
+		<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/673869ae2ba03109cebe531abcecdf0d?s=40&amp;d=mm&amp;r=g" srcset="http://0.gravatar.com/avatar/673869ae2ba03109cebe531abcecdf0d?s=80&amp;d=mm&amp;r=g" class="avatar avatar-40 photo" height="40" width="40"><cite class="fn"><a href="http://hcosta.info" rel="external nofollow" class="url">hektor</a></cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="http://filadeatras.com/2011/05/15/benchmarking-de-sistema-antispam/#comment-49">
+			May 15, 2011 at 5:06 pm</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>vaya, te lo has tomado muy en serio esto, muy buena comparativa francesc :O</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="http://filadeatras.com/2011/05/15/benchmarking-de-sistema-antispam/?replytocom=49#respond" onclick='return addComment.moveForm( "comment-49", "49", "respond", "236" )' aria-label="Reply to hektor">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	<ul class="children"><li class="comment byuser comment-author-francesc81 bypostauthor odd alt depth-2" id="li-comment-50">
+		<div id="comment-50">
+		<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/94a86d1d5c9ec3e06615271ba79f66fe?s=40&amp;d=mm&amp;r=g" srcset="http://0.gravatar.com/avatar/94a86d1d5c9ec3e06615271ba79f66fe?s=80&amp;d=mm&amp;r=g" class="avatar avatar-40 photo" height="40" width="40"><cite class="fn">francesc81</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="http://filadeatras.com/2011/05/15/benchmarking-de-sistema-antispam/#comment-50">
+			May 15, 2011 at 6:39 pm</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>mira de que va esta peli: <a href="http://www.imdb.com/title/tt1139328/" rel="nofollow">http://www.imdb.com/title/tt1139328/</a> y entenderás más sobre el origen del post 😉</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="http://filadeatras.com/2011/05/15/benchmarking-de-sistema-antispam/?replytocom=50#respond" onclick='return addComment.moveForm( "comment-50", "50", "respond", "236" )' aria-label="Reply to francesc81">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+</ul><!-- .children --></li><!-- #comment-## -->
+			</ol><div id="respond" class="comment-respond">
+			<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://filadeatras.com/2011/05/15/benchmarking-de-sistema-antispam/#respond" style="display:none;">Cancel reply</a></small></h3>				<form action="http://filadeatras.com/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+					<p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" required="required"></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" aria-required="true" required="required"></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" aria-describedby="email-notes" aria-required="true" required="required"></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="text" value="" size="30"></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment"><input type="hidden" name="comment_post_ID" value="236" id="comment_post_ID"><input type="hidden" name="comment_parent" id="comment_parent" value="0"></p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="0f3d40248c"></p><p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="29"></p>				</form>
+					</div><!-- #respond -->
+		 
+
+
+</div><!-- #comments -->                        </div>	
+                 </div>
+	</div>
+		
+	<div id="navigation">
+		« <a href="http://filadeatras.com/2011/05/09/create-database-permission-denied-in-database-master/" rel="prev">CREATE DATABASE Permission denied in database ‘master’</a>  <a href="http://filadeatras.com/2011/05/16/benchmarking-de-sistema-antispam-ii/" rel="next">Benchmarking de sistema antispam II</a> »	</div><br></div>
+
+<div class="sidebar">
+	<ul><li id="meta" class="widget widget_meta">			<h2 class="widgettitle">Meta</h2>
+			<ul><li><a href="http://filadeatras.com/wp-login.php">Log in</a></li>
+			<li><a href="http://filadeatras.com/feed/" title="Syndicate this site using RSS 2.0">Entries <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="http://filadeatras.com/comments/feed/" title="The latest comments to all posts in RSS">Comments <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+						</ul></li>
+<li id="the-last-comment-3" class="widget the_last_comment_widget"><h2 class="widgettitle">Last comment</h2>
+        <div class="the_last_comment">
+            <div class="the_last_comment_author"> Juan Jose</div>            <div class="the_last_comment_content">Esto puede ayudar
+
+http://msdn.microsoft.com/es-es/library/dd207004.aspx <a href="http://filadeatras.com/2011/05/09/create-database-permission-denied-in-database-master/#comment-146">»</a></div>
+                    </div>
+        </li>
+<li id="search-3" class="widget widget_search"><h2 class="widgettitle">Buscador</h2>
+<form method="get" id="searchform" action="http://filadeatras.com/">
+<div>
+	<input type="text" value="" name="s" id="s" size="15">  
+	<!--<input type="submit" id="searchsubmit" value="Search" />-->
+</div>
+</form></li>
+<li id="categories-3" class="widget widget_categories"><h2 class="widgettitle">Categorías</h2>
+		<ul><li class="cat-item cat-item-41"><a href="http://filadeatras.com/category/c/">C#</a> (1)
+</li>
+	<li class="cat-item cat-item-95"><a href="http://filadeatras.com/category/css/">css</a> (3)
+</li>
+	<li class="cat-item cat-item-34"><a href="http://filadeatras.com/category/filadeatras/">filadeatras</a> (4)
+</li>
+	<li class="cat-item cat-item-17"><a href="http://filadeatras.com/category/gnulinux/">gnu/linux</a> (8)
+<ul class="children"><li class="cat-item cat-item-21"><a href="http://filadeatras.com/category/gnulinux/administracion-gnulinux/">administración</a> (5)
+</li>
+	<li class="cat-item cat-item-18"><a href="http://filadeatras.com/category/gnulinux/noticias/">noticias</a> (1)
+</li>
+	<li class="cat-item cat-item-33"><a href="http://filadeatras.com/category/gnulinux/ubuntu/">ubuntu</a> (1)
+</li>
+</ul></li>
+	<li class="cat-item cat-item-28"><a href="http://filadeatras.com/category/howto/">howto</a> (2)
+</li>
+	<li class="cat-item cat-item-3"><a href="http://filadeatras.com/category/internet/">internet</a> (10)
+<ul class="children"><li class="cat-item cat-item-65"><a href="http://filadeatras.com/category/internet/javascript/">javascript</a> (1)
+</li>
+	<li class="cat-item cat-item-39"><a href="http://filadeatras.com/category/internet/php/">PHP</a> (5)
+</li>
+</ul></li>
+	<li class="cat-item cat-item-13"><a href="http://filadeatras.com/category/multimedia/">multimedia</a> (1)
+</li>
+	<li class="cat-item cat-item-79"><a href="http://filadeatras.com/category/programacion/">programación</a> (2)
+</li>
+	<li class="cat-item cat-item-82"><a href="http://filadeatras.com/category/reflexiones/">reflexiones</a> (1)
+</li>
+	<li class="cat-item cat-item-37"><a href="http://filadeatras.com/category/tips/">tips</a> (4)
+</li>
+	<li class="cat-item cat-item-64"><a href="http://filadeatras.com/category/videos/">videos</a> (1)
+</li>
+	<li class="cat-item cat-item-112"><a href="http://filadeatras.com/category/videotaller/">videotaller</a> (1)
+</li>
+	<li class="cat-item cat-item-9"><a href="http://filadeatras.com/category/windows/">windows</a> (2)
+<ul class="children"><li class="cat-item cat-item-10"><a href="http://filadeatras.com/category/windows/administracion/">administración</a> (1)
+</li>
+</ul></li>
+		</ul></li>
+<li id="archives-2" class="widget widget_archive"><h2 class="widgettitle">Archivos</h2>
+		<ul><li><a href="http://filadeatras.com/2011/07/">July 2011</a> (1)</li>
+	<li><a href="http://filadeatras.com/2011/06/">June 2011</a> (5)</li>
+	<li><a href="http://filadeatras.com/2011/05/">May 2011</a> (7)</li>
+	<li><a href="http://filadeatras.com/2011/03/">March 2011</a> (1)</li>
+	<li><a href="http://filadeatras.com/2011/02/">February 2011</a> (1)</li>
+	<li><a href="http://filadeatras.com/2011/01/">January 2011</a> (4)</li>
+	<li><a href="http://filadeatras.com/2010/10/">October 2010</a> (3)</li>
+	<li><a href="http://filadeatras.com/2010/08/">August 2010</a> (4)</li>
+		</ul></li>
+<li id="tag_cloud-3" class="widget widget_tag_cloud"><h2 class="widgettitle">Nube de tags</h2>
+<div class="tagcloud"><a href="http://filadeatras.com/tag/64bits/" class="tag-link-32" title="1 topic" style="font-size: 8pt;">64bits</a>
+<a href="http://filadeatras.com/tag/550/" class="tag-link-55" title="1 topic" style="font-size: 8pt;">550</a>
+<a href="http://filadeatras.com/tag/adwords/" class="tag-link-62" title="1 topic" style="font-size: 8pt;">adwords</a>
+<a href="http://filadeatras.com/tag/arranque/" class="tag-link-26" title="1 topic" style="font-size: 8pt;">arranque</a>
+<a href="http://filadeatras.com/tag/awn-dock/" class="tag-link-45" title="1 topic" style="font-size: 8pt;">awn dock</a>
+<a href="http://filadeatras.com/tag/benchmarking/" class="tag-link-81" title="2 topics" style="font-size: 16.4pt;">benchmarking</a>
+<a href="http://filadeatras.com/tag/boot-local/" class="tag-link-25" title="1 topic" style="font-size: 8pt;">boot.local</a>
+<a href="http://filadeatras.com/tag/c/" class="tag-link-128" title="1 topic" style="font-size: 8pt;">C#</a>
+<a href="http://filadeatras.com/tag/comandos/" class="tag-link-22" title="1 topic" style="font-size: 8pt;">comandos</a>
+<a href="http://filadeatras.com/tag/css/" class="tag-link-131" title="3 topics" style="font-size: 22pt;">css</a>
+<a href="http://filadeatras.com/tag/cufon/" class="tag-link-51" title="1 topic" style="font-size: 8pt;">cufon</a>
+<a href="http://filadeatras.com/tag/dalle/" class="tag-link-44" title="1 topic" style="font-size: 8pt;">dalle</a>
+<a href="http://filadeatras.com/tag/debian/" class="tag-link-19" title="2 topics" style="font-size: 16.4pt;">debian</a>
+<a href="http://filadeatras.com/tag/entry/" class="tag-link-60" title="1 topic" style="font-size: 8pt;">entry</a>
+<a href="http://filadeatras.com/tag/error/" class="tag-link-56" title="1 topic" style="font-size: 8pt;">error</a>
+<a href="http://filadeatras.com/tag/filadeatras/" class="tag-link-126" title="1 topic" style="font-size: 8pt;">filadeatras</a>
+<a href="http://filadeatras.com/tag/flash/" class="tag-link-31" title="1 topic" style="font-size: 8pt;">flash</a>
+<a href="http://filadeatras.com/tag/ftp/" class="tag-link-54" title="2 topics" style="font-size: 16.4pt;">ftp</a>
+<a href="http://filadeatras.com/tag/ftpwebrequest/" class="tag-link-57" title="1 topic" style="font-size: 8pt;">FtpWebRequest</a>
+<a href="http://filadeatras.com/tag/gd/" class="tag-link-50" title="1 topic" style="font-size: 8pt;">gd</a>
+<a href="http://filadeatras.com/tag/google/" class="tag-link-61" title="1 topic" style="font-size: 8pt;">google</a>
+<a href="http://filadeatras.com/tag/gravatar/" class="tag-link-59" title="1 topic" style="font-size: 8pt;">gravatar</a>
+<a href="http://filadeatras.com/tag/image/" class="tag-link-49" title="3 topics" style="font-size: 22pt;">image</a>
+<a href="http://filadeatras.com/tag/introduccion/" class="tag-link-63" title="1 topic" style="font-size: 8pt;">introduccion</a>
+<a href="http://filadeatras.com/tag/javascript/" class="tag-link-130" title="1 topic" style="font-size: 8pt;">javascript</a>
+<a href="http://filadeatras.com/tag/jdownloader/" class="tag-link-43" title="1 topic" style="font-size: 8pt;">jdownloader</a>
+<a href="http://filadeatras.com/tag/js/" class="tag-link-52" title="1 topic" style="font-size: 8pt;">js</a>
+<a href="http://filadeatras.com/tag/linux/" class="tag-link-23" title="1 topic" style="font-size: 8pt;">linux</a>
+<a href="http://filadeatras.com/tag/mkv/" class="tag-link-14" title="1 topic" style="font-size: 8pt;">mkv</a>
+<a href="http://filadeatras.com/tag/mkvmerge/" class="tag-link-15" title="1 topic" style="font-size: 8pt;">mkvmerge</a>
+<a href="http://filadeatras.com/tag/mkvtoolnix/" class="tag-link-16" title="1 topic" style="font-size: 8pt;">mkvtoolnix</a>
+<a href="http://filadeatras.com/tag/mysql/" class="tag-link-80" title="2 topics" style="font-size: 16.4pt;">mysql</a>
+<a href="http://filadeatras.com/tag/opacity/" class="tag-link-97" title="2 topics" style="font-size: 16.4pt;">opacity</a>
+<a href="http://filadeatras.com/tag/php-2/" class="tag-link-66" title="1 topic" style="font-size: 8pt;">php</a>
+<a href="http://filadeatras.com/tag/plugins/" class="tag-link-35" title="1 topic" style="font-size: 8pt;">plugins</a>
+<a href="http://filadeatras.com/tag/random/" class="tag-link-67" title="1 topic" style="font-size: 8pt;">random</a>
+<a href="http://filadeatras.com/tag/rc-local/" class="tag-link-24" title="1 topic" style="font-size: 8pt;">rc.local</a>
+<a href="http://filadeatras.com/tag/script/" class="tag-link-73" title="1 topic" style="font-size: 8pt;">script</a>
+<a href="http://filadeatras.com/tag/squeeze/" class="tag-link-20" title="1 topic" style="font-size: 8pt;">squeeze</a>
+<a href="http://filadeatras.com/tag/text/" class="tag-link-48" title="2 topics" style="font-size: 16.4pt;">text</a>
+<a href="http://filadeatras.com/tag/tips/" class="tag-link-127" title="1 topic" style="font-size: 8pt;">tips</a>
+<a href="http://filadeatras.com/tag/ubuntu/" class="tag-link-125" title="2 topics" style="font-size: 16.4pt;">ubuntu</a>
+<a href="http://filadeatras.com/tag/users/" class="tag-link-36" title="1 topic" style="font-size: 8pt;">users</a>
+<a href="http://filadeatras.com/tag/windows/" class="tag-link-123" title="2 topics" style="font-size: 16.4pt;">windows</a>
+<a href="http://filadeatras.com/tag/wordpress/" class="tag-link-58" title="1 topic" style="font-size: 8pt;">wordpress</a></div>
+</li>
+	</ul></div><div id="footer">
+<div style="display: none;"><a href="http://www.escueladevideojuegos.net">escueladevideojuegos.net</a></div>
+	© Copyleft - <a href="http://filadeatras.com">FilaDeAtras</a> - All lefts reserved<br>Theme FDA v1 by <a href="http://hcosta.info">hektor</a> - Powered by WordPress - Have fun!
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-50592649-1', 'filadeatras.com');
+  ga('send', 'pageview');
+
+</script></div>
+</div>
+
+</body></html>

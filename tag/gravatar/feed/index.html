@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>gravatar &#8211; FilaDeAtras</title>
+	<atom:link href="http://filadeatras.com/tag/gravatar/feed/" rel="self" type="application/rss+xml" />
+	<link>http://filadeatras.com</link>
+	<description>con la fila en el corazón</description>
+	<lastBuildDate>Sat, 12 May 2012 20:43:14 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.4.2</generator>
+	<item>
+		<title>Gravatar en los post</title>
+		<link>http://filadeatras.com/2010/10/11/gravatar-en-los-post/</link>
+		<comments>http://filadeatras.com/2010/10/11/gravatar-en-los-post/#respond</comments>
+		<pubDate>Mon, 11 Oct 2010 17:31:04 +0000</pubDate>
+		<dc:creator><![CDATA[hektor]]></dc:creator>
+				<category><![CDATA[internet]]></category>
+		<category><![CDATA[tips]]></category>
+		<category><![CDATA[entry]]></category>
+		<category><![CDATA[gravatar]]></category>
+		<category><![CDATA[wordpress]]></category>
+
+		<guid isPermaLink="false">http://filadeatras.com/?p=40</guid>
+		<description><![CDATA[Es muy sencillo, en los archivos &#8216;index.php&#8217; y &#8216;single.php&#8217; del theme, añadir: &#60;?php $author_email = get_the_author_email&#40;&#41;; echo get_avatar&#40;$author_email, '32'&#41;; ?&#62; Si quieres añadirle CSS: .avatar-autor &#123; &#160; &#160; &#160; background: #fff; &#160; &#160; &#160; border: 1px solid #ddd; &#160; &#160; &#160; display: inline; &#160; &#160; &#160; float: left; &#160; &#160; &#160; margin-right: 20px &#125; Y [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Es muy sencillo,</p>
+<p>en los archivos &#8216;index.php&#8217; y &#8216;single.php&#8217; del theme, añadir:</p>
+<div class="codecolorer-container php geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="php codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"><span style="color: #000000; font-weight: bold;">&lt;?php</span> <br />
+<span style="color: #000088;">$author_email</span> <span style="color: #339933;">=</span> get_the_author_email<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <br />
+<span style="color: #b1b100;">echo</span> get_avatar<span style="color: #009900;">&#40;</span><span style="color: #000088;">$author_email</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'32'</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <br />
+<span style="color: #000000; font-weight: bold;">?&gt;</span></div></div>
+<p><span id="more-40"></span>Si quieres añadirle CSS:</p>
+<div class="codecolorer-container css geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="css codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"><span style="color: #6666ff;">.avatar-autor</span><br />
+<span style="color: #00AA00;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; <span style="color: #000000; font-weight: bold;">background</span><span style="color: #00AA00;">:</span> <span style="color: #cc00cc;">#fff</span><span style="color: #00AA00;">;</span><br />
+&nbsp; &nbsp; &nbsp; <span style="color: #000000; font-weight: bold;">border</span><span style="color: #00AA00;">:</span> <span style="color: #933;">1px</span> <span style="color: #993333;">solid</span> <span style="color: #cc00cc;">#ddd</span><span style="color: #00AA00;">;</span><br />
+&nbsp; &nbsp; &nbsp; <span style="color: #000000; font-weight: bold;">display</span><span style="color: #00AA00;">:</span> <span style="color: #993333;">inline</span><span style="color: #00AA00;">;</span><br />
+&nbsp; &nbsp; &nbsp; <span style="color: #000000; font-weight: bold;">float</span><span style="color: #00AA00;">:</span> <span style="color: #000000; font-weight: bold;">left</span><span style="color: #00AA00;">;</span><br />
+&nbsp; &nbsp; &nbsp; <span style="color: #000000; font-weight: bold;">margin-right</span><span style="color: #00AA00;">:</span> <span style="color: #933;">20px</span><br />
+<span style="color: #00AA00;">&#125;</span></div></div>
+<p>Y luego llamas a la clase:</p>
+<div class="codecolorer-container php geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="php codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">&lt;div class=&quot;avatar-autor&quot;&gt;<br />
+<span style="color: #000000; font-weight: bold;">&lt;?php</span> <br />
+<span style="color: #000088;">$author_email</span> <span style="color: #339933;">=</span> get_the_author_email<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <br />
+<span style="color: #b1b100;">echo</span> get_avatar<span style="color: #009900;">&#40;</span><span style="color: #000088;">$author_email</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'32'</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <br />
+<span style="color: #000000; font-weight: bold;">?&gt;</span><br />
+&lt;/div&gt;</div></div>
+<p>El 32 indica el tamaño del avatar, puedes modificarlo a voluntad.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://filadeatras.com/2010/10/11/gravatar-en-los-post/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

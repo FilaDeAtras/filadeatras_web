@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>mkvtoolnix &#8211; FilaDeAtras</title>
+	<atom:link href="http://filadeatras.com/tag/mkvtoolnix/feed/" rel="self" type="application/rss+xml" />
+	<link>http://filadeatras.com</link>
+	<description>con la fila en el corazón</description>
+	<lastBuildDate>Sat, 12 May 2012 20:43:14 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.4.2</generator>
+	<item>
+		<title>Modificar el contenido de un .mkv</title>
+		<link>http://filadeatras.com/2010/08/06/modificar-el-contenido-de-un-mkv/</link>
+		<comments>http://filadeatras.com/2010/08/06/modificar-el-contenido-de-un-mkv/#respond</comments>
+		<pubDate>Fri, 06 Aug 2010 00:18:44 +0000</pubDate>
+		<dc:creator><![CDATA[cendi7]]></dc:creator>
+				<category><![CDATA[multimedia]]></category>
+		<category><![CDATA[mkv]]></category>
+		<category><![CDATA[mkvmerge]]></category>
+		<category><![CDATA[mkvtoolnix]]></category>
+
+		<guid isPermaLink="false">http://filadeatras.com/?p=11</guid>
+		<description><![CDATA[Empece a ver la 7ª temporada de Friends en V.O y al bajarla me di cuenta de que venia en formato mkv, pero el problema fue al iniciar el primer capitulo y ver que el mkv contenía subtitulos en Chino. No es un problema en si ya que si cargas un archivo .srt externo, los [&#8230;]]]></description>
+				<content:encoded><![CDATA[<div id="articleText">
+<p>Empece  a ver la 7ª temporada de Friends en V.O y al bajarla me di cuenta de  que venia en formato mkv, pero el problema fue al iniciar el primer  capitulo y ver que el mkv contenía subtitulos en Chino. No es un  problema en si ya que si cargas un archivo .srt externo, los subtitulos  en Chino desaparecen pero personalmente prefería que no estuvieran, con  lo que me puse a buscar como extraer el contenido de un archivo mkv y  modificarlo. Acabe dando con una aplicación llamada mkvtoolnix que es  realmente sencilla de hacer funcionar y en pocos segundos podremos  realizar nuestras modificaciones.<br />
+<span id="more-11"></span><br />
+<h3>Instalación</h3>
+<p>Como usuario de Arch el comando para realizar la instalación es</p>
+<p><em># pacman -Sy mkvtoolnix</em></p>
+<p>En Ubuntu se utiliza:</p>
+<p><em>$ sudo apt-get install mkvtoolnix mkvtoolnix-gui</em></p>
+<h3>Editar el archivo mkv</h3>
+<p>MKVToolnix incluye varias aplicaciones para extraer, para ver la  información del archivo&#8230; pero a nosotros en este caso nos interesa  mkvmerge que nos va a permitir ver el contenido del mkv y modificarlo  eliminando partes o añadiendo nuevas</p>
+<p>Aquí vemos la interfaz del programa.</p>
+<p><img src="http://img685.imageshack.us/img685/2350/mkvtoolnix1.jpg" alt="" width="500px" height="600px" /></p>
+<p>Lo primero que haremos será pulsar el botón <strong>&#8220;Add&#8221;</strong> y  seleccionamos el archivo .mkv que queremos modificar. Como se ve en la  imagen nos saldrá su contenido. Vemos que tenemos una pista de vídeo,  una de audio y 3 de subtitulos. Lo único que tenemos que hacer es no  seleccionar las casillas de los subtitulos y si pulsamos el botón <strong>&#8220;Start Muxing&#8221;</strong> en un par de segundos tendremos generado el nuevo mkv y sin subtitulos.</p>
+<h3>Añadir nuestros propios subtitulos al contenedor mkv</h3>
+<p>Si lo deseamos podemos añadir subtitulos propios. MKVToolnix soporta los formatos <strong>IDX</strong>, <strong>ASS</strong>, <strong>SSA</strong>, <strong>XML</strong>, <strong>USF</strong> y el que siempre uso que es <strong>SRT</strong>.</p>
+<p>Para añadir un subtitulo a un mkv es tan sencillo como una vez cargado el mkv en el programa pulsamos <strong>&#8220;Add&#8221;</strong> y esta vez seleccionamos el archivo del subtitulo.</p>
+<p><img src="http://img267.imageshack.us/img267/4564/mkvtoolnix2.jpg" alt="" width="500px" height="600px" /></p>
+<p>Una vez seleccionado el subtitulo es importante que modifiquemos el  charset para evitar problemas con los acentos. Seleccionamos el  subtitulo y nos desplazamos a la pestaña <strong>&#8220;Format specific options&#8221;</strong>. Por ejemplo podemos usar UTF-8</p>
+<p><img src="http://img443.imageshack.us/img443/7413/mkvtoolnix3.jpg" alt="" width="500px" height="600px" /></p>
+<p>Seguidos estos pasos ya podemos crear el nuevo mkv y tendremos los subtitulos integrados.</p></div>
+]]></content:encoded>
+			<wfw:commentRss>http://filadeatras.com/2010/08/06/modificar-el-contenido-de-un-mkv/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

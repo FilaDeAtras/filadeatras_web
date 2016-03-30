@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dalle &#8211; FilaDeAtras</title>
+	<atom:link href="http://filadeatras.com/tag/dalle/feed/" rel="self" type="application/rss+xml" />
+	<link>http://filadeatras.com</link>
+	<description>con la fila en el corazón</description>
+	<lastBuildDate>Sat, 12 May 2012 20:43:14 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.4.2</generator>
+	<item>
+		<title>Ubuntu 10.10: Jdownloader, Dalle, AWN Dock y más.</title>
+		<link>http://filadeatras.com/2011/01/23/ubuntu-10-10-jdownloader-dalle-awn-dock-y-mas/</link>
+		<comments>http://filadeatras.com/2011/01/23/ubuntu-10-10-jdownloader-dalle-awn-dock-y-mas/#respond</comments>
+		<pubDate>Sun, 23 Jan 2011 15:41:22 +0000</pubDate>
+		<dc:creator><![CDATA[hektor]]></dc:creator>
+				<category><![CDATA[gnu/linux]]></category>
+		<category><![CDATA[tips]]></category>
+		<category><![CDATA[ubuntu]]></category>
+		<category><![CDATA[awn dock]]></category>
+		<category><![CDATA[dalle]]></category>
+		<category><![CDATA[jdownloader]]></category>
+
+		<guid isPermaLink="false">http://filadeatras.com/?p=65</guid>
+		<description><![CDATA[Hace unos días me instalé Ubuntu 10.10 en mi nuevo Netbook, Samsung N210 Plus, y recordé una serie de mini-tips que publiqué en mi web, sobre algunos programas útiles y cambios del escritorio. Hoy os presento un pequeño resumen de ellos: Empezando por el escritorio, no sé vosotros pero a mi no me gusta eso [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p style="text-align: left;">Hace unos días me instalé Ubuntu 10.10 en mi nuevo Netbook, <a href="http://www.samsung.com/latin/consumer/monitor-peripherals-printer/notebook/netbook/NP-N210-JP01VE/index.idx?pagetype=prd_detail" target="_blank">Samsung N210 Plus</a>, y recordé una serie de mini-tips que publiqué en mi web, sobre algunos programas útiles y cambios del escritorio. Hoy os presento un pequeño resumen de ellos:</p>
+<p><span id="more-65"></span></p>
+<p style="text-align: left;">Empezando por el escritorio, no sé vosotros pero a mi no me gusta eso de tener los botones a la izquierda.</p>
+<h3>Devolver los botones de ventana a la derecha</h3>
+<ol>
+<li>Apretamos Alt + F2 y ejecutamos:  <em>gconf-editor</em></li>
+<li>Vamos al apartado <em>apps/metacity/general</em></li>
+<li>Buscamos button_layout y cambiamos el orden a <strong>menu:minimize,maximize,close </strong></li>
+<li>Aceptamos y listo <img src="http://filadeatras.com/wp-includes/images/smilies/simple-smile.png" alt=":-)" class="wp-smiley" style="height: 1em; max-height: 1em;" /></li>
+</ol>
+<h3>Una barra Dock muy cool, Avant Window Navigator + Theme Clearlooks</h3>
+<p><a href="http://filadeatras.com/wp-content/uploads/2011/01/Pantallazo.png"><img class="alignnone size-medium wp-image-71" title="Pantallazo" src="http://filadeatras.com/wp-content/uploads/2011/01/Pantallazo-300x217.png" alt="" width="300" height="217" srcset="http://filadeatras.com/wp-content/uploads/2011/01/Pantallazo-300x217.png 300w, http://filadeatras.com/wp-content/uploads/2011/01/Pantallazo.png 871w" sizes="(max-width: 300px) 100vw, 300px" /></a></p>
+<p><a href="https://launchpad.net/~awn-core" target="_blank">AWN</a> es un conocido Dock para Gnome, con el que podremos substituir esa maldita barra inferior. Lo bueno que tiene para mí son los temas que podemos ponerle, en especial me encanta el Clearlook. Para instalarlo ponemos en la terminal:</p>
+<blockquote><p><em>sudo add-apt-repository ppa:albyrock87/lucidoppa </em></p>
+<p><em>sudo add-apt-repository ppa:awn-testing/ppa &amp;&amp; sudo apt-get update</em></p></blockquote>
+<blockquote><p><em>sudo apt-get install avant-window-navigator-trunk  avant-window-navigator-data-trunk python-awn-trunk awn-settings-trunk  awn-applets-python-core-trunk python-awn-extras-trunk  awn-applets-python-extras-trunk awn-applets-c-core-trunk  awn-applets-c-extras-trun</em></p></blockquote>
+<p>Ahora un par de herramientas para aquellos leechers como yo que se acostumbran a descargar muchos archivos en descarga directa y partidos.</p>
+<h3>Jdownloader</h3>
+<p><a href="http://jdownloader.org/download" target="_blank">Jdownloader</a> es para mi el mejor gestor de descargas que existe, programado en Java. Para instalarlo en Ubuntu simplemente abrimos la terminal:</p>
+<blockquote><p>sudo add-apt-repository ppa:jd-team/jdownloader<br />
+sudo apt-get update<br />
+sudo apt-get install jdownloader</p></blockquote>
+<h3>Hacha en Ubuntu? ¡No! -&gt; Dalle</h3>
+<p><a href="http://filadeatras.com/wp-content/uploads/2011/01/Pantallazo-1.png"><img class="alignnone size-medium wp-image-70" title="Pantallazo-1" src="http://filadeatras.com/wp-content/uploads/2011/01/Pantallazo-1-300x158.png" alt="" width="300" height="158" /></a></p>
+<p>Pese a que Jdownloader integra un sistema para unir archivos no soporta cualquier extensión de éstos, asi que seguramente necesitaremos un programa alternativo. Yo propongo <a href="http://dalle.sourceforge.net/" target="_blank">Dalle</a>. Es un programa genial para partir y unir archivos. Tiene una GUI parecida a Hacha y acepta extensiones de multitud de sistemas, entre ellos: Astrotite, Axman 3, Easy File Splitter, File Splitter, Hacha (1, 2 and Pro), SplitFile, Zip&#8230;</p>
+<p>Viene en un paquete .deb para que sea sencillisimo de instalar:</p>
+<p><a href="http://sourceforge.net/projects/dalle/files/dalle/dalle-0.10.10/dalle_0.10.10-1_all.deb/download">http://sourceforge.net/projects/dalle/files/dalle/dalle-0.10.10/dalle_0.10.10-1_all.deb/download</a></p>
+]]></content:encoded>
+			<wfw:commentRss>http://filadeatras.com/2011/01/23/ubuntu-10-10-jdownloader-dalle-awn-dock-y-mas/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

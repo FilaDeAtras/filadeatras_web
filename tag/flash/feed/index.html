@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>flash &#8211; FilaDeAtras</title>
+	<atom:link href="http://filadeatras.com/tag/flash/feed/" rel="self" type="application/rss+xml" />
+	<link>http://filadeatras.com</link>
+	<description>con la fila en el corazón</description>
+	<lastBuildDate>Sat, 12 May 2012 20:43:14 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.4.2</generator>
+	<item>
+		<title>Flash plugin 64 en ubuntu o debian</title>
+		<link>http://filadeatras.com/2010/10/01/flash-plugin-64-en-ubuntu-o-debian/</link>
+		<comments>http://filadeatras.com/2010/10/01/flash-plugin-64-en-ubuntu-o-debian/#respond</comments>
+		<pubDate>Fri, 01 Oct 2010 00:37:19 +0000</pubDate>
+		<dc:creator><![CDATA[francesc81]]></dc:creator>
+				<category><![CDATA[gnu/linux]]></category>
+		<category><![CDATA[howto]]></category>
+		<category><![CDATA[64bits]]></category>
+		<category><![CDATA[debian]]></category>
+		<category><![CDATA[flash]]></category>
+		<category><![CDATA[ubuntu]]></category>
+
+		<guid isPermaLink="false">http://filadeatras.com/?p=24</guid>
+		<description><![CDATA[En Adobe estan trabajando en una versión de 64 bits para el plugin de flash. Actualmente se encuentra en &#8216;developer preview release&#8217;. Instalarlo es bastante sencillo, estas son las instrucciones desde un terminal: Descarga la ultima versión desde http://labs.adobe.com/downloads/flashplayer10.html: wget http://download.macromedia.com/pub/labs/flashplayer10/flashplayer10_2_p3_64bit_linux_111710.tar.gz Extrae la librería libflashplayer.so y copiala en /usr/lib/iceweasel/plugins/ si tienes Debian o en /usr/lib/firefox-addons/plugins/ [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>En  Adobe estan trabajando en una versión de 64 bits para el plugin de  flash. Actualmente se encuentra en &#8216;developer preview release&#8217;.<br />
+Instalarlo es bastante sencillo, estas son las instrucciones desde un terminal:</p>
+<p>Descarga la ultima versión desde http://labs.adobe.com/downloads/flashplayer10.html:</p>
+<div class="codecolorer-container text geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="text codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">wget http://download.macromedia.com/pub/labs/flashplayer10/flashplayer10_2_p3_64bit_linux_111710.tar.gz</div></div>
+<p>Extrae la librería libflashplayer.so y copiala en  /usr/lib/iceweasel/plugins/ si tienes Debian o en  /usr/lib/firefox-addons/plugins/ si tienes Ubuntu</p>
+<div class="codecolorer-container text geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="text codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">$ tar xzvf flashplayer_square_p2_64bit_linux_092710.tar.gz<br />
+$ sudo mv -i libflashplayer.so /usr/lib/iceweasel/plugins/ &lt;dt&gt;Cambia el propietario de la libreria<br />
+$ sudo chown root: /usr/lib/iceweasel/plugins/libflashplayer.so</div></div>
+<p>Solo por Debian, deshabilita el plugin swfdec-mozilla cambiando el symlink en /etc/alternatives/</p>
+<div class="codecolorer-container text geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="text codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">$ cd /etc/alternatives/<br />
+$ mv flash-mozilla.so flash-mozilla.so.orig<br />
+$ sudo ln -s /usr/lib/iceweasel/plugins/libflashplayer.so flash-mozilla.so</div></div>
+<p><a href="http://www.danilodellaquila.com/blog/adobe-flash-player-plugin-a-64-bit-para-firefox-en-debian-y-ubuntu">Fuente</a></dt>
+<p> </code></p>
+]]></content:encoded>
+			<wfw:commentRss>http://filadeatras.com/2010/10/01/flash-plugin-64-en-ubuntu-o-debian/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

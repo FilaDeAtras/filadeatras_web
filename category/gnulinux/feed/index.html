@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>gnu/linux &#8211; FilaDeAtras</title>
+	<atom:link href="http://filadeatras.com/category/gnulinux/feed/" rel="self" type="application/rss+xml" />
+	<link>http://filadeatras.com</link>
+	<description>con la fila en el corazón</description>
+	<lastBuildDate>Sat, 12 May 2012 20:43:14 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.4.2</generator>
+	<item>
+		<title>Restaurar home del usuario con rsync</title>
+		<link>http://filadeatras.com/2011/05/22/restaurar-home-del-usuario-con-rsync/</link>
+		<comments>http://filadeatras.com/2011/05/22/restaurar-home-del-usuario-con-rsync/#respond</comments>
+		<pubDate>Sun, 22 May 2011 11:32:11 +0000</pubDate>
+		<dc:creator><![CDATA[cendi7]]></dc:creator>
+				<category><![CDATA[administración]]></category>
+		<category><![CDATA[gnu/linux]]></category>
+
+		<guid isPermaLink="false">http://filadeatras.com/?p=328</guid>
+		<description><![CDATA[En este post explicaré como restaurar de manera sencilla el home de un usuario con rsync. Lo usamos en el instituto para restaurar el home del alumno al estado por defecto y evitar que degraden en exceso su directorio personal. Lo primero que tendremos que hacer es configurar el home del alumno hasta tenerlo como [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>En este post explicaré como restaurar de manera sencilla el home de un usuario con rsync. Lo usamos en el instituto para restaurar el home del alumno al estado por defecto y evitar que degraden en exceso su directorio personal.</p>
+<p>Lo primero que  tendremos que hacer es configurar el home del alumno hasta tenerlo como lo queramos. Una vez lo tenemos todo preparado ejecutamos:</p>
+<div class="codecolorer-container text geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="text codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">rsync -a --delete /home/alumno /root/backup_home_alumno</div></div>
+<p>Con esto tendremos guardada una copia del home del alumno en la carpeta del root.</p>
+<p>A continuación creamos un script con el siguiente contenido:</p>
+<div class="codecolorer-container text geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="text codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">#!/bin/bash<br />
+rsync -a --delete /root/backup_home_alumno /home/alumno<br />
+chown -R alumno:alumno /home/alumno</div></div>
+<p>Este script deberemos colocarlo en la carpeta /etc/init.d/ para que se ejecute al iniciar el sistema y de esta manera restaurar el home del alumno.</p>
+<p>Hay que tener en cuenta que siempre que hagamos una modificación en el home del alumno deberemos volver a ejecutar el rsync para actualizar la copia del home que guardamos en la carpeta del root.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://filadeatras.com/2011/05/22/restaurar-home-del-usuario-con-rsync/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Tareas FTP en un script Bash</title>
+		<link>http://filadeatras.com/2011/05/20/tareas-ftp-en-un-script-bash/</link>
+		<comments>http://filadeatras.com/2011/05/20/tareas-ftp-en-un-script-bash/#respond</comments>
+		<pubDate>Fri, 20 May 2011 10:23:48 +0000</pubDate>
+		<dc:creator><![CDATA[cendi7]]></dc:creator>
+				<category><![CDATA[administración]]></category>
+		<category><![CDATA[gnu/linux]]></category>
+		<category><![CDATA[backup]]></category>
+		<category><![CDATA[bash]]></category>
+		<category><![CDATA[ftp]]></category>
+		<category><![CDATA[script]]></category>
+
+		<guid isPermaLink="false">http://filadeatras.com/?p=247</guid>
+		<description><![CDATA[Pongamos por caso que necesitas hacer el backup de un archivo por FTP cada día (un backup para los amigos) y te gustaría automatizarlo. Pues creas un script como el siguiente: #!/bin/bash ftp -inv servidor.ftp&#60;&#60;EOF user usuario password binary cd backups lcd /backups/ put backup_de_hoy.tar.gz bye EOF NOTA: Rsync lo hace mucho mejor en estos [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Pongamos por caso que necesitas hacer el backup de un archivo por FTP cada día (un backup para los amigos) y te gustaría automatizarlo. Pues creas un script como el siguiente:</p>
+<div class="codecolorer-container bash geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="bash codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"><span style="color: #666666; font-style: italic;">#!/bin/bash</span><br />
+<span style="color: #c20cb9; font-weight: bold;">ftp</span> <span style="color: #660033;">-inv</span> servidor.ftp<span style="color: #cc0000; font-style: italic;">&lt;&lt;EOF<br />
+user usuario password<br />
+binary<br />
+cd backups<br />
+lcd /backups/<br />
+put backup_de_hoy.tar.gz<br />
+bye<br />
+EOF</span></div></div>
+<p>NOTA: <a href="http://en.wikipedia.org/wiki/Rsync">Rsync </a>lo hace mucho mejor en estos casos, pero no se me ocurría otro caso de uso &#8230;</p>
+]]></content:encoded>
+			<wfw:commentRss>http://filadeatras.com/2011/05/20/tareas-ftp-en-un-script-bash/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Utilidades del comando dd</title>
+		<link>http://filadeatras.com/2011/05/19/utilidades-del-comando-dd/</link>
+		<comments>http://filadeatras.com/2011/05/19/utilidades-del-comando-dd/#respond</comments>
+		<pubDate>Thu, 19 May 2011 19:42:57 +0000</pubDate>
+		<dc:creator><![CDATA[cendi7]]></dc:creator>
+				<category><![CDATA[administración]]></category>
+		<category><![CDATA[gnu/linux]]></category>
+
+		<guid isPermaLink="false">http://filadeatras.com/?p=320</guid>
+		<description><![CDATA[Bueno hace ya mucho que no escribo y como os veo muy puestos algo habrá que hacer. Me he decidido a hacer un pequeño post con algunas utilidades del comando dd ya que cada vez lo uso mas a menudo y se pueden hacer bastantes cosillas con el. Sintaxis del comando dd if=origen of=destino Crear [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Bueno hace ya mucho que no escribo y como os veo muy puestos algo habrá que hacer. Me he decidido a hacer un pequeño post con algunas utilidades del comando dd ya que cada vez lo uso mas a menudo y se pueden hacer bastantes cosillas con el.</p>
+<p><strong>Sintaxis del comando</strong><br />
+dd if=origen of=destino</p>
+<p><strong>Crear usb bootable</strong></p>
+<p>dd if=imagen.iso of=/dev/sdX</p>
+<p>sdX será nuestro dispositivo usb. Lo uso mucho para instalar mis sistemas operativos GNU/Linux y no desperdiciar CD&#8217;s.</p>
+<p><strong>Crear imagen ISO de un CD o DVD</strong><br />
+dd if=/dev/dvd of=dvd.iso<br />
+dd if=/dev/cdrom of=cd.iso</p>
+<p>Luego podemos usar esta imagen iso y montarla en nuestro sistema con el siguiente comando:<br />
+mount -t iso9660 -o loop imagen.iso /media/iso</p>
+<p><strong>Clonar disco duro o partición</strong><br />
+dd if=/dev/sda of=/dev/sdb # Clonar disco duro</p>
+<p>Para hacerlo con una partición es lo mismo sólo que tendremos que indicar el numero de la partición:<br />
+dd if=/dev/sda2 of=/dev/sdb2 # Clonar partición</p>
+<p><strong>Formatear a bajo nivel</strong><br />
+dd if=/dev/zero of=/dev/sdX</p>
+<p>/dev/zero és un tipo de archivo que viene en sistemas Unix y que nos va a permitir rellenar el disco duro con caracteres <i>null</i> sobrescribiendo con ellos todo el contenido de nuestro disco duro o partición.</p>
+<p><strong>Backup de un disco duro o partición y restaurarla</strong><br />
+dd if=/dev/sdX of=backup.img</p>
+<p>Para restaurarla ejecutamos el comando intercambiando el origen y el destino:<br />
+dd if=backup.img of=/dev/sdX</p>
+]]></content:encoded>
+			<wfw:commentRss>http://filadeatras.com/2011/05/19/utilidades-del-comando-dd/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Ubuntu 10.10: Jdownloader, Dalle, AWN Dock y más.</title>
+		<link>http://filadeatras.com/2011/01/23/ubuntu-10-10-jdownloader-dalle-awn-dock-y-mas/</link>
+		<comments>http://filadeatras.com/2011/01/23/ubuntu-10-10-jdownloader-dalle-awn-dock-y-mas/#respond</comments>
+		<pubDate>Sun, 23 Jan 2011 15:41:22 +0000</pubDate>
+		<dc:creator><![CDATA[hektor]]></dc:creator>
+				<category><![CDATA[gnu/linux]]></category>
+		<category><![CDATA[tips]]></category>
+		<category><![CDATA[ubuntu]]></category>
+		<category><![CDATA[awn dock]]></category>
+		<category><![CDATA[dalle]]></category>
+		<category><![CDATA[jdownloader]]></category>
+
+		<guid isPermaLink="false">http://filadeatras.com/?p=65</guid>
+		<description><![CDATA[Hace unos días me instalé Ubuntu 10.10 en mi nuevo Netbook, Samsung N210 Plus, y recordé una serie de mini-tips que publiqué en mi web, sobre algunos programas útiles y cambios del escritorio. Hoy os presento un pequeño resumen de ellos: Empezando por el escritorio, no sé vosotros pero a mi no me gusta eso [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p style="text-align: left;">Hace unos días me instalé Ubuntu 10.10 en mi nuevo Netbook, <a href="http://www.samsung.com/latin/consumer/monitor-peripherals-printer/notebook/netbook/NP-N210-JP01VE/index.idx?pagetype=prd_detail" target="_blank">Samsung N210 Plus</a>, y recordé una serie de mini-tips que publiqué en mi web, sobre algunos programas útiles y cambios del escritorio. Hoy os presento un pequeño resumen de ellos:</p>
+<p><span id="more-65"></span></p>
+<p style="text-align: left;">Empezando por el escritorio, no sé vosotros pero a mi no me gusta eso de tener los botones a la izquierda.</p>
+<h3>Devolver los botones de ventana a la derecha</h3>
+<ol>
+<li>Apretamos Alt + F2 y ejecutamos:  <em>gconf-editor</em></li>
+<li>Vamos al apartado <em>apps/metacity/general</em></li>
+<li>Buscamos button_layout y cambiamos el orden a <strong>menu:minimize,maximize,close </strong></li>
+<li>Aceptamos y listo <img src="http://filadeatras.com/wp-includes/images/smilies/simple-smile.png" alt=":-)" class="wp-smiley" style="height: 1em; max-height: 1em;" /></li>
+</ol>
+<h3>Una barra Dock muy cool, Avant Window Navigator + Theme Clearlooks</h3>
+<p><a href="http://filadeatras.com/wp-content/uploads/2011/01/Pantallazo.png"><img class="alignnone size-medium wp-image-71" title="Pantallazo" src="http://filadeatras.com/wp-content/uploads/2011/01/Pantallazo-300x217.png" alt="" width="300" height="217" srcset="http://filadeatras.com/wp-content/uploads/2011/01/Pantallazo-300x217.png 300w, http://filadeatras.com/wp-content/uploads/2011/01/Pantallazo.png 871w" sizes="(max-width: 300px) 100vw, 300px" /></a></p>
+<p><a href="https://launchpad.net/~awn-core" target="_blank">AWN</a> es un conocido Dock para Gnome, con el que podremos substituir esa maldita barra inferior. Lo bueno que tiene para mí son los temas que podemos ponerle, en especial me encanta el Clearlook. Para instalarlo ponemos en la terminal:</p>
+<blockquote><p><em>sudo add-apt-repository ppa:albyrock87/lucidoppa </em></p>
+<p><em>sudo add-apt-repository ppa:awn-testing/ppa &amp;&amp; sudo apt-get update</em></p></blockquote>
+<blockquote><p><em>sudo apt-get install avant-window-navigator-trunk  avant-window-navigator-data-trunk python-awn-trunk awn-settings-trunk  awn-applets-python-core-trunk python-awn-extras-trunk  awn-applets-python-extras-trunk awn-applets-c-core-trunk  awn-applets-c-extras-trun</em></p></blockquote>
+<p>Ahora un par de herramientas para aquellos leechers como yo que se acostumbran a descargar muchos archivos en descarga directa y partidos.</p>
+<h3>Jdownloader</h3>
+<p><a href="http://jdownloader.org/download" target="_blank">Jdownloader</a> es para mi el mejor gestor de descargas que existe, programado en Java. Para instalarlo en Ubuntu simplemente abrimos la terminal:</p>
+<blockquote><p>sudo add-apt-repository ppa:jd-team/jdownloader<br />
+sudo apt-get update<br />
+sudo apt-get install jdownloader</p></blockquote>
+<h3>Hacha en Ubuntu? ¡No! -&gt; Dalle</h3>
+<p><a href="http://filadeatras.com/wp-content/uploads/2011/01/Pantallazo-1.png"><img class="alignnone size-medium wp-image-70" title="Pantallazo-1" src="http://filadeatras.com/wp-content/uploads/2011/01/Pantallazo-1-300x158.png" alt="" width="300" height="158" /></a></p>
+<p>Pese a que Jdownloader integra un sistema para unir archivos no soporta cualquier extensión de éstos, asi que seguramente necesitaremos un programa alternativo. Yo propongo <a href="http://dalle.sourceforge.net/" target="_blank">Dalle</a>. Es un programa genial para partir y unir archivos. Tiene una GUI parecida a Hacha y acepta extensiones de multitud de sistemas, entre ellos: Astrotite, Axman 3, Easy File Splitter, File Splitter, Hacha (1, 2 and Pro), SplitFile, Zip&#8230;</p>
+<p>Viene en un paquete .deb para que sea sencillisimo de instalar:</p>
+<p><a href="http://sourceforge.net/projects/dalle/files/dalle/dalle-0.10.10/dalle_0.10.10-1_all.deb/download">http://sourceforge.net/projects/dalle/files/dalle/dalle-0.10.10/dalle_0.10.10-1_all.deb/download</a></p>
+]]></content:encoded>
+			<wfw:commentRss>http://filadeatras.com/2011/01/23/ubuntu-10-10-jdownloader-dalle-awn-dock-y-mas/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Flash plugin 64 en ubuntu o debian</title>
+		<link>http://filadeatras.com/2010/10/01/flash-plugin-64-en-ubuntu-o-debian/</link>
+		<comments>http://filadeatras.com/2010/10/01/flash-plugin-64-en-ubuntu-o-debian/#respond</comments>
+		<pubDate>Fri, 01 Oct 2010 00:37:19 +0000</pubDate>
+		<dc:creator><![CDATA[francesc81]]></dc:creator>
+				<category><![CDATA[gnu/linux]]></category>
+		<category><![CDATA[howto]]></category>
+		<category><![CDATA[64bits]]></category>
+		<category><![CDATA[debian]]></category>
+		<category><![CDATA[flash]]></category>
+		<category><![CDATA[ubuntu]]></category>
+
+		<guid isPermaLink="false">http://filadeatras.com/?p=24</guid>
+		<description><![CDATA[En Adobe estan trabajando en una versión de 64 bits para el plugin de flash. Actualmente se encuentra en &#8216;developer preview release&#8217;. Instalarlo es bastante sencillo, estas son las instrucciones desde un terminal: Descarga la ultima versión desde http://labs.adobe.com/downloads/flashplayer10.html: wget http://download.macromedia.com/pub/labs/flashplayer10/flashplayer10_2_p3_64bit_linux_111710.tar.gz Extrae la librería libflashplayer.so y copiala en /usr/lib/iceweasel/plugins/ si tienes Debian o en /usr/lib/firefox-addons/plugins/ [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>En  Adobe estan trabajando en una versión de 64 bits para el plugin de  flash. Actualmente se encuentra en &#8216;developer preview release&#8217;.<br />
+Instalarlo es bastante sencillo, estas son las instrucciones desde un terminal:</p>
+<p>Descarga la ultima versión desde http://labs.adobe.com/downloads/flashplayer10.html:</p>
+<div class="codecolorer-container text geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="text codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">wget http://download.macromedia.com/pub/labs/flashplayer10/flashplayer10_2_p3_64bit_linux_111710.tar.gz</div></div>
+<p>Extrae la librería libflashplayer.so y copiala en  /usr/lib/iceweasel/plugins/ si tienes Debian o en  /usr/lib/firefox-addons/plugins/ si tienes Ubuntu</p>
+<div class="codecolorer-container text geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="text codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">$ tar xzvf flashplayer_square_p2_64bit_linux_092710.tar.gz<br />
+$ sudo mv -i libflashplayer.so /usr/lib/iceweasel/plugins/ &lt;dt&gt;Cambia el propietario de la libreria<br />
+$ sudo chown root: /usr/lib/iceweasel/plugins/libflashplayer.so</div></div>
+<p>Solo por Debian, deshabilita el plugin swfdec-mozilla cambiando el symlink en /etc/alternatives/</p>
+<div class="codecolorer-container text geshi" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><div class="text codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">$ cd /etc/alternatives/<br />
+$ mv flash-mozilla.so flash-mozilla.so.orig<br />
+$ sudo ln -s /usr/lib/iceweasel/plugins/libflashplayer.so flash-mozilla.so</div></div>
+<p><a href="http://www.danilodellaquila.com/blog/adobe-flash-player-plugin-a-64-bit-para-firefox-en-debian-y-ubuntu">Fuente</a></dt>
+<p> </code></p>
+]]></content:encoded>
+			<wfw:commentRss>http://filadeatras.com/2010/10/01/flash-plugin-64-en-ubuntu-o-debian/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Ejecutar comandos en el arranque de Linux</title>
+		<link>http://filadeatras.com/2010/08/25/ejecutar-comandos-en-el-arranque-de-linux/</link>
+		<comments>http://filadeatras.com/2010/08/25/ejecutar-comandos-en-el-arranque-de-linux/#respond</comments>
+		<pubDate>Wed, 25 Aug 2010 00:29:00 +0000</pubDate>
+		<dc:creator><![CDATA[franhp]]></dc:creator>
+				<category><![CDATA[administración]]></category>
+		<category><![CDATA[gnu/linux]]></category>
+		<category><![CDATA[arranque]]></category>
+		<category><![CDATA[boot.local]]></category>
+		<category><![CDATA[rc.local]]></category>
+
+		<guid isPermaLink="false">http://filadeatras.com/?p=18</guid>
+		<description><![CDATA[Muchas veces me he preguntado como ejecutar algún comando cada vez que se inicia el sistema, tanto en Linux como en cualquier *nix. La solución consiste en editar el fichero /etc/rc.local. En el caso de las distribuciones basadas en Suse, el mismo archivo se encuentra en /etc/init.d/boot.local Cualquier comando que se ponga al final de [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Muchas veces me he preguntado como ejecutar algún comando cada vez que  se inicia el sistema, tanto en Linux como en cualquier *nix. La solución  consiste en editar el fichero <strong>/etc/rc.local</strong>. En el caso de las distribuciones basadas en Suse, el mismo archivo se encuentra en <strong>/etc/init.d/boot.local</strong><br />
+Cualquier comando que se ponga al final de este fichero será ejecutado  después de haber acabado con todos los comandos del runlevel  correspondiente, es decir, tras haber ejecutado todos los scripts de  arranque.<br />
+Por ejemplo:<br />
+<img src="http://localhost/images/blog/rclocal.jpg" alt="" /></p>
+<h3>Alternativas</h3>
+<p><a href="https://help.ubuntu.com/community/RcLocalHowto">RcLocal como script de init.d en ubuntu</a></p>
+]]></content:encoded>
+			<wfw:commentRss>http://filadeatras.com/2010/08/25/ejecutar-comandos-en-el-arranque-de-linux/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Comandos útiles en ubuntu o debian</title>
+		<link>http://filadeatras.com/2010/08/17/comandos-utiles-en-ubuntu-o-debian/</link>
+		<comments>http://filadeatras.com/2010/08/17/comandos-utiles-en-ubuntu-o-debian/#respond</comments>
+		<pubDate>Tue, 17 Aug 2010 00:26:57 +0000</pubDate>
+		<dc:creator><![CDATA[francesc81]]></dc:creator>
+				<category><![CDATA[administración]]></category>
+		<category><![CDATA[gnu/linux]]></category>
+		<category><![CDATA[comandos]]></category>
+		<category><![CDATA[linux]]></category>
+
+		<guid isPermaLink="false">http://filadeatras.com/?p=16</guid>
+		<description><![CDATA[A modo de bloc de notas público voy a dejar un par de comandos de linux, muy frecuentes y que habitualmente no recuerdo, como mínimo me servirá para no tener que googlear y mirarlo aquí directamente&#8230; 1. Instalar un paquete deb: dpkg -i nombre_del_paquete.deb Si da error por dependencias, las resolvemos con: apt-get install -f [&#8230;]]]></description>
+				<content:encoded><![CDATA[<div id="articleText">
+<p>A modo de bloc de notas público voy a dejar un  par de comandos de linux, muy frecuentes y que habitualmente no  recuerdo, como mínimo me servirá para no tener que googlear y mirarlo  aquí directamente&#8230;</p>
+<ul>1. Instalar un paquete deb:<br />
+<strong>dpkg -i nombre_del_paquete.deb</strong><br />
+Si da error por dependencias, las resolvemos con:<br />
+<strong>apt-get install -f</strong></ul>
+<ul>2. Instalar las headers del kernel:<br />
+<strong>apt-get install linux-headers-$(uname -r)</strong></ul>
+<p>Estos comandos hay que escribirlos en modo root, así que recordar el <strong>su</strong> si sois debianeros o el <strong>sudo</strong> delante si usáis ubuntu</li>
+</div>
+]]></content:encoded>
+			<wfw:commentRss>http://filadeatras.com/2010/08/17/comandos-utiles-en-ubuntu-o-debian/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Debian 6.0 squeeze congelada</title>
+		<link>http://filadeatras.com/2010/08/10/debian-6-0-squeeze-congelada/</link>
+		<comments>http://filadeatras.com/2010/08/10/debian-6-0-squeeze-congelada/#respond</comments>
+		<pubDate>Tue, 10 Aug 2010 00:25:07 +0000</pubDate>
+		<dc:creator><![CDATA[hektor]]></dc:creator>
+				<category><![CDATA[gnu/linux]]></category>
+		<category><![CDATA[noticias]]></category>
+		<category><![CDATA[debian]]></category>
+		<category><![CDATA[squeeze]]></category>
+
+		<guid isPermaLink="false">http://filadeatras.com/?p=14</guid>
+		<description><![CDATA[El pasado 6 de agosto los responsables del proyecto debian decidieron congelar la versión 6.0 llamada squeeze. Lo que quiere decir que no se añadiran nuevas funciones si no que de lo que ahora se trata es de &#8216;pulirla&#8217; revisando bugs i demás&#8230; Éste es el primer paso para que se convierta pronto en la [&#8230;]]]></description>
+				<content:encoded><![CDATA[<div id="articleText">
+<p>El pasado 6 de agosto los responsables del  proyecto debian decidieron congelar la versión 6.0 llamada squeeze. Lo  que quiere decir que no se añadiran nuevas funciones si no que de lo que  ahora se trata es de &#8216;pulirla&#8217; revisando bugs i demás&#8230;</p>
+<p>Éste es el primer paso para que se convierta pronto en la versión estable de ésta popular distribución de Linux.</p>
+<p>Como características destacamos:</p>
+<ul>
+<li>Incluirá KDE 4.4.5, Gnome 2.30.0, LXDE 0.5.0, XFCE 4.6.2, X.org 7.5, OpenOffice.org 3.2.1 y otras muchas aplicaciones</li>
+<li>Las versiones estables de los servidores comunes como: Apache 2.2.16, PHP 5.3.2, MySQL 5.1.48, PostgreSQL 8.4.4 and Samba 3.4.</li>
+<li>Compiladores i intérpretes como Python 2.6 and 3.1, Perl 5.10, GHC 6.12 and GCC 4.4.</li>
+<li>DKMS, un framework para generar modulos del kernel de linux cuyo  código fuente no reside en en el árbol del código fuente del kernel.</li>
+<li>Ejecución ordenada basada en la dependencia de init scripts usando  insserv, permitiendo la ejecución paralela para arrancar el sistema en  menos tiempo.</li>
+</ul>
+<p>I como novedad más destacable, incluirá variantes del kernel de  FreeBSD para amd64 i i386, que aún estando en una fase inicial  permitirán por primera vez que una distribución linux pueda ejecutarse  en un kernel no-linux.</p>
+<p>Fuente <a href="http://www.debian.org/News/2010/20100806" target="_blank">Proyecto debian</a>
+</div>
+]]></content:encoded>
+			<wfw:commentRss>http://filadeatras.com/2010/08/10/debian-6-0-squeeze-congelada/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>
